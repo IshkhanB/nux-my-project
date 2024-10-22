@@ -1,6 +1,6 @@
 <template>
   <div>
-  <img src="/favicon.ico" alt="favicon">
+  <img src="public/favicon.ico" alt="favicon">
 
   <h1>Hello from index Page</h1>
   </div>

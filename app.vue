@@ -8,3 +8,8 @@
     <NuxtPage />
   </NuxtLayout>
 </template>
+<style>
+body{
+  background-color: antiquewhite;
+}
+</style>

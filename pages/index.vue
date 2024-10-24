@@ -1,4 +1,5 @@
 <template>
+  <footer></footer>
   <div class="cards">
     <div class="card">
       <!-- Верхняя часть -->
@@ -27,15 +28,11 @@
       </div>
     </div>
   </div>
-  </template>
-
-<script setup lang="ts">
-
-</script>
+</template>
 
 <style scoped>
 
-.cards {
+ .cards {
   display: grid;
   /* Автоматически заполняем на всю ширину grid-контейнера */
   grid-template-columns: repeat(auto-fill, 225px);
@@ -173,5 +170,5 @@
   border: 1px solid #e4b891;
   background-color: #e4b891;
   color: #fff;
-}
+} 
 </style>

@@ -34,6 +34,7 @@
 </script>
 
 <style scoped>
+
 .cards {
   display: grid;
   /* Автоматически заполняем на всю ширину grid-контейнера */

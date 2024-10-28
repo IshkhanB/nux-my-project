@@ -26,7 +26,7 @@
         <div class="card__top">
           <a href="#" class="cardImage">
             <img
-            src="public/111.jpg/"
+            src="public/112.png/"
             />
           </a>
           <label class="card__label">-10%</label>
@@ -66,7 +66,7 @@
         <div class="card__top">
           <a href="#" class="cardImage">
             <img
-            src="public/111.jpg/"
+            src="public/112.png/"
             />
           </a>
           <label class="card__label">-10%</label>
@@ -88,24 +88,28 @@
 
 <style scoped>
 .fonAll {
-  max-width: 900px;
+  max-width: 1000px;
   padding: 20px;
   background-color: #e1cbb7;
-  box-shadow: 1px 2px 4px rgba(0.5, 0.5, 0.5, 0.5);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0.5, 0.5);
 }
  .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, 225px);
+  max-width: 1000px; 
   width: 100%;
-  max-width: 1000px; /* Ширина grid-контейнера */
+  /* display: flex;
+  flex-direction: row; */
+
   justify-content: center;
-  justify-items: center; /* Размещаем карточку по центру */
-  column-gap: 30px; /* Отступ между колонками */
-  row-gap: 40px; /* Отступ между рядами */
+  justify-items: center;
+  column-gap: 30px; 
+  row-gap: 40px; 
   margin: 0 auto;
 }
 
 .card {
+  display: block;
   width: 225px;
   min-height: 350px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
@@ -214,9 +218,9 @@
   text-align: center;
   border: 1px solid #414141;
   border-radius: 4px;
-  cursor: pointer; /* Меняем курсор при наведении */
+  cursor: pointer;
   transition: 0.2s;
-  margin-top: auto; /* Прижимаем кнопку к низу карточки */
+  margin-top: auto;
 }
 
 .card__add:hover {

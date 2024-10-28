@@ -1,40 +1,100 @@
 <template>
-  <footer></footer>
-  <div class="cards">
-    <div class="card">
-      <!-- Верхняя часть -->
-      <div class="card__top">
-        <!-- Изображение-ссылка товара -->
-        <a href="#" class="card__image">
-          <img
-          src="public/111.jpg/"
-          alt="Apple IPhone 14 PRO Max Gold"
-          />
-        </a>
-        <label class="card__label">-10%</label>
-      </div>
-      <!-- Нижняя часть -->
-      <div class="card__bottom">
-        <!-- Цены на товар (с учетом скидки и без)-->
-        <div class="card__prices">
-          <div class="card__price card__price--discount">135 000</div>
-          <div class="card__price card__price--common">150 000</div>
+  <div class="fonAll">
+    <footer></footer>
+    <div class="cards">
+      <div class="card">
+        <div class="card__top">
+          <a href="#" class="cardImage">
+            <img
+            src="public/111.jpg/"
+            />
+          </a>
+          <label class="card__label">-10%</label>
         </div>
-        <!-- Ссылка-название товара -->
-        <a href="#" class="card__title">
-          Монобукет Мисти Баблс
-        </a>
-        <button class="card__add">Добавить в корзину</button>
+        <div class="cardBottom">
+          <div class="card__prices">
+            <div class="card__price card__price--discount">5 000</div>
+          </div>
+          <a href="#" class="card__title">
+            Монобукет Мисти Баблс
+          </a>
+          <button class="card__add">Добавить в корзину</button>
+        </div>
       </div>
+
+      <div class="card">
+        <div class="card__top">
+          <a href="#" class="cardImage">
+            <img
+            src="public/111.jpg/"
+            />
+          </a>
+          <label class="card__label">-10%</label>
+        </div>
+        <div class="cardBottom">
+          <div class="card__prices">
+            <div class="card__price card__price--discount">5 000</div>
+          </div>
+          <a href="#" class="card__title">
+            Монобукет Мисти Баблс
+          </a>
+          <button class="card__add">Добавить в корзину</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__top">
+          <a href="#" class="cardImage">
+            <img
+            src="public/111.jpg/"
+            />
+          </a>
+          <label class="card__label">-10%</label>
+        </div>
+        <div class="cardBottom">
+          <div class="card__prices">
+            <div class="card__price card__price--discount">5 000</div>
+          </div>
+          <a href="#" class="card__title">
+            Монобукет Мисти Баблс
+          </a>
+          <button class="card__add">Добавить в корзину</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__top">
+          <a href="#" class="cardImage">
+            <img
+            src="public/111.jpg/"
+            />
+          </a>
+          <label class="card__label">-10%</label>
+        </div>
+        <div class="cardBottom">
+          <div class="card__prices">
+            <div class="card__price card__price--discount">5 000</div>
+          </div>
+          <a href="#" class="card__title">
+            Монобукет Мисти Баблс
+          </a>
+          <button class="card__add">Добавить в корзину</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
 
 <style scoped>
-
+.fonAll {
+  max-width: 900px;
+  padding: 20px;
+  background-color: #e1cbb7;
+  box-shadow: 1px 2px 4px rgba(0.5, 0.5, 0.5, 0.5);
+}
  .cards {
   display: grid;
-  /* Автоматически заполняем на всю ширину grid-контейнера */
   grid-template-columns: repeat(auto-fill, 225px);
   width: 100%;
   max-width: 1000px; /* Ширина grid-контейнера */
@@ -54,6 +114,7 @@
   border-radius: 4px;
   transition: 0.2s;
   position: relative;
+  background-color: #d8bda4;
 }
 .card:hover {
   box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
@@ -61,26 +122,24 @@
 .card__top {
   flex: 0 0 220px;
   position: relative;
-  overflow: hidden; /* Скрываем, что выходит за пределы */
+  overflow: hidden;
 }
-.card__image > img {
+.cardImage > img {
+  padding-top: 5px;
+  border-radius: 5px;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Встраиваем картинку в контейнер card__image */
+  object-fit: contain;
   transition: 0.2s;
 }
-
-/* При наведении - увеличиваем картинку */
-.card__image:hover > img {
+.cardImage:hover > img {
   transform: scale(1.1);
 }
-
-/* Размещаем скидку на товар относительно изображения */
 .card__label {
   padding: 4px 8px;
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  top: 10px;
+  right: 10px;
   background: #ff6633;
   border-radius: 4px;
   font-weight: 400;
@@ -88,17 +147,17 @@
   color: #fff;
 }
 
-.card__bottom {
+.cardBottom {
   display: block;
   flex-direction: column;
-  flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
+  flex: 1 0 auto;
   padding: 10px;
 }
 
 .card__prices {
   display: flex;
+  justify-content: center;
   margin-bottom: 10px;
-  flex: 0 0 50%; /* Размещаем цены равномерно в две колонки */
 }
 
 .card__price::after {
@@ -108,6 +167,7 @@
 }
 
 .card__price--discount {
+
   font-weight: 700;
   font-size: 19px;
   color: #414141;
@@ -115,51 +175,44 @@
   flex-wrap: wrap-reverse;
 }
 
-.card__price--discount::before {
-  content: "Со скидкой";
-  font-weight: 400;
-  font-size: 13px;
-  color: #bfbfbf;
-}
 
-.card__price--common {
+
+.card__price--common {           /* не разобрался что это (--common) */  
   font-weight: 400;
   font-size: 17px;
-  color: #606060;
+  color: #414141;
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: flex-end;
 }
 
-.card__price--common::before {
-  content: "Обычная";
-  font-weight: 400;
-  font-size: 13px;
-  color: #bfbfbf;
-}
-
 .card__title {
+  text-decoration: none;
   display: block;
   margin-bottom: 10px;
   font-weight: 400;
   font-size: 17px;
   line-height: 150%;
+  text-align: center;
   color: #414141;
 }
 
 .card__title:hover {
-  color: #ff6633;
+  color: #e4b891;
+  transform-origin: 0% 50%; /*  хотел добавить подчеркивание не получилось  */
+  transform: scale3d(1, 1, 1);
 }
 
 .card__add {
+  background-color: #e1cbb7;
   display: block;
   width: 100%;
   font-weight: 400;
   font-size: 17px;
-  color: #70c05b;
+  color: #414141;
   padding: 10px;
   text-align: center;
-  border: 1px solid #70c05b;
+  border: 1px solid #414141;
   border-radius: 4px;
   cursor: pointer; /* Меняем курсор при наведении */
   transition: 0.2s;

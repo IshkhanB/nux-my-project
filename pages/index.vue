@@ -22,38 +22,6 @@
     <NuxtPage/>
   </div>
 </SubstrateComponent>
-
-  <div>
-    <a href="#">
-      <div>
-        <div>
-        </div>
-
-        <a href="#">
-          <svg>
-            <path>
-            
-            </path>
-          </svg>
-        </a>
-     </div>
-
-     <div>
-      <div></div>
-      <div></div>
-      <div>
-        <div>
-          <div></div>
-          <div></div>
-        </div>
-
-         <div>
-        
-         </div>
-        </div>
-      </div>
-    </a>
-  </div>
 </template>
 
 <style>

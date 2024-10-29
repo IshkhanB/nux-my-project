@@ -3,11 +3,9 @@
     <NuxtPage />
   </NuxtLayout>
 </template>
+<script setup lang="ts">
+
+</script>
 <style>
-body{
-  display: flex;
-  align-items: center;
-  background-color: antiquewhite;
-  flex-direction: column;
-}
+@import url("~/assets/css/style.scss");
 </style>

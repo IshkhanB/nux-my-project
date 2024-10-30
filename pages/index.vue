@@ -2,6 +2,7 @@
  <SubstrateComponent>
   <div class="cards">
     <ProductCard/>
+    <!-- <ProductCard/>
     <ProductCard/>
     <ProductCard/>
     <ProductCard/>
@@ -15,8 +16,7 @@
     <ProductCard/>
     <ProductCard/>
     <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
+    <ProductCard/> -->
   </div>
   <div> 
     <NuxtPage/>

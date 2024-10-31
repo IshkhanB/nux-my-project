@@ -19,5 +19,5 @@ export default defineNuxtConfig({
     plugins: ['plugins/extend-html.ts']
   },
 
-  modules: ['@pinia/nuxt']
+  modules: ['@pinia/nuxt', '@nuxt/image']
 })

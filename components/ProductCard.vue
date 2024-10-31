@@ -1,7 +1,9 @@
 <template>
   <div class="card">
     <div>
-      <div class="cardImage"><!-- <img name="name" src="public/111.jpg"> --> </div>
+      <div>
+      <NuxtImg  class="cardImage"  src="111.jpg" /> 
+      </div>
     </div>
     <div class="cardBottom">
       <button id="1"  class="card__info">Подробнее</button>
@@ -47,31 +49,32 @@
     position: relative;
   }
   .card:hover {
-    box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
+    box-shadow: 10px 10px 10px rgba(15, 8, 5, 0.2);
   }
   .card__top {
     flex: 0 0 220px;
     position: relative;
     overflow: hidden;
   }
-  .cardImage  {
-    background-image:url(public/111.jpg);
-    background-position: center;
+  .cardImage {
+    /* width: 100%; */
+    /* background-image:url(public/111.jpg); */
+    /* background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    */
     border-radius: 10px !important;
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 150px;
+    bottom: 0px;
     left: 0; 
-    /* padding-top: 5px;
+    padding-top: 5px;
     overflow: hidden;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 65%;
     object-fit: cover;
-    transition: 0.2s; */
+    transition: 0.2s;
   }
   /* .cardImage:hover > img {
     transform: scale(1.1);

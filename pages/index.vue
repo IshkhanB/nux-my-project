@@ -2,7 +2,6 @@
  <SubstrateComponent>
   <div class="cards">
     <ProductCard/>
-    <!-- <ProductCard/>
     <ProductCard/>
     <ProductCard/>
     <ProductCard/>
@@ -16,7 +15,8 @@
     <ProductCard/>
     <ProductCard/>
     <ProductCard/>
-    <ProductCard/> -->
+    <ProductCard/>
+    <ProductCard/>
   </div>
   <div> 
     <NuxtPage/>
@@ -26,9 +26,10 @@
 
 <style>
 .cards {
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 225px);
-    max-width: 1000px; 
+    grid-template-columns: repeat(auto-fill, 300px);
+    max-width: 1300px; 
     width: 100%;
     /* display: flex;
     flex-direction: row; */
@@ -37,7 +38,6 @@
     justify-items: center;
     column-gap: 30px; 
     row-gap: 40px; 
-    margin: 0 auto;
   }
 </style>
   

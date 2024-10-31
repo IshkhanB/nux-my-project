@@ -1,15 +1,14 @@
 <template>
   <div class="card">
-    <div class="cardImage">
-      <img src="public/111.jpg">
-    </div>
     <div>
-
+      <div class="cardImage"><!-- <img name="name" src="public/111.jpg"> --> </div>
     </div>
     <div class="cardBottom">
-      <button id="1"  class="card__add">Подробнее</button>
-      <button id="2" class="card__add">Добавить</button>
+      <button id="1"  class="card__info">Подробнее</button>
+      <button id="two" class="card__add">Добавить в корзину</button>
     </div>
+    <div class="card__price card__price--discount">5 000</div>
+    <a href="#" class="card__title"> Монобукет Мисти Баблс </a>
   </div>
 
   <!-- <div class="card">
@@ -21,6 +20,7 @@
       </a>
       <label class="card__label">-10%</label>
     </div>
+
     <div class="cardBottom">
       <div class="card__prices">
         <div class="card__price card__price--discount">5 000</div>
@@ -34,17 +34,17 @@
 </template>
 
 <style>
+
   .card {
     display: block;
-    max-width: 325px;
-    min-height: 350px;
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    min-height: 450px;
+    /* box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1); */
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     border-radius: 4px;
     transition: 0.2s;
     position: relative;
-    background-color: #d8bda4;
   }
   .card:hover {
     box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
@@ -54,17 +54,19 @@
     position: relative;
     overflow: hidden;
   }
-  .cardImage > img {
+  .cardImage  {
+    background-image:url(public/111.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 10px !important;
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
+    bottom: 150px;
     left: 0; 
     /* padding-top: 5px;
-    border-radius: 10px !important;
+    overflow: hidden;
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -87,6 +89,7 @@
   }
 
   .cardBottom {
+    display: block;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -95,19 +98,21 @@
   }
 
   .card__prices {
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
   }
-
+  
   .card__price::after {
+    margin: 0 auto;
     content: "₽";
     margin-left: 4px;
     position: relative;
   }
-
+  
   .card__price--discount {
-
+    margin: 0 auto;
     font-weight: 700;
     font-size: 19px;
     color: #414141;
@@ -127,6 +132,8 @@
   }
 
   .card__title {
+    margin: 0 auto;
+    padding: 10px;
     position: relative;
     text-decoration: none;
     transition: color 200ms ease, font-weight 200ms ease !important;
@@ -137,14 +144,15 @@
     font-size: 17px;
     line-height: 150%;
     text-align: center;
-    color: inherit;
+    color: #000000;
   }
-
+  
   .card__title:hover::before {
     transform-origin: 0% 50%;
     transform: scale3d(1, 1, 1);
   }
   .card__title::before {
+    color: #000000;
     transform-origin: 100% 50%;
     transform: scale3d(0, 1, 1);
     transition: transform 500ms !important;
@@ -163,28 +171,69 @@
   }
 
   .card__add {
-    height: 35px;
+    margin: 0 auto;
+    padding: 15px;
+    color: #ffffff;
+    background-color: #595959;
+    border-radius: 300px;
+    -moz-border-radius: 300px;
+    -webkit-border-radius: 300px;
+    font-weight: 500;
+    /* height: 35px;
     font-size: 14px;
     padding-left: 15px;
     padding-right: 15px;
     background-color: #e1cbb7;
     display: block;
-    /* width: 100%; */
     font-weight: 400;
-    /* font-size: 17px; */
     color: #414141;
-    /* padding: 10px; */
     text-align: center;
     border: 1px solid #414141;
     border-radius: 7px;
     cursor: pointer;
     transition: 0.2s;
-    margin-top: auto;
+    margin-top: auto; */
+    /* width: 100%; */
+    /* font-size: 17px; */
+    /* padding: 10px; */
+  }
+  .card__info {
+    margin: 0 auto;
+    padding: 15px;
+    color: #ffffff;
+    background-color: #e8cbb1;
+    border-radius: 300px;
+    -moz-border-radius: 300px;
+    -webkit-border-radius: 300px;
+    /* font-family: TildaSans; */
+    font-weight: 500;
+
+    /* height: 35px;
+    font-size: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #e1cbb7;
+    display: block;
+    font-weight: 400;
+    color: #414141;
+    text-align: center;
+    border: 1px solid #414141;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: auto; */
+    /* width: 100%; */
+    /* font-size: 17px; */
+    /* padding: 10px; */
   }
 
   .card__add:hover {
-    border: 1px solid #e4b891;
     background-color: #e4b891;
     color: #fff;
   } 
+  .card__info:hover {
+    background-color: #e4b891;
+    color: #fff;
+  } 
+ 
 </style>

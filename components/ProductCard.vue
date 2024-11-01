@@ -38,10 +38,10 @@
 <style>
 
   .card {
+    border-radius: 10px !important;
     display: block;
     max-width: 300px;
     min-height: 450px;
-    /* box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1); */
     display: flex;
     flex-direction: column-reverse;
     border-radius: 4px;
@@ -49,7 +49,7 @@
     position: relative;
   }
   .card:hover {
-    box-shadow: 10px 10px 10px rgba(15, 8, 5, 0.2);
+    box-shadow: 0px 0px 20px rgba(15, 8, 5, 0.2);
   }
   .card__top {
     flex: 0 0 220px;
@@ -57,28 +57,19 @@
     overflow: hidden;
   }
   .cardImage {
-    /* width: 100%; */
-    /* background-image:url(public/111.jpg); */
-    /* background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    */
-    border-radius: 10px !important;
+    border-radius: 10px 10px 0 0  !important;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0px;
     left: 0; 
-    padding-top: 5px;
     overflow: hidden;
     width: 100vw;
     height: 65%;
     object-fit: cover;
     transition: 0.2s;
   }
-  /* .cardImage:hover > img {
-    transform: scale(1.1);
-  } */
+
   .card__label {
     padding: 4px 8px;
     position: absolute;
@@ -178,36 +169,20 @@
     padding: 15px;
     color: #ffffff;
     background-color: #595959;
-    border-radius: 300px;
-    -moz-border-radius: 300px;
-    -webkit-border-radius: 300px;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
     font-weight: 500;
-    /* height: 35px;
-    font-size: 14px;
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color: #e1cbb7;
-    display: block;
-    font-weight: 400;
-    color: #414141;
-    text-align: center;
-    border: 1px solid #414141;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: 0.2s;
-    margin-top: auto; */
-    /* width: 100%; */
-    /* font-size: 17px; */
-    /* padding: 10px; */
+    
   }
   .card__info {
     margin: 0 auto;
     padding: 15px;
     color: #ffffff;
     background-color: #e8cbb1;
-    border-radius: 300px;
-    -moz-border-radius: 300px;
-    -webkit-border-radius: 300px;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
     /* font-family: TildaSans; */
     font-weight: 500;
 

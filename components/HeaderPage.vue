@@ -1,31 +1,31 @@
 <template>
   <div class="hederDiv substrate">
     <!-- <section> -->
-      <header class="header">
-        <h1>
-          FLOWER MARKET
-          <p>Магазин доставки цветов по Сочи</p>
-        </h1>
-        <nav class="headerNav">
-          <a href="?t=-1d">Каталог</a>
-          <a href="?t=-7d">Доставка и оплата</a>
-          <a href="?t=-1m">FAQ</a>
-          <a href="?t=-1m">О нас</a>
-          <a href="?t=-1m">Отзывы</a>
-        </nav>
-        <div class="iconciVDiv">
-          <a href="">
+    <header class="header">
+      <h1>
+        FLOWER MARKET
+        <p>Магазин доставки цветов по Сочи</p>
+      </h1>
+      <nav class="headerNav">
+        <a href="#">Каталог</a>
+        <a href="#">Доставка и оплата</a>
+        <a href="#">FAQ</a>
+        <a href="#">О нас</a>
+        <a href="#">Отзывы</a>
+      </nav>
+      <div class="iconciVDiv">
+        <a class="iconSearch" href="#">
+          <img src="public/ic_sharp-search_1.svg" alt="">
+        </a>
+        <a class="iconSearch" href="#">
           <img src="public/icon-park-outline_li.svg" alt="">
-          </a>
-          <a href="">
-            <img src="public/ic_sharp-search_1.svg" alt="">
-          </a>
-          <a href="">
-            <img src="public/ic_outline-shopping-.svg" alt="">
-          </a>
-        </div>
-      </header>
-    </div>
+        </a>
+        <a class="iconSearch" href="#">
+          <img src="public/ic_outline-shopping-.svg" alt="">
+        </a>
+      </div>
+    </header>
+  </div>
 </template>
 <style scoped>
 h1{
@@ -48,9 +48,13 @@ p{
   margin: 0 auto;
   display: flex;
 }
-
-.hederDiv{
+.hederDiv{ 
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  margin-top: 20px;
   margin-bottom:30px;
+  background-color: rgb(255, 255, 255);
   
 }
 .headerNav {

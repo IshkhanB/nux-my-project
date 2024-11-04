@@ -1,5 +1,6 @@
 <template>
   <HeaderPage></HeaderPage>
+  <PostHeadr/>
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

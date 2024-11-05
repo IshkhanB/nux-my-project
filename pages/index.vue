@@ -18,6 +18,7 @@
     <ProductCard/>
     <ProductCard/>
   </div>
+  <AboutUs/>
   <div> 
     <NuxtPage/>
   </div>

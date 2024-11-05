@@ -55,6 +55,7 @@ p{
   margin-top: 20px;
   margin-bottom:30px;
   background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 25px #e0bfaf;
   
 }
 .headerNav {

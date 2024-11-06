@@ -1,10 +1,15 @@
 <template>
   <div class="AboutUsFon">
     <img class="imgFon" src="public/Group_946_5.png" alt="">
-    <img class="imgRate" src="public/93509304_luxurious_w.png" alt="">
+    <div class="divImgRate">
+      <img class="imgRate" src="public/93509304_luxurious_w.png" alt="">
+    </div>
   </div>
-
+  
 </template>
+<script setup lang="ts">
+
+</script>
 <style scoped>
 .imgFon{
   margin: auto;
@@ -17,11 +22,22 @@
   padding: 0;
 }
 .imgRate{
-  position: absolute;
-  top: 40%;
-  left: 10%;
-  transform: rotate(340deg);
   animation: 160s linear forwards;
   backface-visibility: hidden;
 }
+.divImgRate{
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  animation: 60s linear infinite rotate;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }}
+
 </style>

@@ -7,16 +7,6 @@
     <ProductCard/>
     <ProductCard/>
     <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
-    <ProductCard/>
   </div>
   <AboutUs/>
   <div> 

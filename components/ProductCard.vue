@@ -2,7 +2,7 @@
   <div class="card">
     <div>
       <div>
-      <NuxtImg  class="cardImage"  src="111.jpg" /> 
+      <NuxtImg  class="cardImage"  src="icon/111.jpg" /> 
       </div>
     </div>
     <div class="cardBottom">

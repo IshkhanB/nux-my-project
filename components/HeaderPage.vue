@@ -15,13 +15,13 @@
       </nav>
       <div class="iconciVDiv">
         <a class="iconSearch" href="#">
-          <img src="public/ic_sharp-search_1.svg" alt="">
+          <img src="public/icon/ic_sharp-search_1.svg" alt="">
         </a>
         <a class="iconSearch" href="#">
-          <img src="public/icon-park-outline_li.svg" alt="">
+          <img src="public/icon/icon-park-outline_li.svg" alt="">
         </a>
         <a class="iconSearch" href="#">
-          <img src="public/ic_outline-shopping-.svg" alt="">
+          <img src="public/icon/ic_outline-shopping-.svg" alt="">
         </a>
       </div>
     </header>
@@ -29,7 +29,7 @@
 </template>
 <style scoped>
 h1{
-  background-image: url(public/mdi_flower-tulip-out.svg);
+  background-image: url(public/icon/mdi_flower-tulip-out.svg);
   background-repeat: no-repeat;
   padding-left: 50px;
   background-size: 50px;

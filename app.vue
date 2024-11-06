@@ -1,13 +1,18 @@
 <template>
   <HeaderPage></HeaderPage>
+  <AfterHeadr/>
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  <FooterCompon></FooterCompon> 
 </template>
 <script setup lang="ts">
 
 </script>
 <style>
 @import url("~/assets/css/reset.css");
-@import url("~/assets/css/style.scss");
+</style>
+
+<style lang="scss">
+@use "~/assets/css/style.scss";
 </style>

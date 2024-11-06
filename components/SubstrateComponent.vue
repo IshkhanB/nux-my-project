@@ -12,4 +12,8 @@
   /* box-shadow: 0px 0px 25px #e0bfaf; */
   border-radius: 15px;
 }
+/* img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+} */
 </style>

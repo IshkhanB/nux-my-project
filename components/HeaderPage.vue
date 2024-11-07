@@ -36,7 +36,6 @@ h1{
   background-position: left;
   font-size: 25px;
   color: #595959;
-  
 }
 p{
   color: #595959;
@@ -47,6 +46,7 @@ p{
 .header{
   margin: 0 auto;
   display: flex;
+  overflow: auto;
 }
 .hederDiv{ 
   position: sticky;

@@ -2,7 +2,7 @@
   <div class="card">
     <div>
       <div>
-      <NuxtImg  class="cardImage"  src="icon/111.jpg" /> 
+      <nuxt-img  class="card_image"  src="icon/111.jpg" /> 
       </div>
     </div>
     <div class="cardBottom">
@@ -10,38 +10,18 @@
       <button id="two" class="card__add">Добавить в корзину</button>
     </div>
     <div class="card__price card__price--discount">5 000</div>
+    <p class="info_flower">Нежный букет из 19 веток яркой кустовой пионовидной розы</p>
     <a href="#" class="card__title"> Монобукет Мисти Баблс </a>
   </div>
 
-  <!-- <div class="card">
-    <div class="card__top">
-      <a href="#" class="cardImage">
-        <img
-        src="public/111.jpg/"
-        />
-      </a>
-      <label class="card__label">-10%</label>
-    </div>
-
-    <div class="cardBottom">
-      <div class="card__prices">
-        <div class="card__price card__price--discount">5 000</div>
-      </div>
-      <a href="#" class="card__title">
-        Монобукет Мисти Баблс
-      </a>
-      <button class="card__add">Добавить в корзину</button>
-    </div>
-  </div> -->
 </template>
 
 <style>
-
   .card {
     border-radius: 10px !important;
     display: block;
-    max-width: 300px;
-    min-height: 450px;
+    width: 327px;
+    min-height: 500px;
     display: flex;
     flex-direction: column-reverse;
     border-radius: 4px;
@@ -56,7 +36,7 @@
     position: relative;
     overflow: hidden;
   }
-  .cardImage {
+  .card_image {
     border-radius: 10px 10px 0 0  !important;
     position: absolute;
     top: 0;
@@ -65,11 +45,11 @@
     left: 0; 
     overflow: hidden;
     width: 100vw;
-    height: 65%;
+    height: 327px;
     object-fit: cover;
     transition: 0.2s;
   }
-
+  
   .card__label {
     padding: 4px 8px;
     position: absolute;
@@ -81,7 +61,7 @@
     font-size: 16px;
     color: #fff;
   }
-
+  
   .cardBottom {
     display: block;
     display: flex;
@@ -90,7 +70,7 @@
     /* flex: 1 0 auto; */
     padding: 10px;
   }
-
+  
   .card__prices {
     margin: 0 auto;
     display: flex;
@@ -113,9 +93,9 @@
     display: flex;
     flex-wrap: wrap-reverse;
   }
-
-
-
+  
+  
+  
   .card__price--common {           /* не разобрался что это (--common) */  
     font-weight: 400;
     font-size: 17px;
@@ -127,20 +107,26 @@
 
   .card__title {
     margin: 0 auto;
-    padding: 10px;
+    /* padding: 10px; */
     position: relative;
     text-decoration: none;
     transition: color 200ms ease, font-weight 200ms ease !important;
     display: inline-block;
     width: fit-content;
-    margin-bottom: 10px;
-    font-weight: 400;
+    margin-bottom: 5px;
+    font-weight: 700;
     font-size: 17px;
     line-height: 150%;
     text-align: center;
     color: #000000;
   }
-  
+  .info_flower{
+    margin: 0 auto;
+    color: #595959;
+    font-size: 14px;
+    line-height: 1.55;
+    text-align: center;
+  }
   .card__title:hover::before {
     transform-origin: 0% 50%;
     transform: scale3d(1, 1, 1);

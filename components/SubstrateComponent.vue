@@ -5,6 +5,7 @@
 </template>
 <style>
 .substrate{
+  box-sizing: border-box;
   /* padding-top: 30px; */
   /* background-color: rgb(176, 201, 223); */
   margin: 0 auto;

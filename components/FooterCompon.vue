@@ -20,8 +20,15 @@
       <br>
       КПП банка: 236643001
     </div>
-    <div class="two">
-    
+    <div class="menu_footer">
+      <h1> Меню</h1>
+      <nav class="nav_footer">
+        <a href="#">Каталог</a>
+        <a href="#">Доставка и оплата</a>
+        <a href="#">FAQ</a>
+        <a href="#">О нас</a>
+        <a href="#">Отзывы</a>
+      </nav>
     </div>
     <div class="three">
     
@@ -34,13 +41,13 @@
 <style scoped>
 .foter_fon{
   display: flex;
-  margin: 0 auto;
+  margin: 30px auto;
   padding: 10px;
   max-width: 1400px;
-  height: 537px;
+  height: 500px;
   background-color: #fcfcfc;
 }
-h1{
+.information>h1{
   background-image: url(public/icon/mdi_flower-tulip-out.svg);
   background-repeat: no-repeat;
   padding-left: 35px;
@@ -52,5 +59,20 @@ h1{
 .information{
   line-height: 30px;
   color:#d0d0d0;
+}
+.menu_footer{
+  margin: 0 auto;
+  
+}
+.menu_footer>h1{
+  background-size: 35px;
+  font-size: 25px;
+  color: #595959;
+}
+.nav_footer{
+  display: flex;
+  flex-direction: column;
+  line-height: 30px;
+  
 }
 </style>

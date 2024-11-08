@@ -14,6 +14,7 @@
   </div>
 </SubstrateComponent>
 </template>
+<style ></style>
 
 <style>
 .cards {
@@ -26,7 +27,8 @@
     width: 100%;
     justify-content: center;
     justify-items: center;
-    column-gap: 30px; 
-    row-gap: 40px; 
+    column-gap: 16px; 
+    row-gap: 20px; 
+    overflow: hidden;
   }
 </style>

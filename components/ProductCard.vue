@@ -18,6 +18,7 @@
 
 <style>
   .card {
+    margin: 0 auto;
     border-radius: 10px !important;
     display: block;
     width: 327px;

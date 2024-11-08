@@ -25,7 +25,7 @@
 <script setup lang="ts">
 
 </script>
-<style scoped>
+<style>
 .OurHeadr{ 
   margin: 0 auto;
   color: #595959;

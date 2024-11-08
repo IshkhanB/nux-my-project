@@ -1,6 +1,6 @@
 <template>
 <div class="fon_div">
-  <nuxt-img class="img_fon" src="/icon/group_975_1.png" alt="Fon" />
+  <nuxt-img class="img_fon_header" src="/icon/group_975_1.png" alt="Fon" />
   <div>
   <NuxtImg class="img_girl" src="/icon/noroot_1.png" alt="girl-flowers" />
   </div>
@@ -9,7 +9,7 @@
 
 </template>
 
-<style >
+<style>
 .fon_div{
   position: relative;
   margin: 0 auto;
@@ -23,6 +23,7 @@
 .img_fon{
   margin: 0 auto;
   width: 100%;
+  min-width: 500px;
   object-fit: cover;
 }
 .img_girl{
@@ -45,6 +46,11 @@ right: 0px;
   .img_girl {
     top: 70px;
     right: 80px;
+  }
+}
+@media screen and (max-width:500px) {
+  .img_fon_header{
+  min-width: 500px;
   }
 }
 

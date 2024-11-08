@@ -2,10 +2,12 @@
   <div class="hederDiv substrate">
     <!-- <section> -->
     <header class="header">
-      <h1>
-        FLOWER MARKET
-        <p>Магазин доставки цветов по Сочи</p>
+      <div class="div_logo">
+      <NuxtImg class="header_logo"  src="/icon/mdi_flower-tulip-out.svg"/>
+      <h1 class="heder_h1">FLOWER MARKET
+        <p class="heder_p">Магазин доставки цветов по Сочи</p>
       </h1>
+      </div>
       <nav class="headerNav">
         <a href="#">Каталог</a>
         <a href="#">Доставка и оплата</a>
@@ -27,17 +29,39 @@
     </header>
   </div>
 </template>
-<style scoped>
-h1{
-  background-image: url(public/icon/mdi_flower-tulip-out.svg);
-  background-repeat: no-repeat;
-  padding-left: 50px;
-  background-size: 50px;
-  background-position: left;
-  font-size: 25px;
-  color: #595959;
+<style>
+.hederDiv{ 
+  margin: 0 auto;
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  margin-top: 20px !important;
+  margin-bottom:20px !important;
+  /* background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 25px #e0bfaf; */
 }
-p{
+.div_logo{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.header_logo{
+  width: 50px !important;
+
+}
+.heder_h1{
+  margin:5px auto 5px 5px;
+  /* background-image: url(public/icon/mdi_flower-tulip-out.svg); */
+  /* background-repeat: no-repeat; */
+  /* padding-left: 50px; */
+  /* background-size: 50px; */
+  /* background-position: left; */
+  font-size: 20px;
+  color: #595959;
+  overflow: hidden;
+}
+.heder_p{
   color: #595959;
   font-size: 14px;
   border-color: transparent;
@@ -46,37 +70,23 @@ p{
 .header{
   margin: 0 auto;
   display: flex;
-  overflow: auto;
-}
-.hederDiv{ 
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  margin-top: 20px;
-  margin-bottom:30px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 25px #e0bfaf;
-  
+  overflow: hidden;
 }
 .headerNav {
-  margin: auto;
-  padding: 20px;
-  align-content: center;
+  margin:5px auto 5px auto;
   display: flex;
+  align-items: center;
   gap: 40px;
-  height:58px;
+  height:50px;
 }
 .headerNav>a {
   position: relative;
   justify-content: space-around;
-  /* padding-right: 30px; */
 }
-
 .headerNav>a:hover::before {
   transform-origin: 0% 50%;
   transform: scale3d(1, 1, 1);
 }
-
 .headerNav>a::before {
   transform-origin: 100% 50%;
   transform: scale3d(0, 1, 1);
@@ -87,18 +97,57 @@ p{
   background: currentColor;
   top: 100%;
   left: 0;
-  /* pointer-events: none; */
   content: '';
 }
 .iconciVDiv {
-    margin: auto 10px auto auto;
-    padding: 10px;
-    align-content: center;
-    display:flex;
-    gap: 20px;
-    height:58px;
+  margin: auto 10px auto auto;
+  display:flex;
+  align-content: center;
+  align-items: center;
+  gap: 20px;
+  height:58px;
+}
+.iconciVDiv>a>img {
+  width: 35px;
+}
+@media screen and (max-width: 1024px) {
+  .headerNav{
+    display: none;
   }
-  .iconciVDiv>a>img {
-    width: 35px;
+  
+}
+@media screen and (max-width: 640px) {
+  .headerNav{
+    display: none;
   }
-  </style>
+  .heder_p{
+    display: none;
+  }
+  .iconciVDiv{
+    margin: auto;
+    height: 40px;
+  }
+  .heder_h1{
+    font-size: 15px;
+  }
+   .div_logo{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+   }
+  .header_logo{
+    width: 30px !important;
+    min-width: 30px;
+    /* margin-left:20px ; */
+  }
+  /* .heder>h1{
+    background-image: url(public/icon/mdi_flower-tulip-out.svg);
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  background-size: 50px;
+  background-position: left;
+  } */
+
+  
+}
+</style>

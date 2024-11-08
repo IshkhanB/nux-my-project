@@ -38,7 +38,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .foter_fon{
   display: flex;
   margin: 30px auto;

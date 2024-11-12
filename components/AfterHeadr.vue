@@ -1,6 +1,6 @@
 <template>
 <div class="fon_div">
-  <nuxt-img class="img_fon_header" src="/icon/group_975_1.png" alt="Fon" />
+  <nuxt-img class="img_fon_after" src="/icon/group_975_1.png" alt="Fon" />
   <div>
   <NuxtImg class="img_girl" src="/icon/noroot_1.png" alt="girl-flowers" />
   </div>
@@ -20,7 +20,11 @@
   border-radius: 25px;
 }
 
-.img_fon{
+.img_fon_after{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 400px;
   margin: 0 auto;
   width: 100%;
   min-width: 500px;

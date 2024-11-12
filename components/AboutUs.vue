@@ -1,9 +1,11 @@
 <template>
   <div class="AboutUsFon">
     <h1 class="OurHeadr">Наши преимущества</h1>
-    <img class="img_fon" src="public/icon/Group_946_5.png" alt="">
+    <!-- <img class="img_fon_about" src="public/icon/Group_946_5.png" alt="fon"> -->
+    <NuxtImg densities="x1" class="img_fon_about" src="icon/Group_946_5.png" alt="fon"></NuxtImg>
     <div class="divImgRate">
-      <img class="imgRate" src="public/icon/93509304_luxurious_w.png" alt="">
+      <!-- <img class="imgRate" src="public/icon/93509304_luxurious_w.png" alt=""> -->
+      <NuxtImg class="imgRate" src="icon/rotating_bouquet.png" alt="rotating_bouquet"></NuxtImg>
     </div>
   <div> 
     <div class="DivUsInfo1">
@@ -34,8 +36,11 @@
   text-align: center;
   font-size: 50px;  
 }
-.img_fon{
+.img_fon_about{
   margin: 0 auto;
+  height: 600px;
+    width: 100%;
+    object-fit: cover;
 }
 .AboutUsFon{
   position: relative;
@@ -43,15 +48,16 @@
   padding: 0;
 }
 .imgRate{
-  z-index: 20px;
+width: 459px;
+  /* z-index: 20px; */
   animation: 160s linear forwards;
   backface-visibility: hidden;
 }
 .divImgRate{
   margin: 50px 50px 50px 50px ;
   position: absolute;
-  top: 30%;
-  left: 10%;
+  top: 10%;
+  left: 5%;
   animation: 60s linear infinite rotate;
 }
 @keyframes rotate {
@@ -62,5 +68,10 @@
   to {
     transform: rotate(360deg);
   }}
+  @media screen and (max-width: 640px) {
+    .OurHeadr{
+      font-size: 25px;
+    }
+  }
 
 </style>

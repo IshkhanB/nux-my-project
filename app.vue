@@ -10,7 +10,7 @@
 
 </script>
 <style>
-/* @import url("~/assets/css/reset.css"); */
+@import url("~/assets/css/reset.css");
 </style>
 
 <style lang="scss">

@@ -17,7 +17,7 @@
       </nav>
       <div class="iconciVDiv">
         <a class="iconSearch" href="#">
-          <img src="public/icon/ic_sharp-search_1.svg" alt="">
+          <NuxtImg densities="x1" src="icon/ic_sharp-search_1.svg" alt="icon"></NuxtImg> 
         </a>
         <a class="iconSearch" href="#">
           <img src="public/icon/icon-park-outline_li.svg" alt="">

@@ -32,6 +32,19 @@ export default defineNuxtConfig({
       },
     }
   },
+  image: {
+    presets: {
+      cover: {
+        modifiers: {
+          fit: "cover",
+          width: 327,
+          height: 327,
+          densities: "x1",
+        },
+      },
+    },
+  },
+
 
   modules: ['@pinia/nuxt', '@nuxt/image']
 })

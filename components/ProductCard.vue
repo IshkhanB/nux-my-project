@@ -2,7 +2,7 @@
   <div class="card">
     <div>
       <div>
-      <nuxt-img  class="card_image"  src="icon/111.jpg" /> 
+      <nuxt-img preset="cover" class="card_image"  src="icon/111.jpg" /> 
       </div>
     </div>
     <div class="cardBottom">
@@ -38,7 +38,7 @@
     overflow: hidden;
   }
   .card_image {
-    border-radius: 10px 10px 0 0  !important;
+    border-radius: 5px 5px 0 0  !important;
     position: absolute;
     top: 0;
     right: 0;
@@ -46,7 +46,7 @@
     left: 0; 
     overflow: hidden;
     width: 100vw;
-    height: 327px;
+    /* height: 327px; */
     object-fit: cover;
     transition: 0.2s;
   }
@@ -127,6 +127,8 @@
     font-size: 14px;
     line-height: 1.55;
     text-align: center;
+    font-family: 'TildaSans', Arial, sans-serif;
+    font-weight: 300;
   }
   .card__title:hover::before {
     transform-origin: 0% 50%;
@@ -168,8 +170,8 @@
     color: #ffffff;
     background-color: #e8cbb1;
     border-radius: 25px;
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
+    /* -moz-border-radius: 25px; */
+    /* -webkit-border-radius: 25px; */
     /* font-family: TildaSans; */
     font-weight: 500;
 

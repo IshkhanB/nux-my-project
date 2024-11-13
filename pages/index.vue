@@ -19,7 +19,7 @@
 <style>
 .cards {
     margin: 0 auto;
-    padding-top: 30px;
+    /* padding-top: 30px; */
     padding-bottom: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 327px);

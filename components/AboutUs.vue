@@ -34,7 +34,10 @@
   font-family: 'Cormorant',Arial,sans-serif;
   text-transform: uppercase;
   text-align: center;
-  font-size: 50px;  
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 .img_fon_about{
   margin: 0 auto;

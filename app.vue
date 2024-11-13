@@ -1,6 +1,7 @@
 <template>
   <HeaderPage></HeaderPage>
   <AfterHeadr/>
+  <FilterMenu></FilterMenu>
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>

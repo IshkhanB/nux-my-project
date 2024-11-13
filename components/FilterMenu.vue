@@ -10,15 +10,15 @@
         <p class="filter_p">хиты продаж</p>
       </div>
       <div class="filter_bouquets">
-        <NuxtImg src = "icon/bi_fire_4.svg" ></NuxtImg>
+        <NuxtImg src = "icon/Group_974.svg" ></NuxtImg>
         <p class="filter_p">Букеты</p>
       </div>
       <div class="filter_stock">
-        <NuxtImg src = "icon/bi_fire_4.svg" ></NuxtImg>
+        <NuxtImg src = "icon/solar_sale-bold_2.svg" ></NuxtImg>
         <p class="filter_p">Акции</p>
       </div>
       <div class="filter_present">
-        <NuxtImg src = "icon/bi_fire_4.svg" ></NuxtImg>
+        <NuxtImg src = "icon/ic_baseline-cake_2.svg" ></NuxtImg>
         <p class="filter_p">Подарки</p>
       </div>
     </div>  
@@ -26,25 +26,26 @@
 </template>
 <style>
 .filter_fon{
+  /* position: relative; */
   margin: 15px auto;
   max-width: 1400px;
 }
 .menu_filter{
   display: flex;
   margin-right: auto;
-  padding: 5px;
+  /* padding: 5px; */
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
-  max-width: 1000px;
+  /* gap: 20px; */
+  max-width: 900px;
 }
 .filter_all{
   display: flex;
   margin: 0 auto;
-  padding: 25px;
+  padding: 0 10px 0 10px;
   /* width: 100%; */
-  height: 61px;
+  height: 60px;
   background-color: #595959 !important;
   color: #ffffff !important;
   align-items: center;
@@ -54,11 +55,11 @@
 .filter_p{
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  padding-left: 5px;
   text-transform: uppercase;
   font-size: 12px;
   font-family: 'TildaSans', Arial, sans-serif;
-  line-height: 1.55;
+  /* line-height: 1.55; */
   zoom: 1.495;
   font-weight: 400;
   white-space: nowrap;
@@ -67,9 +68,9 @@
 .filter_bestsellers{
   /* position: relative; */
   margin: 0 auto;
-  padding: 25px;
+  padding: 0 10px 0 10px;
   /* width: 100%; */
-  height: 61px;
+  height: 60px;
   display: flex;
   background-color: #f6f6f6;
   color: #595959;
@@ -84,9 +85,9 @@
 .filter_bouquets{
   display: flex;
   margin: 0 auto;
-  padding: 25px;
+  padding: 0 10px 0 10px;
   /* width: 100%; */
-  height: 61px;
+  height: 60px;
   background-color: #f6f6f6;
   color: #595959;
   align-items: center;
@@ -100,9 +101,9 @@
 .filter_stock{
   display: flex;
   margin: 0 auto;
-  padding: 25px;
+  padding: 0 10px 0 10px;
   /* width: 100%; */
-  height: 61px;
+  height: 60px;
   background-color: #f6f6f6;
   color: #595959;
   align-items: center;
@@ -116,9 +117,9 @@
 .filter_present{
   display: flex;
   margin: 0 auto;
-  padding: 25px;
+  padding: 0 10px 0 10px;
   /* width: 100%; */
-  height: 61px;
+  height: 60px;
   background-color: #f6f6f6;
   color: #595959;
   align-items: center;

@@ -5,7 +5,7 @@
       <nuxt-img preset="cover" class="card_image"  src="icon/111.jpg" /> 
       </div>
     </div>
-    <div class="cardBottom">
+    <div class="card_bottom">
       <button id="1"  class="card__info">Подробнее</button>
       <button id="two" class="card__add">Добавить в корзину</button>
     </div>
@@ -63,7 +63,7 @@
     color: #fff;
   }
   
-  .cardBottom {
+  .card_bottom {
     display: block;
     display: flex;
     flex-direction: row;
@@ -135,7 +135,7 @@
     transform: scale3d(1, 1, 1);
   }
   .card__title::before {
-    color: #000000;
+    /* color: #000000; */
     transform-origin: 100% 50%;
     transform: scale3d(0, 1, 1);
     transition: transform 500ms !important;
@@ -149,9 +149,9 @@
     content: '';
   }
 
-  .card__title:hover {
+  /* .card__title:hover {
     color: #000000 !important;
-  }
+  } */
 
   .card__add {
     margin: 0 auto;

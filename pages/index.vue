@@ -9,6 +9,7 @@
     <ProductCard/>
   </div>
   <AboutUs/>
+  <DeliveryCard/>
   <div> 
     <NuxtPage/>
   </div>

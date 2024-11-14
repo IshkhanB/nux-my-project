@@ -1,5 +1,5 @@
 <template>
-  <div class="hederDiv substrate">
+  <div class="heder_div substrate">
     <!-- <section> -->
     <header class="header">
       <div class="div_logo">
@@ -8,21 +8,21 @@
         <p class="heder_p">Магазин доставки цветов по Сочи</p>
       </h1>
       </div>
-      <nav class="headerNav">
+      <nav class="header_nav">
         <a href="#">Каталог</a>
         <a href="#">Доставка и оплата</a>
         <a href="#">FAQ</a>
         <a href="#">О нас</a>
         <a href="#">Отзывы</a>
       </nav>
-      <div class="iconciVDiv">
-        <a class="iconSearch" href="#">
+      <div class="iconci_v_div">
+        <a class="icon_search" href="#">
           <NuxtImg densities="x1" src="icon/ic_sharp-search_1.svg" alt="icon"></NuxtImg> 
         </a>
-        <a class="iconSearch" href="#">
+        <a class="icon_search" href="#">
           <img src="public/icon/icon-park-outline_li.svg" alt="">
         </a>
-        <a class="iconSearch" href="#">
+        <a class="icon_search" href="#">
           <img src="public/icon/ic_outline-shopping-.svg" alt="">
         </a>
       </div>
@@ -30,7 +30,7 @@
   </div>
 </template>
 <style>
-.hederDiv{ 
+.heder_div{ 
   margin: 0 auto;
   background-color: #ffffff;
   position: sticky;
@@ -72,22 +72,25 @@
   display: flex;
   overflow: hidden;
 }
-.headerNav {
+.header_nav {
   margin:5px auto 5px auto;
   display: flex;
   align-items: center;
   gap: 40px;
   height:50px;
 }
-.headerNav>a {
+.header_nav>a {
   position: relative;
+  font-size: 12px;
   justify-content: space-around;
+  color: #595959;
+  font-family: 'TildaSans', Arial, sans-serif;
 }
-.headerNav>a:hover::before {
+.header_nav>a:hover::before {
   transform-origin: 0% 50%;
   transform: scale3d(1, 1, 1);
 }
-.headerNav>a::before {
+.header_nav>a::before {
   transform-origin: 100% 50%;
   transform: scale3d(0, 1, 1);
   transition: transform 500ms !important;
@@ -99,7 +102,7 @@
   left: 0;
   content: '';
 }
-.iconciVDiv {
+.iconci_v_div {
   margin: auto 10px auto auto;
   display:flex;
   align-content: center;
@@ -107,23 +110,23 @@
   gap: 20px;
   height:58px;
 }
-.iconciVDiv>a>img {
+.iconci_v_div>a>img {
   width: 35px;
 }
 @media screen and (max-width: 1024px) {
-  .headerNav{
+  .header_nav{
     display: none;
   }
   
 }
 @media screen and (max-width: 640px) {
-  .headerNav{
+  .header_nav{
     display: none;
   }
   .heder_p{
     display: none;
   }
-  .iconciVDiv{
+  .iconci_v_div{
     margin: auto;
     height: 40px;
   }

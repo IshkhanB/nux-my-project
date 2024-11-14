@@ -4,7 +4,9 @@
   <div>
   <NuxtImg class="img_girl" src="/icon/noroot_1.png" alt="girl-flowers" />
   </div>
-  <h1 ></h1>  
+  <div class="fon_div_text">
+    <p>Доставка КРАСИВЫХ <br> букетов по всему сочи</p>
+  </div>
 </div>
 
 </template>
@@ -18,6 +20,20 @@
   height: 400px;
   overflow: hidden;
   border-radius: 25px;
+}
+.fon_div_text{
+  margin: 0 auto;
+}
+.fon_div_text>p{
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  color: #595959;
+  font-size: 60px;
+  font-family: 'Cormorant', Arial, sans-serif;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  line-height: 63px;
 }
 
 .img_fon_after{

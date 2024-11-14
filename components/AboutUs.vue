@@ -1,23 +1,23 @@
 <template>
-  <div class="AboutUsFon">
-    <h1 class="OurHeadr">Наши преимущества</h1>
+  <div class="about_us_fon">
+    <h1 class="our_headr">Наши преимущества</h1>
     <!-- <img class="img_fon_about" src="public/icon/Group_946_5.png" alt="fon"> -->
     <NuxtImg densities="x1" class="img_fon_about" src="icon/Group_946_5.png" alt="fon"></NuxtImg>
-    <div class="divImgRate">
+    <div class="div_img_rate">
       <!-- <img class="imgRate" src="public/icon/93509304_luxurious_w.png" alt=""> -->
-      <NuxtImg class="imgRate" src="icon/rotating_bouquet.png" alt="rotating_bouquet"></NuxtImg>
+      <NuxtImg class="img_rate" src="icon/rotating_bouquet.png" alt="rotating_bouquet"></NuxtImg>
     </div>
   <div> 
-    <div class="DivUsInfo1">
+    <div class="div_us_info1">
       <h3></h3>
     </div>
-    <div class="DivUsInfo2">
+    <div class="div_us_info2">
 
     </div>
-    <div class="DivUsInfo3">
+    <div class="div_us_info3">
 
     </div>
-    <div class="DivUsInfo4">
+    <div class="div_us_info4">
 
     </div>
   </div>
@@ -28,7 +28,7 @@
 
 </script>
 <style>
-.OurHeadr{ 
+.our_headr{ 
   margin: 0 auto;
   color: #595959;
   font-family: 'Cormorant',Arial,sans-serif;
@@ -45,18 +45,18 @@
     width: 100%;
     object-fit: cover;
 }
-.AboutUsFon{
+.about_us_fon{
   position: relative;
   margin: 0 auto;
   padding: 0;
 }
-.imgRate{
+.img_rate{
 width: 459px;
   /* z-index: 20px; */
   animation: 160s linear forwards;
   backface-visibility: hidden;
 }
-.divImgRate{
+.div_img_rate{
   margin: 50px 50px 50px 50px ;
   position: absolute;
   top: 10%;
@@ -72,7 +72,7 @@ width: 459px;
     transform: rotate(360deg);
   }}
   @media screen and (max-width: 640px) {
-    .OurHeadr{
+    .our_headr{
       font-size: 25px;
     }
   }

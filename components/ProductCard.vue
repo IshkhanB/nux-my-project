@@ -1,20 +1,25 @@
+
 <template>
   <div class="card">
     <div>
       <div>
-      <nuxt-img preset="cover" class="card_image"  src="icon/111.jpg" /> 
+      <nuxt-img preset="cover" class="card_image"  :src="product?.images[0]" /> 
       </div>
     </div>
     <div class="card_bottom">
-      <button id="1"  class="card__info">Подробнее</button>
-      <button id="two" class="card__add">Добавить в корзину</button>
+      <NuxtLink id="1"  class="card__info">Подробнее</NuxtLink>
+      <NuxtLink id="two" class="card__add">Добавить в корзину</NuxtLink>
     </div>
-    <div class="card__price card__price--discount">5 000</div>
-    <p class="info_flower">Нежный букет из 19 веток яркой кустовой пионовидной розы</p>
-    <a href="#" class="card__title"> Монобукет Мисти Баблс </a>
+    <div class="card__price card__price--discount">{{ product?.price }}</div>
+    <p class="info_flower">{{ product?.description }}</p>
+    <NuxtLink :href="`${product?.type}/${product?.id}`" class="card__title"> {{ product?.title }} </NuxtLink>
   </div>
 
 </template>
+
+<script setup lang="ts">
+defineProps(['product'])
+</script>
 
 <style>
   .card {
@@ -28,6 +33,7 @@
     border-radius: 4px;
     transition: 0.2s;
     position: relative;
+    cursor: pointer;
   }
   .card:hover {
     box-shadow: 0px 0px 20px rgba(15, 8, 5, 0.2);

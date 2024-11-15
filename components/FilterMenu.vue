@@ -1,26 +1,26 @@
 <template>
   <div class="filter_fon">
     <div class="menu_filter">
-      <button class="filter_all">
+      <NuxtLink class="filter_all">
         <NuxtImg src = "icon/Group_949_3.svg" ></NuxtImg>
         <p class="filter_p">Все</p>
-      </button>
-      <button class="filter_bestsellers">
+      </NuxtLink>
+      <NuxtLink class="filter_bestsellers">
         <NuxtImg src = "icon/bi_fire_4.svg" ></NuxtImg>
         <p class="filter_p">хиты продаж</p>
-      </button>
-      <button class="filter_bouquets">
+      </NuxtLink>
+      <NuxtLink class="filter_bouquets">
         <NuxtImg src = "icon/Group_974.svg" ></NuxtImg>
         <p class="filter_p">Букеты</p>
-      </button>
-      <button class="filter_stock">
+      </NuxtLink>
+      <NuxtLink class="filter_stock">
         <NuxtImg src = "icon/solar_sale-bold_2.svg" ></NuxtImg>
         <p class="filter_p">Акции</p>
-      </button>
-      <button class="filter_present">
+      </NuxtLink>
+      <NuxtLink class="filter_present">
         <NuxtImg src = "icon/ic_baseline-cake_2.svg" ></NuxtImg>
         <p class="filter_p">Подарки</p>
-      </button>
+      </NuxtLink>
     </div>  
   </div>
 </template>

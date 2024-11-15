@@ -23,11 +23,11 @@
     <div class="menu_footer">
       <h1> Меню</h1>
       <nav class="nav_footer">
-        <a href="#">Каталог</a>
-        <a href="#">Доставка и оплата</a>
-        <a href="#">FAQ</a>
-        <a href="#">О нас</a>
-        <a href="#">Отзывы</a>
+        <NuxtLink href="#">Каталог</NuxtLink>
+        <NuxtLink href="#">Доставка и оплата</NuxtLink>
+        <NuxtLink href="#">FAQ</NuxtLink>
+        <NuxtLink href="#">О нас</NuxtLink>
+        <NuxtLink href="#">Отзывы</NuxtLink>
       </nav>
     </div>
     <div class="three">

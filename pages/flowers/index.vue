@@ -1,7 +1,5 @@
 <template>
  <SubstrateComponent>
-  <AfterHeadr/>
-  <FilterMenu/>
   <div class="cards">
     <ProductCard v-for="product of productsStore.arr" :product="product" :key="product.id"/>
   </div>
@@ -18,7 +16,5 @@ const productsStore = useProducts()
 
 </script>
 
-
 <style>
-
 </style>

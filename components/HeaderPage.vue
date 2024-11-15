@@ -2,29 +2,29 @@
   <div class="heder_div substrate">
     <!-- <section> -->
     <header class="header">
-      <div class="div_logo">
+      <NuxtLink href="//localhost:3000/nuxt-project/" class="div_logo">
       <NuxtImg class="header_logo"  src="/icon/mdi_flower-tulip-out.svg"/>
       <h1 class="heder_h1">FLOWER MARKET
         <p class="heder_p">Магазин доставки цветов по Сочи</p>
       </h1>
-      </div>
+      </NuxtLink>
       <nav class="header_nav">
-        <a href="#">Каталог</a>
-        <a href="#">Доставка и оплата</a>
-        <a href="#">FAQ</a>
-        <a href="#">О нас</a>
-        <a href="#">Отзывы</a>
+        <NuxtLink class="heder_a" href="#">Каталог</NuxtLink>
+        <NuxtLink class="heder_a" href="#">Доставка и оплата</NuxtLink>
+        <NuxtLink class="heder_a" href="#">FAQ</NuxtLink>
+        <NuxtLink class="heder_a" href="#">О нас</NuxtLink>
+        <NuxtLink class="heder_a" href="#">Отзывы</NuxtLink>
       </nav>
       <div class="iconci_v_div">
-        <a class="icon_search" href="#">
+        <NuxtLink class="icon_search" href="#">
           <NuxtImg densities="x1" src="icon/ic_sharp-search_1.svg" alt="icon"></NuxtImg> 
-        </a>
-        <a class="icon_search" href="#">
+        </NuxtLink>
+        <NuxtLink class="icon_search" href="#">
           <img src="public/icon/icon-park-outline_li.svg" alt="">
-        </a>
-        <a class="icon_search" href="#">
+        </NuxtLink>
+        <NuxtLink class="icon_search" href="#">
           <img src="public/icon/ic_outline-shopping-.svg" alt="">
-        </a>
+        </NuxtLink>
       </div>
     </header>
   </div>
@@ -86,11 +86,11 @@
   color: #595959;
   font-family: 'TildaSans', Arial, sans-serif;
 }
-.header_nav>a:hover::before {
+.heder_a:hover::before {
   transform-origin: 0% 50%;
   transform: scale3d(1, 1, 1);
 }
-.header_nav>a::before {
+.heder_a::before {
   transform-origin: 100% 50%;
   transform: scale3d(0, 1, 1);
   transition: transform 500ms !important;
@@ -110,7 +110,7 @@
   gap: 20px;
   height:58px;
 }
-.iconci_v_div>a>img {
+.heder_a>img {
   width: 35px;
 }
 @media screen and (max-width: 1024px) {

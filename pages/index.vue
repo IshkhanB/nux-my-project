@@ -10,6 +10,7 @@
   <div> 
     <NuxtPage/>
   </div>
+  <NewFile></NewFile>
 </SubstrateComponent>
 </template>
 

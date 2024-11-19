@@ -1,0 +1,145 @@
+<template>
+  <div class="filter_fon">
+    <div class="menu_filter">
+      <NuxtLink class="filter_all">
+        <NuxtImg src = "icon/Group_949_3.svg" ></NuxtImg>
+        <p class="filter_p">Все</p>
+      </NuxtLink>
+      <NuxtLink " class="filter_bestsellers">
+        <NuxtImg src = "icon/bi_fire_4.svg" ></NuxtImg>
+        <p :on:click="click" class="filter_p">хиты продаж</p>
+      </NuxtLink>
+      <NuxtLink class="filter_bouquets">
+        <NuxtImg src = "icon/Group_974.svg" ></NuxtImg>
+        <p class="filter_p">Букеты</p>
+      </NuxtLink>
+      <NuxtLink class="filter_stock">
+        <NuxtImg src = "icon/solar_sale-bold_2.svg" ></NuxtImg>
+        <p class="filter_p">Акции</p>
+      </NuxtLink>
+      <NuxtLink class="filter_present">
+        <NuxtImg src = "icon/ic_baseline-cake_2.svg" ></NuxtImg>
+        <p class="filter_p">Подарки</p>
+      </NuxtLink>
+    </div>  
+  </div>
+</template>
+<script setup lang="ts">
+  import { onMounted } from 'vue';
+  const sss = ref(true)
+
+  const click = onMounted(()=>{
+    
+  })
+</script>
+<style>
+.filter_fon{
+  /* position: relative; */
+  margin: 15px auto;
+  max-width: 1400px;
+}
+.menu_filter{
+  display: flex;
+  margin-right: auto;
+  /* padding: 5px; */
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* gap: 20px; */
+  max-width: 700px;
+}
+.filter_all{
+  display: flex;
+  margin: 0 auto;
+  padding: 0 10px 0 10px;
+  /* width: 100%; */
+  height: 60px;
+  background-color: #595959 !important;
+  color: #ffffff !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.filter_p{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: 'TildaSans', Arial, sans-serif;
+  /* line-height: 1.55; */
+  zoom: 1.495;
+  font-weight: 400;
+  white-space: nowrap;
+  /* position: absolute; */
+}
+.filter_bestsellers{
+  /* position: relative; */
+  margin: 0 auto;
+  padding: 0 10px 0 10px;
+  /* width: 100%; */
+  height: 60px;
+  display: flex;
+  background-color: #f6f6f6;
+  color: #595959;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.filter_bestsellers:hover{
+  background-color: #595959 !important;
+  color: #ffffff !important;
+}
+.filter_bouquets{
+  display: flex;
+  margin: 0 auto;
+  padding: 0 10px 0 10px;
+  /* width: 100%; */
+  height: 60px;
+  background-color: #f6f6f6;
+  color: #595959;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.filter_bouquets:hover{
+  background-color: #595959 !important;
+  color: #ffffff !important;
+}
+.filter_stock{
+  display: flex;
+  margin: 0 auto;
+  padding: 0 10px 0 10px;
+  /* width: 100%; */
+  height: 60px;
+  background-color: #f6f6f6;
+  color: #595959;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.filter_stock:hover{
+  background-color: #595959 !important;
+  color: #ffffff !important;
+}
+.filter_present{
+  display: flex;
+  margin: 0 auto;
+  padding: 0 10px 0 10px;
+  /* width: 100%; */
+  height: 60px;
+  background-color: #f6f6f6;
+  color: #595959;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.filter_present:hover{
+  background-color: #595959 !important;
+  color: #ffffff !important;
+}
+.filter_ton{
+  background-color: #595959 !important;
+  color: #ffffff !important;
+}
+</style>

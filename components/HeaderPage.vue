@@ -17,19 +17,22 @@
       </nav>
       <div class="iconci_v_div">
         <NuxtLink class="icon_search" href="#">
-          <NuxtImg densities="x1" src="icon/ic_sharp-search_1.svg" alt="icon"></NuxtImg> 
+          <NuxtImg  class="icon" src="icon/ic_sharp-search_1.svg" alt="icon"/> 
         </NuxtLink>
         <NuxtLink class="icon_search" href="#">
-          <img src="public/icon/icon-park-outline_li.svg" alt="">
+          <NuxtImg class="icon" src="icon/icon-park-outline_li.svg" alt=""/>
         </NuxtLink>
         <NuxtLink class="icon_search" href="#">
-          <img src="public/icon/ic_outline-shopping-.svg" alt="">
+          <NuxtImg class="icon" src="icon/ic_outline-shopping-.svg" alt=""/>
         </NuxtLink>
       </div>
     </header>
   </div>
 </template>
 <style>
+.icon{
+  width: 35px;
+}
 .heder_div{ 
   margin: 0 auto;
   background-color: #ffffff;
@@ -38,8 +41,6 @@
   z-index: 999;
   margin-top: 20px !important;
   margin-bottom:20px !important;
-  /* background-color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 25px #e0bfaf; */
 }
 .div_logo{
   display: flex;
@@ -52,11 +53,6 @@
 }
 .heder_h1{
   margin:5px auto 5px 5px;
-  /* background-image: url(public/icon/mdi_flower-tulip-out.svg); */
-  /* background-repeat: no-repeat; */
-  /* padding-left: 50px; */
-  /* background-size: 50px; */
-  /* background-position: left; */
   font-size: 20px;
   color: #595959;
   overflow: hidden;
@@ -141,16 +137,7 @@
   .header_logo{
     width: 30px !important;
     min-width: 30px;
-    /* margin-left:20px ; */
   }
-  /* .heder>h1{
-    background-image: url(public/icon/mdi_flower-tulip-out.svg);
-  background-repeat: no-repeat;
-  padding-left: 50px;
-  background-size: 50px;
-  background-position: left;
-  } */
-
-  
+ 
 }
 </style>

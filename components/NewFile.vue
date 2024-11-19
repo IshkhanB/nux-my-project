@@ -1,19 +1,19 @@
 <template>
   <div class="filter_fon">
     <div class="menu_filter">
-      <NuxtLink class="filter_all">
-        <NuxtImg src = "icon/Group_949_3.svg" ></NuxtImg>
+      <NuxtLink  to="/" class="filter_all" :class="route.path=='/'?'filter_ton':''">
+        <NuxtImg src = "icon/Group_949_3.svg"></NuxtImg>
         <p class="filter_p">Все</p>
       </NuxtLink>
-      <NuxtLink " class="filter_bestsellers">
+      <NuxtLink  to="/hits" class="filter_bestsellers"  :class="route.path=='/hits'?'filter_ton':''">
         <NuxtImg src = "icon/bi_fire_4.svg" ></NuxtImg>
-        <p :on:click="click" class="filter_p">хиты продаж</p>
+        <p class="filter_p">хиты продаж</p>
       </NuxtLink>
-      <NuxtLink class="filter_bouquets">
+      <NuxtLink to="/flowers" class="filter_bouquets" :class="route.path=='/flowers'?'filter_ton':''">
         <NuxtImg src = "icon/Group_974.svg" ></NuxtImg>
         <p class="filter_p">Букеты</p>
       </NuxtLink>
-      <NuxtLink class="filter_stock">
+      <NuxtLink class="filter_stock" >
         <NuxtImg src = "icon/solar_sale-bold_2.svg" ></NuxtImg>
         <p class="filter_p">Акции</p>
       </NuxtLink>
@@ -25,14 +25,18 @@
   </div>
 </template>
 <script setup lang="ts">
-  import { onMounted } from 'vue';
-  const sss = ref(true)
-
-  const click = onMounted(()=>{
-    
-  })
+  const route = useRoute()
+  const sss = ref(false)
+  
+  onMounted(()=>{
+    if(!sss.value){
+      sss.value = true
+      console.log(sss.value)
+    }
+  }) 
+  // console.log(click)
 </script>
-<style>
+<style scoped>
 .filter_fon{
   /* position: relative; */
   margin: 15px auto;
@@ -54,8 +58,8 @@
   padding: 0 10px 0 10px;
   /* width: 100%; */
   height: 60px;
-  background-color: #595959 !important;
-  color: #ffffff !important;
+  background-color: #f6f6f6;
+  color: #595959;
   align-items: center;
   justify-content: center;
   border-radius: 10px;

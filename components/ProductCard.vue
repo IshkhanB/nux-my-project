@@ -27,7 +27,7 @@ defineProps(['product'])
     border-radius: 10px !important;
     display: block;
     width: 327px;
-    min-height: 500px;
+    min-height: 550px;
     display: flex;
     flex-direction: column-reverse;
     border-radius: 4px;
@@ -99,6 +99,7 @@ defineProps(['product'])
     color: #414141;
     display: flex;
     flex-wrap: wrap-reverse;
+    /* font-family: 'TildaSans', Arial, sans-serif; */
   }
   
   

@@ -2,23 +2,23 @@
   <div class="filter_fon">
     <div class="menu_filter">
       <NuxtLink class="filter_all">
-        <NuxtImg src = "icon/Group_949_3.svg" ></NuxtImg>
+        <NuxtImg src = "icon/Group_949_3.svg"  ></NuxtImg>
         <p class="filter_p">Все</p>
       </NuxtLink>
       <NuxtLink class="filter_bestsellers">
-        <NuxtImg src = "icon/bi_fire_4.svg" ></NuxtImg>
+        <NuxtImg src = "icon/bi_fire_4.svg"  ></NuxtImg>
         <p class="filter_p">хиты продаж</p>
       </NuxtLink>
       <NuxtLink class="filter_bouquets">
-        <NuxtImg src = "icon/Group_974.svg" ></NuxtImg>
+        <NuxtImg src = "icon/Group_974.svg"  ></NuxtImg>
         <p class="filter_p">Букеты</p>
       </NuxtLink>
       <NuxtLink class="filter_stock">
-        <NuxtImg src = "icon/solar_sale-bold_2.svg" ></NuxtImg>
+        <NuxtImg src = "icon/solar_sale-bold_2.svg"  ></NuxtImg>
         <p class="filter_p">Акции</p>
       </NuxtLink>
       <NuxtLink class="filter_present">
-        <NuxtImg src = "icon/ic_baseline-cake_2.svg" ></NuxtImg>
+        <NuxtImg src = "icon/ic_baseline-cake_2.svg"  ></NuxtImg>
         <p class="filter_p">Подарки</p>
       </NuxtLink>
     </div>  
@@ -40,14 +40,17 @@
   /* gap: 20px; */
   max-width: 700px;
 }
+.menu_filter img{
+  height: 30px;
+}
 .filter_all{
   display: flex;
   margin: 0 auto;
   padding: 0 10px 0 10px;
   /* width: 100%; */
   height: 60px;
-  background-color: #595959 !important;
-  color: #ffffff !important;
+  background-color: #595959 ;
+  color: #ffffff;
   align-items: center;
   justify-content: center;
   border-radius: 10px;

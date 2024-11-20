@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="card_bottom">
-      <NuxtLink id="1"  class="card__info">Подробнее</NuxtLink>
+      <NuxtLink :href="`${product?.type}/${product?.id}`"  class="card__info" {{ product?.title }}>Подробнее</NuxtLink>
       <NuxtLink id="two" class="card__add">Добавить в корзину</NuxtLink>
     </div>
     <div class="card__price card__price--discount">{{ product?.price }}</div>
@@ -52,7 +52,6 @@ defineProps(['product'])
     left: 0; 
     overflow: hidden;
     width: 100vw;
-    /* height: 327px; */
     object-fit: cover;
     transition: 0.2s;
   }
@@ -99,7 +98,6 @@ defineProps(['product'])
     color: #414141;
     display: flex;
     flex-wrap: wrap-reverse;
-    /* font-family: 'TildaSans', Arial, sans-serif; */
   }
   
   
@@ -134,7 +132,7 @@ defineProps(['product'])
     font-size: 14px;
     line-height: 1.55;
     text-align: center;
-    font-family: 'TildaSans', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     font-weight: 300;
   }
   .card__title:hover::before {
@@ -155,11 +153,6 @@ defineProps(['product'])
     pointer-events: none;
     content: '';
   }
-
-  /* .card__title:hover {
-    color: #000000 !important;
-  } */
-
   .card__add {
     margin: 0 auto;
     padding: 15px;
@@ -177,28 +170,7 @@ defineProps(['product'])
     color: #ffffff;
     background-color: #e8cbb1;
     border-radius: 25px;
-    /* -moz-border-radius: 25px; */
-    /* -webkit-border-radius: 25px; */
-    /* font-family: TildaSans; */
     font-weight: 500;
-
-    /* height: 35px;
-    font-size: 14px;
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color: #e1cbb7;
-    display: block;
-    font-weight: 400;
-    color: #414141;
-    text-align: center;
-    border: 1px solid #414141;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: 0.2s;
-    margin-top: auto; */
-    /* width: 100%; */
-    /* font-size: 17px; */
-    /* padding: 10px; */
   }
 
   .card__add:hover {

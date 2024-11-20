@@ -69,7 +69,7 @@
   border: 1px solid transparent;
   color: #595959;
   font-size: 14px;
-  font-family: 'TildaSans', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   line-height: 1.55;
   font-weight: 500;
   /* background-position: center center;

@@ -23,17 +23,25 @@
     <div class="menu_footer">
       <h1> Меню</h1>
       <nav class="nav_footer">
-        <NuxtLink href="#">Каталог</NuxtLink>
-        <NuxtLink href="#">Доставка и оплата</NuxtLink>
-        <NuxtLink href="#">FAQ</NuxtLink>
-        <NuxtLink href="#">О нас</NuxtLink>
-        <NuxtLink href="#">Отзывы</NuxtLink>
+        <NuxtLink >Каталог</NuxtLink>
+        <NuxtLink >Доставка и оплата</NuxtLink>
+        <NuxtLink >FAQ</NuxtLink>
+        <NuxtLink >О нас</NuxtLink>
+        <NuxtLink >Отзывы</NuxtLink>
       </nav>
     </div>
-    <div class="three">
-    
+    <div class="footer_contacts">
+      <h1> Контакты</h1>
+      <nav class="nav_footer">
+        <NuxtLink >+79881878668</NuxtLink>
+        <NuxtLink >Написать в WhatsApp</NuxtLink>
+        <NuxtLink >Написать в Telegram</NuxtLink>
+        <NuxtLink >О нас</NuxtLink>
+        <NuxtLink >354000 г. Сочи, ул. О.Кошевого, д. 21Б</NuxtLink>
+      </nav>
     </div>
-    <div class="four">
+    <div class="footer_works">
+    
     </div>
   </div>
 </template>
@@ -47,6 +55,10 @@
   height: 500px;
   background-color: #fcfcfc;
 }
+.information{
+  line-height: 30px;
+  color:#d0d0d0;
+}
 .information>h1{
   background-image: url(public/icon/mdi_flower-tulip-out.svg);
   background-repeat: no-repeat;
@@ -56,15 +68,15 @@
   font-size: 25px;
   color: #595959;
 }
-.information{
-  line-height: 30px;
-  color:#d0d0d0;
-}
 .menu_footer{
-  margin: 0 auto;
-  
+  margin: 0 auto;  
 }
 .menu_footer>h1{
+  background-size: 35px;
+  font-size: 25px;
+  color: #595959;
+}
+.footer_contacts>h1{
   background-size: 35px;
   font-size: 25px;
   color: #595959;
@@ -75,4 +87,5 @@
   line-height: 30px;
   
 }
+
 </style>

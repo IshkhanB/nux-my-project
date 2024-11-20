@@ -74,7 +74,7 @@
   padding-left: 5px;
   text-transform: uppercase;
   font-size: 12px;
-  font-family: 'TildaSans', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   /* line-height: 1.55; */
   zoom: 1.495;
   font-weight: 400;

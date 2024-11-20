@@ -81,7 +81,7 @@
   font-size: 12px;
   justify-content: space-around;
   color: #595959;
-  font-family: 'TildaSans', Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 .heder_a:hover::before {
   transform-origin: 0% 50%;

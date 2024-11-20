@@ -5,7 +5,8 @@
   <NuxtImg class="img_girl" src="/icon/noroot_1.png" alt="girl-flowers" />
   </div>
   <div class="fon_div_text">
-    <p>Доставка КРАСИВЫХ <br> букетов по всему сочи</p>
+    <p>Доставка КРАСИВЫХ <br> букетов в любую точку сочи</p>
+    <!-- букетов по всему сочи -->
   </div>
 </div>
 
@@ -23,13 +24,14 @@
 }
 .fon_div_text{
   margin: 0 auto;
+  text-align: center;
 }
 .fon_div_text>p{
   position: absolute;
   top: 15%;
   left: 5%;
   color: #595959;
-  font-size: 60px;
+  font-size: 50px;
   font-family: 'Cormorant', Arial, sans-serif;
   letter-spacing: -1px;
   text-transform: uppercase;

@@ -5,7 +5,8 @@
       <NuxtLink href="//localhost:3000/nuxt-project/" class="div_logo">
       <NuxtImg class="header_logo"  src="/icon/mdi_flower-tulip-out.svg"/>
       <h1 class="heder_h1">FLOWER MARKET
-        <p class="heder_p">Магазин доставки цветов по Сочи</p>
+        <p class="heder_p">Магазин доставки цветов по Сочи</p> 
+        <!-- Магазин доставки цветов по Сочи -->
       </h1>
       </NuxtLink>
       <nav class="header_nav">

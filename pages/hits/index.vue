@@ -20,8 +20,3 @@
  
  </script>
  
- 
- <style>
- 
- </style>
- 

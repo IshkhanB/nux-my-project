@@ -13,11 +13,11 @@
         <NuxtImg src = "icon/Group_974.svg" ></NuxtImg>
         <p class="filter_p">Букеты</p>
       </NuxtLink>
-      <NuxtLink class="filter_stock">
-        <NuxtImg src = "icon/solar_sale-bold_2.svg"  ></NuxtImg>
+      <NuxtLink to="/stocks" class="filter_stock"  :class="route.path=='/stocks'?'filter_ton':''">
+        <NuxtImg  src = "icon/solar_sale-bold_2.svg"></NuxtImg>
         <p class="filter_p">Акции</p>
       </NuxtLink>
-      <NuxtLink class="filter_present">
+      <NuxtLink to="/gifts" class="filter_present"  :class="route.path=='/gifts'?'filter_ton':''">
         <NuxtImg src = "icon/ic_baseline-cake_2.svg"  ></NuxtImg>
         <p class="filter_p">Подарки</p>
       </NuxtLink>
@@ -32,8 +32,10 @@
     if(!sss.value){
       sss.value = true
       console.log(sss.value)
+      console.log(sss.value +"ggg")
     }
   }) 
+
   // console.log(click)
 </script>
 <style>

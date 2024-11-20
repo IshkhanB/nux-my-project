@@ -36,11 +36,15 @@
   }) 
   // console.log(click)
 </script>
-<style scoped>
+<style scoped lang="scss">
 .filter_fon{
   /* position: relative; */
   margin: 15px auto;
   max-width: 1400px;
+  &:hover {
+    background-color: #595959;
+    filter: blur(5px);
+  }
 }
 .menu_filter{
   display: flex;
@@ -90,6 +94,7 @@
   justify-content: center;
   border-radius: 10px;
 }
+//!=========================
 .filter_bestsellers:hover{
   background-color: #595959 !important;
   color: #ffffff !important;
@@ -106,6 +111,7 @@
   justify-content: center;
   border-radius: 10px;
 }
+//!=========================
 .filter_bouquets:hover{
   background-color: #595959 !important;
   color: #ffffff !important;
@@ -122,6 +128,7 @@
   justify-content: center;
   border-radius: 10px;
 }
+//!=========================
 .filter_stock:hover{
   background-color: #595959 !important;
   color: #ffffff !important;
@@ -138,6 +145,7 @@
   justify-content: center;
   border-radius: 10px;
 }
+//!=========================
 .filter_present:hover{
   background-color: #595959 !important;
   color: #ffffff !important;

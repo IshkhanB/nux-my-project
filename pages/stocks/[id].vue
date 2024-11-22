@@ -1,7 +1,7 @@
 <template>
-  
-  {{ route }}
-  {{ 'adsflkh' }}
+  <div>
+    {{ route.params.id }}
+  </div>
 </template>
 
 <script setup lang="ts">

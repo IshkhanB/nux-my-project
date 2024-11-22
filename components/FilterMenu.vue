@@ -1,40 +1,39 @@
 <template>
   <div class="filter_fon">
     <div class="menu_filter">
-      <NuxtLink  to="/" class="filter_all filter_ton_all" :class="route.path==='/'?'filter_ton':''">
-        <NuxtImg src = "icon/Group_949_3.svg"></NuxtImg>
+      <NuxtLink  to="/" class="filter_all filter_ton_all" :class="route.path=='/'?'filter_ton':''">
+        <NuxtImg src="icon/Group_949_3.svg"></NuxtImg>
         <p class="filter_p">Все</p>
       </NuxtLink>
-      <NuxtLink  to="/hits" class="filter_bestsellers filter_ton_all"  :class="route.path==='/hits'?'filter_ton':''">
-        <NuxtImg src = "icon/bi_fire_4.svg" ></NuxtImg>
+      <NuxtLink  to="/hits" class="filter_bestsellers filter_ton_all"  :class="route.path=='/hits'?'filter_ton':''">
+        <NuxtImg src="icon/bi_fire_4.svg" ></NuxtImg>
         <p class="filter_p">хиты продаж</p>
       </NuxtLink>
-      <NuxtLink to="/flowers" class="filter_bouquets filter_ton_all" :class="route.path==='/flowers'?'filter_ton':''">
-        <NuxtImg src = "icon/Group_974.svg" ></NuxtImg>
+      <NuxtLink to="/flowers" class="filter_bouquets filter_ton_all" :class="route.path=='/flowers'?'filter_ton':''">
+        <NuxtImg src="icon/Group_974.svg" ></NuxtImg>
         <p class="filter_p">Букеты</p>
       </NuxtLink>
-      <NuxtLink to="/stocks" class="filter_stock filter_ton_all"  :class="route.path==='/stocks'?'filter_ton':''">
-        <NuxtImg  src = "icon/solar_sale-bold_2.svg"></NuxtImg>
+      <NuxtLink to="/stocks" class="filter_stock filter_ton_all"  :class="route.path=='/stocks'?'filter_ton':''">
+        <NuxtImg  src="icon/solar_sale-bold_2.svg"></NuxtImg>
         <p class="filter_p">Акции</p>
       </NuxtLink>
-      <NuxtLink to="/gifts" class="filter_present filter_ton_all"  :class="route.path==='/gifts'?'filter_ton':''">
-        <NuxtImg src = "icon/ic_baseline-cake_2.svg"  ></NuxtImg>
+      <NuxtLink to="/gifts" class="filter_present filter_ton_all"  :class="route.path=='/gifts'?'filter_ton':''">
+        <NuxtImg src="icon/ic_baseline-cake_2.svg"  ></NuxtImg>
         <p class="filter_p">Подарки</p>
-      </NuxtLink>
-      {{'aaa'}}
+      </NuxtLink>   
     </div>  
   </div>
 </template>
 <script setup lang="ts">
   const sss = ref(false)
-  const route = ref(useRoute())
-  onMounted(()=>{
-    if(!sss.value){
-      sss.value = true
-      console.log(sss.value)
-      console.log(sss.value +"ggg")
-    }
-  }) 
+  const route = useRoute()
+  // onMounted(()=>{
+  //   if(!sss.value){
+  //     sss.value = true
+  //     console.log(sss.value)
+  //     console.log(sss.value +"ggg")
+  //   }
+  // }) 
 
 </script>
 <style>

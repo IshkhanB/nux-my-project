@@ -1,9 +1,9 @@
 <template>
-  <HeaderPage></HeaderPage>
+  
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
-  <FooterCompon></FooterCompon> 
+  
 </template>
 <script setup lang="ts">
 

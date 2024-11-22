@@ -1,11 +1,9 @@
 <template>
-  <ProductCard :id="route.params.id"/>  
-  {{ route.params.id }}
-  {{ 'sfkgxcvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv cxvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvb' }}
+  <div>
+    {{ route.params.id }}
+  </div>
 </template>
 
 <script setup lang="ts">
-import Id from '../hits/[id].vue';
-
-const route = useRoute()
+  const route = useRoute()
 </script>

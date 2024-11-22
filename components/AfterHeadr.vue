@@ -2,7 +2,7 @@
 <div class="fon_div">
   <nuxt-img class="img_fon_after" src="/icon/group_975_1.png" alt="Fon" />
   <div>
-  <NuxtImg class="img_girl" src="/icon/noroot_1.png" alt="girl-flowers" />
+   <NuxtImg class="img_girl" src="/icon/noroot_1.png" alt="girl-flowers" />
   </div>
   <div class="fon_div_text">
     <p>Доставка КРАСИВЫХ <br> букетов в любую точку сочи</p>

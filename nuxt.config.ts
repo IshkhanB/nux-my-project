@@ -11,7 +11,6 @@ export default defineNuxtConfig({
   },
 
   app:{
-    baseURL: '/nuxt-project/',
     pageTransition: { name: 'page', mode: 'out-in' }
   },
 

@@ -1,39 +1,58 @@
 <template>
   <div class="filter_fon">
     <div class="menu_filter">
-      <NuxtLink  to="/" class="filter_all" :class="route.path=='/'?'filter_ton':''">
-        <NuxtImg src = "icon/Group_949_3.svg"></NuxtImg>
+      <NuxtLink  to="/">
         <p class="filter_p">Все</p>
       </NuxtLink>
-      <NuxtLink  to="/hits" class="filter_bestsellers"  :class="route.path=='/hits'?'filter_ton':''">
-        <NuxtImg src = "icon/bi_fire_4.svg" ></NuxtImg>
+      <NuxtLink  to="/hits">
         <p class="filter_p">хиты продаж</p>
       </NuxtLink>
-      <NuxtLink to="/flowers" class="filter_bouquets" :class="route.path=='/flowers'?'filter_ton':''">
-        <NuxtImg src = "icon/Group_974.svg" ></NuxtImg>
+      <NuxtLink to="/flowers">
         <p class="filter_p">Букеты</p>
       </NuxtLink>
-      <NuxtLink class="filter_stock" >
-        <NuxtImg src = "icon/solar_sale-bold_2.svg" ></NuxtImg>
+      <NuxtLink to="/stocks">
         <p class="filter_p">Акции</p>
       </NuxtLink>
-      <NuxtLink class="filter_present">
-        <NuxtImg src = "icon/ic_baseline-cake_2.svg" ></NuxtImg>
+      <NuxtLink to="/gifts">
         <p class="filter_p">Подарки</p>
       </NuxtLink>
     </div>  
   </div>
+  <!-- <div class="filter_fon">
+    <div class="menu_filter">
+      <NuxtLink  to="/" class="filter_all" :class="route.path=='/'?'filter_ton':''">
+        <NuxtImg src="icon/Group_949_3.svg"></NuxtImg>
+        <p class="filter_p">Все</p>
+      </NuxtLink>
+      <NuxtLink  to="/hits" class="filter_bestsellers" :class="route.path=='/hits'?'filter_ton':''">
+        <NuxtImg src="icon/bi_fire_4.svg" ></NuxtImg>
+        <p class="filter_p">хиты продаж</p>
+      </NuxtLink>
+      <NuxtLink to="/flowers" class="filter_bouquets" :class="route.path=='/flowers'?'filter_ton':''">
+        <NuxtImg src="icon/Group_974.svg" ></NuxtImg>
+        <p class="filter_p">Букеты</p>
+      </NuxtLink>
+      <NuxtLink to="/stocks" class="filter_stock" >
+        <NuxtImg src="icon/solar_sale-bold_2.svg" ></NuxtImg>
+        <p class="filter_p">Акции</p>
+      </NuxtLink>
+      <NuxtLink to="/gifts" class="filter_present">
+        <NuxtImg src="icon/ic_baseline-cake_2.svg" ></NuxtImg>
+        <p class="filter_p">Подарки</p>
+      </NuxtLink>
+    </div>  
+  </div> -->
 </template>
 <script setup lang="ts">
-  const route = useRoute()
-  const sss = ref(false)
+  // const route = useRoute()
+  // const sss = ref(false)
   
-  onMounted(()=>{
-    if(!sss.value){
-      sss.value = true
-      console.log(sss.value)
-    }
-  }) 
+  // onMounted(()=>{
+  //   if(!sss.value){
+  //     sss.value = true
+  //     console.log(sss.value)
+  //   }
+  // }) 
   // console.log(click)
 </script>
 <style scoped lang="scss">
@@ -43,7 +62,7 @@
   max-width: 1400px;
   &:hover {
     background-color: #595959;
-    filter: blur(5px);
+    // filter: blur(5px);
   }
 }
 .menu_filter{

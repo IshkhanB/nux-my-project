@@ -23,21 +23,21 @@
     <div class="menu_footer">
       <h1> Меню</h1>
       <nav class="nav_footer">
-        <NuxtLink >Каталог</NuxtLink>
-        <NuxtLink >Доставка и оплата</NuxtLink>
-        <NuxtLink >FAQ</NuxtLink>
-        <NuxtLink >О нас</NuxtLink>
-        <NuxtLink >Отзывы</NuxtLink>
+        <a href="#card_id" >Каталог</a>
+        <p >Доставка и оплата</p>
+        <p >FAQ</p>
+        <p >О нас</p>
+        <p >Отзывы</p>
       </nav>
     </div>
     <div class="footer_contacts">
       <h1> Контакты</h1>
       <nav class="nav_footer">
-        <NuxtLink >+79881878668</NuxtLink>
-        <NuxtLink >Написать в WhatsApp</NuxtLink>
-        <NuxtLink >Написать в Telegram</NuxtLink>
-        <NuxtLink >О нас</NuxtLink>
-        <NuxtLink >354000 г. Сочи, ул. О.Кошевого, д. 21Б</NuxtLink>
+        <p >+79881878668</p>
+        <p >Написать в WhatsApp</p>
+        <p >Написать в Telegram</p>
+        <p >О нас</p>
+        <p >354000 г. Сочи, ул. О.Кошевого, д. 21Б</p>
       </nav>
     </div>
     <div class="footer_connection">

@@ -2,22 +2,22 @@
   <div class="heder_div substrate">
     <!-- <section> -->
     <header class="header">
-      <NuxtLink href="//localhost:3000/nuxt-project/" class="div_logo">
-      <NuxtImg class="header_logo"  src="/icon/mdi_flower-tulip-out.svg"/>
-      <h1 class="heder_h1">FLOWER MARKET
-        <p class="heder_p">Магазин доставки цветов по Сочи</p> 
-        <!-- Магазин доставки цветов по Сочи -->
-      </h1>
+      <NuxtLink to="/" class="div_logo">
+       <NuxtImg class="header_logo"  src="/icon/mdi_flower-tulip-out.svg"/>
+        <h1 class="heder_h1">FLOWER MARKET
+         <p class="heder_p">Магазин доставки цветов по Сочи</p> 
+         <!-- Магазин доставки цветов по Сочи -->
+        </h1>
       </NuxtLink>
       <nav class="header_nav">
-        <NuxtLink class="heder_a" href="#">Каталог</NuxtLink>
-        <NuxtLink class="heder_a" href="#">Доставка и оплата</NuxtLink>
-        <NuxtLink class="heder_a" href="#">FAQ</NuxtLink>
-        <NuxtLink class="heder_a" href="#">О нас</NuxtLink>
-        <NuxtLink class="heder_a" href="#">Отзывы</NuxtLink>
+        <a class="heder_a" href="#catalog">Каталог</a>
+        <a class="heder_a" href="#">Доставка и оплата</a>
+        <a class="heder_a" href="#">FAQ</a>
+        <a class="heder_a" href="/about_us" @click.prevent="goToAnchor('#about_us')">О нас</a>
+        <a class="heder_a" href="#">Отзывы</a>
       </nav>
       <div class="iconci_v_div">
-        <NuxtLink class="icon_search" href="#">
+        <!-- <NuxtLink class="icon_search" href="#">
           <NuxtImg  class="icon" src="icon/ic_sharp-search_1.svg" alt="icon"/> 
         </NuxtLink>
         <NuxtLink class="icon_search" href="#">
@@ -25,11 +25,19 @@
         </NuxtLink>
         <NuxtLink class="icon_search" href="#">
           <NuxtImg class="icon" src="icon/ic_outline-shopping-.svg" alt=""/>
-        </NuxtLink>
+        </NuxtLink> -->
       </div>
     </header>
   </div>
 </template>
+
+<script setup lang="ts">
+const goToAnchor = (hash:string)=>{
+  location.hash=hash
+}
+</script>
+
+
 <style>
 .icon{
   width: 35px;

@@ -3,20 +3,16 @@
    <AfterHeadr/>
    <FilterMenu/>
    <div class="cards">
-     <ProductCard v-for="product of productsStore.arr" :product="product" :key="product.id" /> 
-     
+     <ProductCard v-for="product of productsStore.arr" :product="product" :key="product.id"/> 
    </div>
    <AboutUs/>
    <DeliveryCard/>
-   <div> 
-     <NuxtPage/>
-   </div>
    <NewFile/>
  </SubstrateComponent>
- </template>
+</template>
  
- <script setup lang="ts">
+<script setup lang="ts">
  const productsStore = useProducts()
  
- </script>
+</script>
  

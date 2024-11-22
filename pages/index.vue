@@ -2,15 +2,10 @@
  <SubstrateComponent>
   <AfterHeadr/>
   <FilterMenu/>
-  <div class="cards">
-    <ProductCard v-for="product of productsStore.arr" :product="product" :key="product.id"/>
-  </div>
+  <ProductsComp :products="productsStore.arr"/>
   <AboutUs/>
   <DeliveryCard/>
-  <div> 
-    <NuxtPage/>
-  </div>
-  <NewFile></NewFile>
+  <!--<NewFile></NewFile> -->
 </SubstrateComponent>
 </template>
 

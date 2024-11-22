@@ -40,9 +40,8 @@
         <NuxtLink >354000 г. Сочи, ул. О.Кошевого, д. 21Б</NuxtLink>
       </nav>
     </div>
-    <div class="footer_works">
-    
-    
+    <div class="footer_connection">
+      
     </div>
   </div>
 </template>

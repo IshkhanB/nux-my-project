@@ -21,7 +21,7 @@
         <NuxtImg src = "icon/ic_baseline-cake_2.svg"  ></NuxtImg>
         <p class="filter_p">Подарки</p>
       </NuxtLink>
-      {{ route.hash }}
+      {{'aaa'}}
     </div>  
   </div>
 </template>

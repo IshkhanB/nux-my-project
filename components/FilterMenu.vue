@@ -1,7 +1,7 @@
 <template>
   <div class="filter_fon">
     <div class="menu_filter">
-      <NuxtLink  to="/" class="filter_all filter_ton_all" :class="route.path=='/'?'filter_ton':''">
+      <NuxtLink  to="/#catalog"  class="filter_all filter_ton_all" :class="route.path=='/'?'filter_ton':''">
         <NuxtImg src="icon/Group_949_3.svg"></NuxtImg>
         <p class="filter_p">Все</p>
       </NuxtLink>

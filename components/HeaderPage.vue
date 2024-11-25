@@ -10,22 +10,22 @@
         </h1>
       </NuxtLink>
       <nav class="header_nav">
-        <a class="heder_a" href="#catalog">Каталог</a>
+        <a class="heder_a" href="#catalog ">Каталог</a>
         <a class="heder_a" href="#">Доставка и оплата</a>
         <a class="heder_a" href="#">FAQ</a>
         <a class="heder_a" href="/about_us" @click.prevent="goToAnchor('#about_us')">О нас</a>
         <a class="heder_a" href="#">Отзывы</a>
       </nav>
       <div class="iconci_v_div">
-        <!-- <NuxtLink class="icon_search" href="#">
+        <p class="icon_search">
           <NuxtImg  class="icon" src="icon/ic_sharp-search_1.svg" alt="icon"/> 
-        </NuxtLink>
-        <NuxtLink class="icon_search" href="#">
+        </p>
+        <p class="icon_search">
           <NuxtImg class="icon" src="icon/icon-park-outline_li.svg" alt=""/>
-        </NuxtLink>
-        <NuxtLink class="icon_search" href="#">
+        </p>
+        <p class="icon_search">
           <NuxtImg class="icon" src="icon/ic_outline-shopping-.svg" alt=""/>
-        </NuxtLink> -->
+        </p>
       </div>
     </header>
   </div>

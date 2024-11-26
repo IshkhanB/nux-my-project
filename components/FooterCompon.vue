@@ -23,7 +23,7 @@
     <div class="menu_footer">
       <h1> Меню</h1>
       <nav class="nav_footer">
-        <a href="#card_id">Каталог</a>
+        <a href="#catalog">Каталог</a>
         <p >Доставка и оплата</p>
         <p >FAQ</p>
         <p >О нас</p>

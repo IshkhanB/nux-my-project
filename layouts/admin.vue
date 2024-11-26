@@ -1,5 +1,5 @@
 <template>
-  <HeaderPage/>
+  <HeaderComp/>
   <slot></slot>
   <FooterCompon/>
 </template>

@@ -6,6 +6,7 @@
   <AboutUs/>
   <DeliveryCard/>
   <!--<NewFile></NewFile> -->
+  <CustomerReviews :products="productsStore.arr"/>
 </SubstrateComponent>
 </template>
 

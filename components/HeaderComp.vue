@@ -1,6 +1,5 @@
 <template>
   <div class="heder_div substrate">
-    <!-- <section> -->
     <header class="header">
       <NuxtLink to="/" class="div_logo">
        <NuxtImg class="header_logo"  src="/icon/mdi_flower-tulip-out.svg"/>
@@ -10,11 +9,11 @@
         </h1>
       </NuxtLink>
       <nav class="header_nav">
-        <a class="heder_a" href="#catalog ">Каталог</a>
+        <a class="heder_a" href="#catalog">Каталог</a>
         <a class="heder_a" href="#">Доставка и оплата</a>
         <a class="heder_a" href="#">FAQ</a>
         <a class="heder_a" href="/about_us" @click.prevent="goToAnchor('#about_us')">О нас</a>
-        <a class="heder_a" href="#">Отзывы</a>
+        <a class="heder_a" href="#">Отзывы</a> 
       </nav>
       <div class="iconci_v_div">
         <p class="icon_search">

@@ -6,12 +6,13 @@
   <AboutUs/>
   <DeliveryCard/>
   <!--<NewFile></NewFile> -->
-  <CustomerReviews :products="productsStore.arr"/>
+  <CustomerReviews :reviews="reviewsStore.arr"/>
 </SubstrateComponent>
 </template>
 
 <script setup lang="ts">
 const productsStore = useProducts()
+const reviewsStore = useReviews()
 
 </script>
 

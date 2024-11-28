@@ -4,7 +4,7 @@
     <h1 class="customer_h1">Что говорят о наших букетах</h1>
     <p class="customer_p">Наши покупатели всегда остаются довольны <br> доставленными цветами и подарками</p>
   </div>
-  <div class="customer_cards" >
+  <div class="customer_cards grid_conteiner" >
     <FeedbackCard v-for="review of reviews" :review="review" :key="review.id"/>
   </div>  
 </template>
@@ -14,6 +14,13 @@ defineProps(['reviews'])
 </script>
 
 <style scoped>
+.grid_conteiner{
+  display: grid;
+  grid-template-columns: 330px 330px 330px;
+  grid-template-rows: 400px 400px;
+  /* grid-template-areas: ; */
+  gap: 10px;
+}
 .customer_div{
   margin: 0 auto;
   padding: 5px;

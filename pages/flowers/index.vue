@@ -5,7 +5,7 @@
    <ProductsComp :products="productsStore.arr"/>
    <AboutUs/>
    <DeliveryCard/>
-   <NewFile/>
+   <!-- <NewFile/> -->
    <CustomerReviews :reviews="reviewsStore.arr"/>
  </SubstrateComponent>
 </template>

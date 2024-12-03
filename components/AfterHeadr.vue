@@ -8,6 +8,11 @@
     <p>Доставка КРАСИВЫХ <br> букетов в любую точку сочи</p>
     <!-- букетов по всему сочи -->
   </div>
+  <div class="baner_div">
+    <div>Лучшие цены</div>
+    <div>Фотоотчет</div>
+    <div>Лучшие цены</div>
+  </div>
 </div>
 
 </template>
@@ -55,6 +60,9 @@ object-fit: cover;
 position: absolute;
 top: -90px;
 right: 0px;
+}
+.baner_div{
+  
 }
 
 

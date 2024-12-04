@@ -55,6 +55,7 @@ defineProps(['review'])
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  height: 67px;
 }
 .feedback_card>p{
   font-size: 20px;

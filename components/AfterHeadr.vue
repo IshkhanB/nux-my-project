@@ -61,9 +61,9 @@ position: absolute;
 top: -90px;
 right: 0px;
 }
-.baner_div{
+/* .baner_div{
   
-}
+} */
 
 
 @media screen and (max-width: 1024px) {

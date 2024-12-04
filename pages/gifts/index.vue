@@ -4,7 +4,7 @@
    <FilterMenu/>
    <ProductsComp :products="productsStore.arr"/>
    <AboutUs/>
-   <DeliveryCard/>
+   <DeliveryMap/>
    <NewFile/>
    <CustomerReviews :reviews="reviewsStore.arr"/>
  </SubstrateComponent>

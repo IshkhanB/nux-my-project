@@ -3,16 +3,16 @@ import { ref } from 'vue'
 
 export const useDelivery = defineStore('delivery', () => {
   const arrFull=ref([
-    {id:1, name:'Сочи, Центральный', date:'2024-03-01',time:'1 час 5 минут',price:'1200',},
-    {id:2, name:'Сириус',  date:'2024-03-10',},
-    {id:3, name:'Хоста, Кудепста', date:'2024-03-22',},
-    {id:4, name:'Адлерский р-н', date:'2024-04-17',},
-    {id:5, name:'Дагомыс', date:'2024-04-24',},
-    {id:6, name:'Красная Поляна', date:'2024-04-29',},
-    {id:7, name:'Лоо', date:'2024-05-05',},
+    {id:1, name:'Сочи, Центральный', time:'1 час 5 минут', date:'2024-03-01', price:'0',},
+    {id:2, name:'Сириус', time:'1 час 30 минут', date:'2024-03-02', price:'1800',},
+    {id:3, name:'Хоста, Кудепста', time:'1 час 10 минут', date:'2024-03-03', price:'800',},
+    {id:4, name:'Адлерский р-н', time:'1 час 30 минут', date:'2024-03-04', price:'1300',},
+    {id:5, name:'Дагомыс', time:'1 час 30 минут', date:'2024-03-05', price:'1200',},
+    {id:6, name:'Красная Поляна', time:'2 час 30 минут', date:'2024-03-06', price:'2800',},
+    {id:7, name:'Лоо', time:'2 час 10 минут', date:'2024-03-07', price:'1200',},
   ])
 
   const arr = ref([...arrFull.value].sort((a,b)=> new Date(b.date).valueOf()-new Date(a.date).valueOf()))
-  arr.value.length = 8
+  arr.value.length = 7
   return { arr, arrFull }
 })

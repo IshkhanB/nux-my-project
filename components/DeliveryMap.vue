@@ -9,7 +9,7 @@
     </colgroup>
     <tbody class="delivery_tbody">
       <tr>
-        <td>Сочи, Центральный</td>
+        <td>{{ delivery?.name }}</td>
         <td>1 час 5 минут</td>
         <td>0</td>
       </tr>
@@ -51,7 +51,10 @@
   </div>
 </div>
 </template>
+<script setup lang="ts">
+  defineProps(['delivery'])
 
+</script>
 
 <style scoped>
 .deliveri_all{

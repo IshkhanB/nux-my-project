@@ -4,7 +4,7 @@
    <FilterMenu/>
    <ProductsComp :products="productsStore.arr"/>
    <AboutUs/>
-   <DeliveryMap/>
+   <DeliveryMap :delivery="deliveryStore.arr"/>
    <!-- <AboutBouquets/> -->
    <!-- <NewFile/> -->
    <CustomerReviews :reviews="reviewsStore.arr"/>
@@ -14,6 +14,6 @@
 <script setup lang="ts">
  const productsStore = useProducts()
  const reviewsStore = useReviews()
- 
+ const deliveryStore = useDelivery()
 </script>
  

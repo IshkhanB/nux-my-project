@@ -1,3 +1,3 @@
 <template>
-  О нас
+ О нас
 </template>

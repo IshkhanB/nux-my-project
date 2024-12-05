@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useDelivery = defineStore('delivery', () => {
-  const arrFull=ref([
+  const arr=ref([
     {id:1, name:'Сочи, Центральный', time:'1 час 5 минут', date:'2024-03-01', price:'0',},
     {id:2, name:'Сириус', time:'1 час 30 минут', date:'2024-03-02', price:'1800',},
     {id:3, name:'Хоста, Кудепста', time:'1 час 10 минут', date:'2024-03-03', price:'800',},
@@ -12,7 +12,5 @@ export const useDelivery = defineStore('delivery', () => {
     {id:7, name:'Лоо', time:'2 час 10 минут', date:'2024-03-07', price:'1200',},
   ])
 
-  const arr = ref([...arrFull.value].sort((a,b)=> new Date(b.date).valueOf()-new Date(a.date).valueOf()))
-  arr.value.length = 7
-  return { arr, arrFull }
+  return { arr }
 })

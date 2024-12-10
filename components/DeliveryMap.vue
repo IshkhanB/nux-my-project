@@ -59,6 +59,7 @@ border-bottom: 2px solid #f0f0f0;
 }
   #map {
   border-radius: 20px;
+  overflow: hidden;
 	width: 695px;
   background-color: bisque;
 }

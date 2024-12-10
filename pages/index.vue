@@ -5,6 +5,7 @@
   <ProductsComp :products="productsStore.arr"/>
   <AboutUs/>
   <DeliveryMap :delivery="deliveryStore.arr"/>
+  <HowPay/>
   <CustomerReviews :reviews="reviewsStore.arr"/>
 </SubstrateComponent>
 </template>

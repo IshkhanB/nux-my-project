@@ -26,6 +26,9 @@
   #fon3{
     width: 100%;
     height: 100%;
+    /* opacity: 0.4;  */
+    /* filter: alpha(opacity=40); */
+    filter: grayscale(1);
   }
   #img_fon3{
     width: 1383px;

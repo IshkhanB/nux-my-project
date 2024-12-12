@@ -72,5 +72,5 @@ width: 459px;
       font-size: 25px;
     }
   }
-
+/* tiptap для текста */
 </style>

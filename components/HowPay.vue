@@ -25,7 +25,7 @@
 
 .how_pay_cont{
   margin: 0 auto;
-  padding-top: 40px;
+  margin-top: 40px;
 }
 .how_pay_div{
   /* background: url("/icon/how_to_pay.png") 0% 50%/100% no-repeat,

@@ -1,5 +1,5 @@
 <template>
-  <div class="foter_fon">
+  <div class="footer_fon">
     <div class="information">
     <h1>FLOWER MARKET</h1>
       ИП ТЕРЗИЯН РУЗАННА СЕРГЕЕВНА 
@@ -40,6 +40,16 @@
         <p >354000 г. Сочи, ул. О.Кошевого, д. 21Б</p>
       </nav>
     </div>
+    <hr >
+    <div class="footer_footer">
+      <div>
+        <a href="/privacy">Политика конфиденциальности</a>
+        <p style="transform-origin: center center; line-height: 19px;">©️ Цветы Сочи 2024</p>
+      </div>
+      <div>
+        <NuxtImg src="/icon/mir_visa.svg"/>
+      </div>
+    </div>
     <div class="footer_connection">
       
     </div>
@@ -47,13 +57,14 @@
 </template>
 
 <style scoped>
-.foter_fon{
+.footer_fon{
   display: flex;
   margin: 30px auto;
   padding: 10px;
   max-width: 1400px;
   height: 500px;
   background-color: #fcfcfc;
+  flex-wrap: wrap;
 }
 .information{
   line-height: 30px;
@@ -86,6 +97,18 @@
   flex-direction: column;
   line-height: 30px;
   
+}
+.footer_footer{
+  margin: 0 auto;
+  width: 1400px;
+  display: flex;
+  justify-content: space-around;
+}
+hr {
+  width: 100%;
+  margin: 23px 0;
+  border: 1px solid #000000;
+  /* font-family: 'Cormorant', Arial, sans-serif; */
 }
 
 </style>

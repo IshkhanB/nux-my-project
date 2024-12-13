@@ -38,12 +38,13 @@
 .img_fon_about{
   margin: 0 auto;
   height: 600px;
-    width: 100%;
-    object-fit: cover;
+  width: 100%;
+  object-fit: cover;
 }
 .about_us_fon{
   position: relative;
   margin: 0 auto;
+  margin-top: 50px;
   padding: 0;
 }
 .img_rate{

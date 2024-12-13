@@ -18,6 +18,7 @@ defineProps(['review'])
 .feedback_card{
   position: relative;
   margin: 0 auto;
+  margin-top: 20px;
   padding: 5px;
   width: 300px;
   height: 350px;

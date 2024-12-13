@@ -1,4 +1,5 @@
 <template>
+  <div class="anchor"  id="delivery" style="transform: translateY(-60px);"></div>
   <div class="deliveri_all">
     <div>
     <table>

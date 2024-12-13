@@ -40,7 +40,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 750px;
+  width: 700px;
   padding: 20px;
 }
 .gradient{
@@ -82,7 +82,7 @@
   width: 350px;
   position: absolute;
   bottom: 80px;
-  right: 374px;
+  right: 330px;
 } 
 hr {
   width: 80%;

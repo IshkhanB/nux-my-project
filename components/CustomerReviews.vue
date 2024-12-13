@@ -25,6 +25,7 @@ defineProps(['reviews'])
 .customer_div{
   margin: 0 auto;
   padding: 5px;
+  margin-top: 50px;
 }
 .customer_h1{
   margin: 20px auto ;

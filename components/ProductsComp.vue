@@ -9,6 +9,7 @@
 
 <script setup lang="ts">
 
-defineProps(['products'])
+const {data} = await useFetch(`/api/product`)
+const products = ref(data.value?.products)
 
 </script>

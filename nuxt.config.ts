@@ -44,6 +44,12 @@ export default defineNuxtConfig({
     },
   },
 
+  prisma: {
+    installCLI: false,
+    installClient: false,
+    generateClient: true,
+    autoSetupPrisma: true
+  },
 
   modules: ['@pinia/nuxt', '@nuxt/image','@prisma/nuxt',]
 })

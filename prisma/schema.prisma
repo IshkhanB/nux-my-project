@@ -10,6 +10,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Type {
+  id        Int @id @default(autoincrement())
+  title     String
+  product   Product[]
+
+}
 model Product {
   id        Int @id @default(autoincrement())
   title     String
@@ -22,11 +28,5 @@ model Product {
   sad       Int @default(0)
   type_id   Int
   type      Type @relation(fields: [type_id], references: [id])
-
-}
-model Type {
-  id        Int @id @default(autoincrement())
-  title     String
-  product   Product[]
 
 }

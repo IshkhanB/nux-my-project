@@ -10,25 +10,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        Int     @id @default(autoincrement())
-  email     String  @unique
-  name      String?
-  posts     Post[]
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt 
-
-}
-
-model Post {
-  id        Int     @id @default(autoincrement())
+model Product {
+  id        Int @id @default(autoincrement())
   title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [author_id], references: [id])
-  author_id  Int
+  img       String
+  description String
+  price     Int
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
-  smile     Int @default(0)
-  sed       Int @default(0)
+  smaile    Int @default(0)
+  sad       Int @default(0)
+  type_id   Int
+  type      Type @relation(fields: [type_id], references: [id])
+
+}
+model Type {
+  id        Int @id @default(autoincrement())
+  title     String
+  product   Product[]
+
 }

@@ -10,5 +10,5 @@ export const useProducts = defineStore('products', () => {
     {id:5, title:'Белая голландская роза 25 штук 1 метр', type:'flowers', description:'Классический букет из белой голландской розы 1 метр', price:10800, images:['icon/555.jpg'],},
     {id:6, title:'Букет ЛЮБОВЬ из шикарных красных роз', type:'flowers', description:'Яркий букет красных роз сорта Ред Наоми', price:19500, images:['icon/666.jpg'],},
   ])
-  return { arr }
+    return {arr}
 })

@@ -8,7 +8,7 @@ export default defineEventHandler(async (event)=>{
         include:{
           type: true
         },where:{
-          id: id
+          id: +id
         }
       })
       return{products, ok: true}
@@ -16,6 +16,6 @@ export default defineEventHandler(async (event)=>{
       return{products:[], ok: false, e}
       
     }
-    return{products:[], ok: false, e}
+    return{products:[], ok: false,}
   }
 })

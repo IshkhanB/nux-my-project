@@ -4,18 +4,17 @@ export default defineEventHandler(async (event)=>{
   const id = event.context.params?.id
   if(id){
     try{
-      const products = await prisma.product.findUnique({
+      const product = await prisma.product.findUnique({
         include:{
           type: true
         },where:{
           id: +id
         }
       })
-      return{products, ok: true}
+      return{product, ok: true}
     }catch(e) {
-      return{products:[], ok: false, e}
-      
+      return{product:null, ok: false, e}  
     }
-    return{products:[], ok: false,}
   }
+  return{product:null, ok: false,}
 })

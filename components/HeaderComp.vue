@@ -9,7 +9,7 @@
         </h1>
       </NuxtLink>
       <nav class="header_nav">
-        <a class="heder_a" href="#catalog">Каталог</a>
+        <a class="heder_a" href="/#catalog" @click.prevent="goToAnchor('/#catalog')">Каталог</a>
         <a class="heder_a" href="#delivery">Доставка и оплата</a>
         <a class="heder_a" href="#">FAQ</a>
         <a class="heder_a" href="/about_us" @click.prevent="goToAnchor('#about_us')">О нас</a>

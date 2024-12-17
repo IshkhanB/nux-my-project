@@ -29,7 +29,12 @@ export default defineNuxtConfig({
           api: 'modern-compiler',
         },
       },
-    }
+    },
+    resolve: {
+      alias: {
+        ".prisma/client/index-browser": "./node_modules/.prisma/client/index-browser.js"
+      }
+    },
   },
   image: {
     presets: {

@@ -23,20 +23,20 @@
     <div class="menu_footer">
       <h1> Меню</h1>
       <nav class="nav_footer">
-        <a href="#catalog">Каталог</a>
-        <p >Доставка и оплата</p>
+        <a href="/#catalog" @click.prevent="goToAnchor('/#catalog')">Каталог</a>
+        <a href="/#delivery" @click.prevent="goToAnchor('/#delivery')">Доставка и оплата</a>
         <p >FAQ</p>
-        <p >О нас</p>
-        <p >Отзывы</p>
+        <a href="/about_us" @click.prevent="goToAnchor('#about_us')">О нас</a>
+        <a href="/reviews" @click.prevent="goToAnchor('#reviews')">Отзывы</a>
       </nav>
     </div>
     <div class="footer_contacts">
       <h1> Контакты</h1>
       <nav class="nav_footer">
         <p >+79881878668</p>
-        <p >Написать в WhatsApp</p>
-        <p >Написать в Telegram</p>
-        <p >О нас</p>
+        <a target="_blank" href="https://api.whatsapp.com/send/?phone=79881878668&text&type=phone_number&app_absent=0" >Написать в WhatsApp</a>
+        <a target="_blank" href="https://t.me/+79881878668">Написать в Telegram</a>
+        <p >Адрес</p>
         <p >354000 г. Сочи, ул. О.Кошевого, д. 21Б</p>
       </nav>
     </div>
@@ -55,6 +55,12 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const goToAnchor = (hash:string)=>{
+  location.hash=hash
+}
+</script>
 
 <style scoped>
 .footer_fon{

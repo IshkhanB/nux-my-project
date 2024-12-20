@@ -10,7 +10,7 @@
       </NuxtLink>
       <nav class="header_nav">
         <a class="heder_a" href="/#catalog" @click.prevent="goToAnchor('/#catalog')">Каталог</a>
-        <a class="heder_a" href="#delivery">Доставка и оплата</a>
+        <a class="heder_a" href="/#delivery" @click.prevent="goToAnchor('/#delivery')">Доставка и оплата</a>
         <a class="heder_a" href="#">FAQ</a>
         <a class="heder_a" href="/about_us" @click.prevent="goToAnchor('#about_us')">О нас</a>
         <a class="heder_a" href="/reviews" @click.prevent="goToAnchor('#reviews')">Отзывы</a> 

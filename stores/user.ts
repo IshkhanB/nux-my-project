@@ -17,9 +17,10 @@ export const useUsers = defineStore('user', () => {
     {id:2, name:'adminTwo', emaile: 'test2@test.ru',token: 'admin2',pass: '12345',},
   ])
 
-  const user = ref(useUsers)
-  const logIn = async (email:string, pass: string)
+  // const user = ref(useUsers)
+  // const logIn = async (email:string, pass: string)
 
+  return { arrUsers,}
 
 })
 

@@ -9,8 +9,8 @@ interface regData {
 }
 
 interface User {
-  name: string | null
-  id: number
+  name:  string | null
+  id:    number
   email: string
   token: string
   pass?: string

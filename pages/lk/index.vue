@@ -1,7 +1,11 @@
 <template>
    <div>
+<<<<<<< HEAD
     <ClientOnly>
     <div v-if="!userStore.user"
+=======
+    <div v-if="!userStore"
+>>>>>>> 871d2fce1ca2c31ffa771934136dca606e59703e
       style="max-width: 300px; margin:100px auto; border-radius: 10px; border: 1px solid #DEDEDE; padding:20px;">
       <form @submit.prevent="logIn" method="post" style="display:flex; flex-direction: column; gap:20px">
         <input type="text" placeholder="email" v-model="email">

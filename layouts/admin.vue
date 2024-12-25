@@ -1,6 +1,5 @@
 <template>
-  <HeaderComp/>
-  {{ 'dskljfjls' }}
+  <!-- <HeaderComp/> -->
   <slot></slot>
   <!-- <FooterCompon/> -->
 </template>

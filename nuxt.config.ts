@@ -17,25 +17,31 @@ export default defineNuxtConfig({
   nitro:{
     plugins: ['plugins/extend-html.ts']
   },
+
   vue: {
     compilerOptions: {
       isCustomElement: (tag) => ['swiper-container', 'swiper-slide'].includes(tag),
     },
   },
+
   vite: {
+    ssr: {
+      external: ["@prisma/client"]
+    },
+    resolve: {
+      alias: {
+        '.prisma/client/index-browser': './node_modules/.prisma/client/index-browser.js',
+      },
+    },
     css: {
       preprocessorOptions: {
         scss: {
           api: 'modern-compiler',
         },
       },
-    },
-    resolve: {
-      alias: {
-        ".prisma/client/index-browser": "./node_modules/.prisma/client/index-browser.js"
-      }
-    },
+    }
   },
+
   image: {
     presets: {
       cover: {

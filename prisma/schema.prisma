@@ -31,3 +31,12 @@ model Product {
 
 }
 
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  pass  String  @default("nopass")
+  name  String? 
+  token  String @unique @default(uuid())
+  
+  @@map("user")
+}

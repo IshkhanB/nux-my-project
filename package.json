@@ -14,12 +14,12 @@
     "@pinia/nuxt": "^0.7.0",
     "@prisma/nuxt": "^0.1.3",
     "nuxt": "^3.13.0",
-    "prisma": "^6.0.1",
+    "prisma": "^5.22.0",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
-    "@prisma/client": "^6.1.0",
+    "@prisma/client": "^5.22.0",
     "sass": "^1.79.5"
   },
   "overrides": {

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-export const useDelivery = defineStore('delivery', () => {
+export const useDelivery = defineStore('deliverys', () => {
   const arr=ref([
     {id:1, name:'Сочи, Центральный', time:'1 час 5 минут', date:'2024-03-01', price:'0',},
     {id:2, name:'Сириус', time:'1 час 30 минут', date:'2024-03-02', price:'1800',},

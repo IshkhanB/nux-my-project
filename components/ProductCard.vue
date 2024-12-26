@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps(['product'])
+defineProps(['product','types'])
 </script>
 
 <style>

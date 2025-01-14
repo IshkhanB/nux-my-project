@@ -1,7 +1,7 @@
 <template>
   <div class="grid_cont">
     <div>
-      <NuxtImg class="img_one" :src="product?.img" />
+      <NuxtImg class="img_one" :src="'img/'+product?.img" />
     </div>
     <div class="div_data">
       <h1 class="title_one"> {{ product?.title }} </h1>

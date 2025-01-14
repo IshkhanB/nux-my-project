@@ -8,26 +8,11 @@
     Go home
    </p>
 
- 
-  <!-- <div class="card">
-    <div>
-      <div>
-      <nuxt-img preset="cover" class="card_image"  :src="product?.img" /> 
-      </div>
-    </div>
-    <div class="card_bottom">
-      <NuxtLink :to="`/${product?.type?.title}/${product?.id}`"  class="card__info"> Подробнее</NuxtLink>
-      <NuxtLink id="two" class="card__add">Добавить в корзину</NuxtLink>
-    </div>
-    <div class="card__price card__price--discount">{{ product?.price }}</div>
-    <p class="info_flower">{{ product?.description }}</p>
-    <NuxtLink :to="`/${product?.type?.title}/${product?.id}`" class="card__title"> {{ product?.title }} </NuxtLink>
-  </div> -->
- 
+
+   <h2>Мои товары</h2>
 
 
-   <h2>Мои посты</h2>
-    <form method="post" @submit.prevent="upload">
+    <form class="forma_zapolneniya" method="post" @submit.prevent="upload">
 
       <input type="text" name="title" v-model="title" placeholder="Заголовок">
 
@@ -42,6 +27,9 @@
 
       <input type="submit" value="Опубликовать">
     </form>
+   <div class="cards" style="padding-top: 50px;">
+    <ProductCard v-for="product of products" :product="product" :key="product.id"/>
+  </div>
       <!-- <option v-for="type of types" :type="type" :key="type.id" >{{type.title}}</option> -->
       <!-- v-for="type of types" :product="type" :key="type.id" -->
       <!-- <label for="city-select">Какой тип: </label>
@@ -65,7 +53,8 @@ const userStore = useUsers()
 
 // defineProps(['types'])
 // const typeStore = useTypes()
-
+const {data, refresh} = await useFetch(`/api/product`)
+const products = ref(data.value?.products)
 
 
 definePageMeta({
@@ -99,7 +88,7 @@ const upload = async () => {
       method: 'POST',
       body: fD
     })
-    // refresh()
+    refresh()
     // title.value = ''
     // text.value = ''
     
@@ -108,6 +97,22 @@ const upload = async () => {
 </script>
 
 <style scoped>
+.forma_zapolneniya{
+  margin: 0 auto;
+  padding:10px ;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px red solid;
+}
+input,textarea{
+  border-bottom: 1px grey solid;
+  padding: 10px;
+  width: 400px;
+
+}
   /* .select-wrapper {
   position: relative;
 }

@@ -6,7 +6,8 @@ export default defineEventHandler(async (event) => {
     data.img = event.context.files[0].newFileName
     data.type_id = +data.type_id
     data.price = +data.price
-    
+    delete data.newName
+
     await prisma.product.create({
       data
     })

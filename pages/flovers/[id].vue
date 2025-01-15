@@ -1,6 +1,6 @@
 <template>
   <div class="grid_cont">
-    <div v-if="product.type.title == 'flovers'">
+    <div>
       <NuxtImg class="img_one" :src="'img/'+product?.img" />
     </div>
     <div class="div_data">
@@ -17,7 +17,6 @@
 const route = useRoute()
 const {data} = await useFetch(`/api/product/${route.params.id}`)
 const product = ref(data.value?.product)
- const type = ref(data.value?.type)  
 </script>
 
 <style scoped>

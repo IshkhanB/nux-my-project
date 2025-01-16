@@ -28,7 +28,7 @@
       <input type="submit" value="Опубликовать">
     </form>
    <div class="cards" style="padding-top: 50px;">
-    <ProductCard v-for="product of products" :product="product" :key="product.id"/>
+    <ProductCard v-for="product of products" :product="product" :key="product.id" />
   </div>
       <!-- <option v-for="type of types" :type="type" :key="type.id" >{{type.title}}</option> -->
       <!-- v-for="type of types" :product="type" :key="type.id" -->
@@ -71,7 +71,7 @@ const title = ref('')
 const description = ref('')
 const type_id = ref('')
 const newName = ref('')
-const price = ref(1000)
+const price = ref(0)
 const file = ref(null)
 
 const upload = async () => {
@@ -88,9 +88,11 @@ const upload = async () => {
       method: 'POST',
       body: fD
     })
+    title.value = ''
+    description.value = ''
+    newName.value = ''
+    price.value = 0
     refresh()
-    // title.value = ''
-    // text.value = ''
     
   }
 }

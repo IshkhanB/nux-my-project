@@ -132,7 +132,7 @@ a:hover{
   border: #c9c9c9;
   background-color: #c9c9c9;
   border-radius: 0 20px 0 0 ;
-  padding: 5px;
+  padding: 0 0 0 5px;
 }
 
 </style>

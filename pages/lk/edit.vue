@@ -17,33 +17,39 @@
       <input type="text" name="title" v-model="title" placeholder="Заголовок">
 
       <textarea type="text" name="description" v-model="description" placeholder="Текст публикации"></textarea>
-
       <input type="text" name="type" v-model="type_id" placeholder="type">
+
+      <!-- <select name="type" id="type_id_select">
+        <option value="">-- Выберите тип --</option>
+        <option value="1" onclick="product.type_id">Цветы</option>
+        <option value="4">Подарки</option>
+      </select> -->
+
+      <!-- <USelect v-model="country" :options="countries" option-attribute="name" /> -->
+     
+      <!-- <USelect v-model="type" :options="['United States', 'Canada', 'Mexico']" >sdlf;gk;</USelect> -->
+      
+      
       <input type="number" name="price" v-model="price" placeholder="price">
-    
-  
       <input type="text" name="newName" v-model="newName" placeholder="new filename">
       <input type="file" ref="file" placeholder="Изображение">
-
+      
       <input type="submit" value="Опубликовать">
     </form>
-   <div class="cards" style="padding-top: 50px;">
-    <ProductCard v-for="product of products" :product="product" :key="product.id" />
-  </div>
-      <!-- <option v-for="type of types" :type="type" :key="type.id" >{{type.title}}</option> -->
-      <!-- v-for="type of types" :product="type" :key="type.id" -->
-      <!-- <label for="city-select">Какой тип: </label>
-      <select name="type" id="type-select" > 
-        <option value="all">-- Выберите тип --</option>
-        <option  value="hit_sales">Хиты продаж</option>
-        <option value="bouquets">Букеты</option>
-        <option value="stocks">Акции</option>
-        <option value="gifts">Подарки</option>    
-      </select>  -->
-
-   
-        <!-- <p>{{ post.html }}</p> -->
-       
+    <div class="cards" style="padding-top: 50px;">
+      <ProductCard v-for="product of products" :product="product" :key="product.id" />
+    </div>
+    <!-- <option v-for="type of types" :type="type" :key="type.id" >{{type.title}}</option> -->
+    <!-- v-for="type of types" :product="type" :key="type.id" -->
+    <!-- <label >Какой тип: </label> -->
+    <!-- <select  > 
+      <option v-for="type of types" :type="type.title" :key="type.title" value="all">-- Выберите тип --</option>
+      <option  value="hit_sales">Хиты продаж</option>
+      <option value="bouquets">Букеты</option>
+      <option value="stocks">Акции</option>
+      <option value="gifts">Подарки</option>    
+    </select>  -->
+        
   </div>
 </template>
 
@@ -55,7 +61,13 @@ const userStore = useUsers()
 // const typeStore = useTypes()
 const {data, refresh} = await useFetch(`/api/product`)
 const products = ref(data.value?.products)
-
+const {data_type} = await useFetch('/api/type') as any
+// const d = data_type
+// const type = ref(data_type.value.type_id)
+// console.log(type)
+// const countries = ['United States', 'Canada', 'Mexico']
+// const country = ref(countries[0])
+const types = [{id:1, title: 'flowers'},{id:4, title:'gifts'}]
 
 definePageMeta({
   layout: 'admin'

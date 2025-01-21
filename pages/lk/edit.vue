@@ -13,6 +13,7 @@
 
 
     <form class="forma_zapolneniya" method="post" @submit.prevent="upload">
+      <iframe src="https://yandex.ru/sprav/widget/rating-badge/237768002038?type=rating&theme=dark" width="150" height="50" frameborder="0"></iframe>
 
       <input type="text" name="title" v-model="title" placeholder="Заголовок">
 

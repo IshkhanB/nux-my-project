@@ -3,7 +3,7 @@ import prisma from "~/lib/prisma"
 export default defineEventHandler(async (event) => {
   
     const data = event.context.fields
-    const img = event.context.files.map((el:any)=>el.newFileName)
+    const img = event.context.files.map((el:any)=>({img:el.newFileName}))
     data.type_id = +data.type_id
     data.price = +data.price
     data.sale = +data.sale
@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
         ...data,
         img: {
           createMany:{
-            img
+            data:img
           }
         }
       },

@@ -1,13 +1,25 @@
 <template>
   <div>
-   <div v-if="userStore.user">
-    <h1>LK</h1>
-    <button @click="userStore.logOut">logout</button>
-   </div>  
-   <p v-else>
-    Go home
-   </p>
-
+    <div v-if="userStore.user">
+      <h1>LK</h1>
+      <button @click="userStore.logOut">logout</button>
+    </div>  
+    <p v-else>
+      Go home
+    </p>
+    <!-- ################################################################## -->
+    <div>
+      <ClientOnly class="swip">
+        <swiper-container ref="containerRef" :init="false">
+          <swiper-slide v-for="image, i of images" :key="i">
+            <NuxtImg fit="cover" height="200" width="400" :src="image" alt=""></NuxtImg>
+          </swiper-slide>
+        </swiper-container>
+      </ClientOnly>
+    
+    </div>
+    <!-- ################################################################## -->
+    
 
    <h2>Мои товары</h2>
    
@@ -19,10 +31,10 @@
       <select name="type" id="type_id_select" v-model="type_id">
         <option v-for="t of types?.type" :key="t.id" :value="t.id">{{ t.title }}</option>
       </select>
-
+      
       <input type="number" name="price" v-model="price" placeholder="price">
       <input type="text" name="newName" v-model="newName" placeholder="new filename">
-
+      
       
       <input type="file" ref="file" multiple placeholder="Изображение">
       
@@ -89,7 +101,40 @@ const upload = async () => {
     
   }
 }
+//##################################################################
+const containerRef = ref(null)
+const swiper = useSwiper(containerRef, {
+  effect: 'creative',
+  loop: true,
+  autoplay: {
+    delay: 5000,
+  },
+  creativeEffect: {
+    prev: {
+      shadow: true,
+      translate: [0, 0, -400],
+    },
+    next: {
+      shadow: true,
+      translate: [0, 0, -400],
+    },
+  },
+})
+
+onMounted(() => {
+  console.log(swiper.instance)
+})
+const images = [
+  '/img/sasdas 1.webp',
+  '/img/sasdas 2.webp',
+  '/img/sasdas 3.webp',
+]
+
+//##################################################################
 </script>
+
+
+
 
 <style scoped>
 .forma_zapolneniya{
@@ -127,6 +172,15 @@ select {
   border-color: #aaa;
   border-radius: 3px;
 } */
+ .swip{
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+ }
+swiper-slide>img {
+  object-fit: contain;
+  object-position: center;
+}
 
 </style>
 

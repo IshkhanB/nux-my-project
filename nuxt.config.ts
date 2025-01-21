@@ -65,5 +65,5 @@ export default defineNuxtConfig({
     autoSetupPrisma: true
   },
 
-  modules: ['@pinia/nuxt','@nuxt/image','@prisma/nuxt',]
+  modules: ['@pinia/nuxt','@nuxt/image','nuxt-swiper','@prisma/nuxt',]
 })

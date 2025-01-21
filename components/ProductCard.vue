@@ -3,7 +3,14 @@
   <div class="card">
     <div>
       <div>
-      <nuxt-img preset="cover" class="card_image"  :src="'img/'+product?.img[0].img"/> 
+      <!-- <nuxt-img preset="cover" class="card_image"  :src="'img/'+product?.img[0].img"/>  -->
+      <ClientOnly class="swip">
+        <swiper-container ref="containerRef" :init="false">
+          <swiper-slide v-for="image, i of product?.img[0].img" :key="i">
+            <NuxtImg preset="cover" class="card_image" :src="'img/'+image" ></NuxtImg>
+          </swiper-slide>
+        </swiper-container>
+      </ClientOnly>
       </div>
     </div>
     <div class="card_bottom">
@@ -20,6 +27,29 @@
 
 <script setup lang="ts">
 defineProps(['product','types'])
+
+const containerRef = ref(null)
+const swiper = useSwiper(containerRef, {
+  effect: 'creative',
+  loop: true,
+  autoplay: {
+    delay: 5000,
+  },
+  creativeEffect: {
+    prev: {
+      shadow: true,
+      translate: [0, 0, -400],
+    },
+    next: {
+      shadow: true,
+      translate: [0, 0, -400],
+    },
+  },
+})
+
+onMounted(() => {
+  console.log(swiper.instance)
+})
 </script>
 
 <style>
@@ -182,5 +212,8 @@ defineProps(['product','types'])
     background-color: #e4b891;
     color: #fff;
   } 
- 
+  swiper-slide img {
+  object-fit: contain;
+  object-position: center;
+}
 </style>

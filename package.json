@@ -14,8 +14,11 @@
     "@pinia/nuxt": "^0.7.0",
     "@prisma/nuxt": "^0.1.3",
     "busboy": "^1.6.0",
+    "nuxi": "^3.20.0",
     "nuxt": "^3.13.0",
+    "nuxt-swiper": "^2.0.0",
     "prisma": "^5.22.0",
+    "swiper": "^11.2.1",
     "vue": "latest",
     "vue-router": "latest"
   },

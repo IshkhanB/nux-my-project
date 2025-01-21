@@ -12,10 +12,11 @@
     </div>
     <div v-else
       style="max-width: 300px; margin:100px auto; border-radius: 10px; border: 1px solid #DEDEDE; padding:20px;">
+      
       <h2>Добро подаловать, {{ userStore.user.name }}</h2>
       <a href="http://localhost:3000/lk/edit">Adminka</a>
     </div>
-    </ClientOnly>
+  </ClientOnly>
   </div>
 </template>
 

@@ -10,46 +10,29 @@
 
 
    <h2>Мои товары</h2>
-
-
+   
     <form class="forma_zapolneniya" method="post" @submit.prevent="upload">
       <iframe src="https://yandex.ru/sprav/widget/rating-badge/237768002038?type=rating&theme=dark" width="150" height="50" frameborder="0"></iframe>
 
       <input type="text" name="title" v-model="title" placeholder="Заголовок">
-
       <textarea type="text" name="description" v-model="description" placeholder="Текст публикации"></textarea>
-      <input type="text" name="type" v-model="type_id" placeholder="type">
+      <select name="type" id="type_id_select" v-model="type_id">
+        <option v-for="t of types?.type" :key="t.id" :value="t.id">{{ t.title }}</option>
+      </select>
 
-      <!-- <select name="type" id="type_id_select">
-        <option value="">-- Выберите тип --</option>
-        <option value="1" onclick="product.type_id">Цветы</option>
-        <option value="4">Подарки</option>
-      </select> -->
-
-      <!-- <USelect v-model="country" :options="countries" option-attribute="name" /> -->
-     
-      <!-- <USelect v-model="type" :options="['United States', 'Canada', 'Mexico']" >sdlf;gk;</USelect> -->
-      
-      
       <input type="number" name="price" v-model="price" placeholder="price">
       <input type="text" name="newName" v-model="newName" placeholder="new filename">
-      <input type="file" ref="file" placeholder="Изображение">
+
       
+      <input type="file" ref="file" multiple placeholder="Изображение">
+      
+      
+      <!-- enctype='multipart/form-data' -->
       <input type="submit" value="Опубликовать">
     </form>
     <div class="cards" style="padding-top: 50px;">
-      <ProductCard v-for="product of products" :product="product" :key="product.id" />
+      <ProductCard v-for="product of data?.products" :product="product" :key="product.id" />
     </div>
-    <!-- <option v-for="type of types" :type="type" :key="type.id" >{{type.title}}</option> -->
-    <!-- v-for="type of types" :product="type" :key="type.id" -->
-    <!-- <label >Какой тип: </label> -->
-    <!-- <select  > 
-      <option v-for="type of types" :type="type.title" :key="type.title" value="all">-- Выберите тип --</option>
-      <option  value="hit_sales">Хиты продаж</option>
-      <option value="bouquets">Букеты</option>
-      <option value="stocks">Акции</option>
-      <option value="gifts">Подарки</option>    
-    </select>  -->
         
   </div>
 </template>
@@ -58,17 +41,10 @@
 import { useUsers } from '~/stores/user'
 const userStore = useUsers()
 
-// defineProps(['types'])
-// const typeStore = useTypes()
 const {data, refresh} = await useFetch(`/api/product`)
-const products = ref(data.value?.products)
-const {data_type} = await useFetch('/api/type') as any
-// const d = data_type
-// const type = ref(data_type.value.type_id)
-// console.log(type)
-// const countries = ['United States', 'Canada', 'Mexico']
-// const country = ref(countries[0])
-const types = [{id:1, title: 'flowers'},{id:4, title:'gifts'}]
+const {data:types} = await useFetch('/api/type')
+
+const type_id = ref(1)
 
 definePageMeta({
   layout: 'admin'
@@ -82,7 +58,6 @@ onMounted( async ()=>{
 
 const title = ref('')
 const description = ref('')
-const type_id = ref('')
 const newName = ref('')
 const price = ref(0)
 const file = ref(null)
@@ -94,16 +69,21 @@ const upload = async () => {
     fD.append('title', title.value)
     fD.append('newName', newName.value)
     fD.append('description', description.value)
-    fD.append('type_id', '1')
-    fD.append('img', fileref.files[0])
+    fD.append('type_id', type_id.value.toString())
+    for (let i=0;i<fileref.files.length;i++) {
+      fD.append('img'+i, fileref.files[i])
+    }
     fD.append('price', price.value.toString())
+    fD.append('sale', '0')
     await $fetch('/api/product', {
       method: 'POST',
       body: fD
     })
     title.value = ''
-    description.value = ''
     newName.value = ''
+    description.value = ''
+    type_id.value = 1
+    fileref.value = ''
     price.value = 0
     refresh()
     

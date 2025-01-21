@@ -3,7 +3,7 @@
   <div class="card">
     <div>
       <div>
-      <nuxt-img preset="cover" class="card_image"  :src="'img/'+product?.img"/> 
+      <nuxt-img preset="cover" class="card_image"  :src="'img/'+product?.img[0].img"/> 
       </div>
     </div>
     <div class="card_bottom">

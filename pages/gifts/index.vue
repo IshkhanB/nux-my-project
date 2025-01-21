@@ -12,7 +12,7 @@
 </template>
  
 <script setup lang="ts">
-const {data} = await useFetch(`/api/product`)
+const {data} = await useFetch(`/api/product/type/4`)
 const products = ref(data.value?.products)
 const reviewsStore = useReviews()
 const deliveryStore = useDelivery()

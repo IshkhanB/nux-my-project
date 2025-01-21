@@ -11,7 +11,7 @@ export default defineEventHandler(async (event)=>{
       })
       return{type, ok: true}
     }catch(e) {
-      return{products:[], ok: false, e}
+      return{type:[], ok: false, e}
       
     }
 })

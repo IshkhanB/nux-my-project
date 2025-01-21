@@ -3,13 +3,22 @@ import prisma from "~/lib/prisma"
 export default defineEventHandler(async (event) => {
   
     const data = event.context.fields
-    data.img = event.context.files[0].newFileName
+    const img = event.context.files.map((el:any)=>el.newFileName)
     data.type_id = +data.type_id
     data.price = +data.price
+    data.sale = +data.sale
     delete data.newName
 
     await prisma.product.create({
-      data
+      data:{
+        ...data,
+        img: {
+          createMany:{
+            img
+          }
+        }
+      },
+
     })
   
 })

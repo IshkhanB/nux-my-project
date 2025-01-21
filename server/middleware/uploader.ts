@@ -16,16 +16,17 @@ const useFiles = async (event: any) => {
       const files = [] as any
       const fields = {} as any
       const busboy = Busboy({ headers: req.headers })
+      let i = 1
       busboy.on('file', (name, file, info) => {
         console.log(fields)
         const { filename, encoding, mimeType } = info
-        const newFileName = fields.newName + '.webp'
+        const newFileName = fields.newName + ' ' + i + '.webp'
+        i++
         console.log(`File [${name}]: filename: ${filename}, encoding: ${encoding}, mimeType: ${mimeType}`)
-        console.log(path.join(process.cwd(), '../public/img'))
+        console.log(path.join(process.cwd(), '../public/img/img'))
         const saveTo = path.join(process.cwd(), '../public/img', `${newFileName}`)
         // console.log('saveTo', saveTo)
         // file.pipe(fs.createWriteStream(saveTo))
-        
         const data = [] as any
         let fileAsBuffer
 

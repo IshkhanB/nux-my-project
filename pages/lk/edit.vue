@@ -8,7 +8,7 @@
       Go home
     </p>
     <!-- ################################################################## -->
-    <div>
+    <div class="swip_div">
       <ClientOnly class="swip">
         <swiper-container ref="containerRef" :init="false">
           <swiper-slide v-for="image, i of images" :key="i">
@@ -16,7 +16,6 @@
           </swiper-slide>
         </swiper-container>
       </ClientOnly>
-    
     </div>
     <!-- ################################################################## -->
     
@@ -125,9 +124,9 @@ onMounted(() => {
   console.log(swiper.instance)
 })
 const images = [
-  '/img/sasdas 1.webp',
-  '/img/sasdas 2.webp',
-  '/img/sasdas 3.webp',
+  '/img/1735233911927444.jpg.webp',
+  '/img/1735234524397112.png.webp',
+  '/img/1735234704648222.jpg.webp',
 ]
 
 //##################################################################
@@ -150,7 +149,7 @@ const images = [
 input,textarea{
   border-bottom: 1px grey solid;
   padding: 10px;
-  width: 400px;
+  width: 600px;
 
 }
   /* .select-wrapper {
@@ -173,14 +172,18 @@ select {
   border-radius: 3px;
 } */
  .swip{
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+  }
+  swiper-slide>img {
+    box-sizing: border-box;
+    object-fit: cover;
+    object-position: center;
+  }
+  .swip_div{
   margin: 0 auto;
-  display: flex;
-  align-items: center;
- }
-swiper-slide>img {
-  object-fit: contain;
-  object-position: center;
-}
-
+  width: 400px;
+  }
 </style>
 

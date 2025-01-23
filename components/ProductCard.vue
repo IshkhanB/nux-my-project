@@ -1,22 +1,21 @@
 
 <template>
   <div class="card">
-    <div>
-      <div>
-      <!-- <nuxt-img preset="cover" class="card_image"  :src="'img/'+product?.img[0].img"/>  -->
-      <ClientOnly class="swip">
-        <swiper-container ref="containerRef" :init="false">
-          <swiper-slide v-for="image, i of product?.img[0].img" :key="i">
-            <NuxtImg preset="cover" class="card_image" :src="'img/'+image" ></NuxtImg>
-          </swiper-slide>
-        </swiper-container>
-      </ClientOnly>
-      </div>
-    </div>
+        <!-- <nuxt-img preset="cover" class="card_image"  :src="'img/'+product?.img[0].img"/>  -->
+        <ClientOnly class="card__top">
+          <swiper-container ref="containerRef" :init="false">
+            <swiper-slide class="swip card_image" v-for="img of product?.img" :key="img.id">
+              <NuxtImg preset="cover"   :src="'img/'+img.img" ></NuxtImg>
+            </swiper-slide>
+          </swiper-container>
+        </ClientOnly>
+        <div>
+  
+        </div>
     <div class="card_bottom">
       <NuxtLink :to="`/${product?.type?.title}/${product?.id}`"  class="card__info"> Подробнее</NuxtLink>
       <NuxtLink id="two" class="card__add">Добавить в корзину</NuxtLink>
-      {{console.log(product.img)}}
+      <!-- {{console.log(product.img)}} -->
     </div>
     <div class="card__price card__price--discount">{{ product?.price }}</div>
     <p class="info_flower">{{ product?.description }}</p>
@@ -27,6 +26,7 @@
 
 <script setup lang="ts">
 defineProps(['product','types'])
+
 
 const containerRef = ref(null)
 const swiper = useSwiper(containerRef, {
@@ -74,7 +74,7 @@ onMounted(() => {
     position: relative;
     overflow: hidden;
   }
-  .card_image {
+  .card_image>slot {
     border-radius: 5px 5px 0 0  !important;
     position: absolute;
     top: 0;
@@ -212,8 +212,15 @@ onMounted(() => {
     background-color: #e4b891;
     color: #fff;
   } 
-  swiper-slide img {
-  object-fit: contain;
-  object-position: center;
-}
+  /* .swip{
+   margin: 0 auto;
+   display: flex;
+   align-items: center;
+  } */
+  /* swiper-slide>img {
+    box-sizing: border-box;
+    object-fit: cover;
+    object-position: center;
+  } */
+
 </style>

@@ -12,7 +12,7 @@
       <ClientOnly class="swip">
         <swiper-container ref="containerRef" :init="false">
           <swiper-slide v-for="image, i of images" :key="i">
-            <NuxtImg fit="cover" height="200" width="400" :src="image" alt=""></NuxtImg>
+            <NuxtImg preset="cover" width="327px"  :src="image" alt=""></NuxtImg>
           </swiper-slide>
         </swiper-container>
       </ClientOnly>
@@ -177,13 +177,14 @@ select {
    align-items: center;
   }
   swiper-slide>img {
-    box-sizing: border-box;
-    object-fit: cover;
     object-position: center;
+    border-radius: 20px;
   }
   .swip_div{
-  margin: 0 auto;
-  width: 400px;
+    margin: 0 auto;
+    width: 327px;
+    /* object-fit: cover; */
+    /* box-sizing: border-box; */
   }
 </style>
 

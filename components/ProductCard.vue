@@ -52,7 +52,7 @@ onMounted(() => {
 })
 </script>
 
-<style>
+<style scoped>
   .card {
     margin: 0 auto;
     border-radius: 10px !important;

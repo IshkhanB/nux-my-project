@@ -20,6 +20,7 @@
     <div class="card__price card__price--discount">{{ product?.price }}</div>
     <p class="info_flower">{{ product?.description }}</p>
     <NuxtLink :to="`/${product?.type?.title}/${product?.id}`" class="card__title"> {{ product?.title }} </NuxtLink>
+    {{ product.price }}
   </div>
 
 </template>

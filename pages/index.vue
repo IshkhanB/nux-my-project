@@ -2,8 +2,8 @@
  <SubstrateComponent>
   <AfterHeadr/>
   <FilterMenu/>
-  <ProductCardsss/>
-  <!-- <ProductsComp :products="products"/> -->
+  <!-- <ProductsNew/> -->
+  <ProductsComp :products="products"/>
   <AboutUs/>
   <DeliveryMap :delivery="deliveryStore.arr"/>
   <HowPay/>
@@ -12,7 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import ProductCardsss from '~/components/ProductCardsss.vue';
 
 const {data} = await useFetch(`/api/product`)
 const products = ref(data.value?.products)

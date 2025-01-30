@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 const route = useRoute()
-const {data} = await useFetch(`/api/product/${route.params.id}`)
+const {data} = await useFetch(`/api/product/${route.params.id}`) as any // ! нужно посмотреть
 const product = ref(data.value?.product)
 </script>
 

@@ -32,6 +32,7 @@
       </select>
       
       <input type="number" name="price" v-model="price" placeholder="price">
+      <input type="number" name="sale" v-model="sale" placeholder="sale">
       <input type="text" name="newName" v-model="newName" placeholder="new filename">
       
       
@@ -71,6 +72,7 @@ const title = ref('')
 const description = ref('')
 const newName = ref('')
 const price = ref(0)
+const sale = ref(0)
 const file = ref(null)
 
 const upload = async () => {
@@ -85,7 +87,7 @@ const upload = async () => {
       fD.append('img'+i, fileref.files[i])
     }
     fD.append('price', price.value.toString())
-    fD.append('sale', '0')
+    fD.append('sale', sale.value.toString())
     await $fetch('/api/product', {
       method: 'POST',
       body: fD
@@ -96,6 +98,7 @@ const upload = async () => {
     type_id.value = 1
     fileref.value = ''
     price.value = 0
+    sale.value = 0
     refresh()
     
   }

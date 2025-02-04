@@ -22,7 +22,7 @@
     <NuxtLink :to="`/${product?.type?.title}/${product?.id}`" class="card__title"> {{ product?.title }} </NuxtLink>
     {{ product.price }}
   </div>
-
+  
 </template>
 
 <script setup lang="ts">
@@ -32,9 +32,10 @@ defineProps(['product','types'])
 const containerRef = ref(null)
 const swiper = useSwiper(containerRef, {
   effect: 'creative',
-  loop: true,
+  loop: false,
   autoplay: {
     delay: 5000,
+
   },
   creativeEffect: {
     prev: {
@@ -213,11 +214,12 @@ onMounted(() => {
     background-color: #e4b891;
     color: #fff;
   } 
-  /* .swip{
-   margin: 0 auto;
-   display: flex;
-   align-items: center;
-  } */
+  .swip{
+    display: none;
+    /* margin: 0 auto;
+    display: flex;
+    align-items: center; */
+  }
   /* swiper-slide>img {
     box-sizing: border-box;
     object-fit: cover;

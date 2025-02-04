@@ -29,6 +29,7 @@ const product = ref(data.value?.product)
   grid-column-gap: 10px;
   grid-row-gap: 0px;
 }
+
 .img_one{
   margin: 0 auto;
   padding: 20px;

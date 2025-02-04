@@ -2,23 +2,23 @@
   <div class="filter_fon">
     <div class="menu_filter">
       <NuxtLink  to="/#catalog"  class="filter_all filter_ton_all" :class="route.path=='/'?'filter_ton':''">
-        <img src="public/icon/Group_949_3.svg"></img>
+        <img src="public/icon/Group_949_3.svg" />
         <p class="filter_p">Все</p>
       </NuxtLink>
       <NuxtLink  to="/hits#catalog" class="filter_bestsellers filter_ton_all"  :class="route.path=='/hits'?'filter_ton':''">
-        <img src="public/icon/bi_fire_4.svg" ></img>
+        <img src="public/icon/bi_fire_4.svg" />
         <p class="filter_p">хиты продаж</p>
       </NuxtLink>
       <NuxtLink to="/flowers#catalog" class="filter_bouquets filter_ton_all" :class="route.path=='/flowers'?'filter_ton':''">
-        <img src="public/icon/Group_974.svg" ></img>
+        <img src="public/icon/Group_974.svg" />
         <p class="filter_p">Букеты</p>
       </NuxtLink>
       <NuxtLink to="/stocks#catalog" class="filter_stock filter_ton_all"  :class="route.path=='/stocks'?'filter_ton':''">
-        <img  src="public/icon/solar_sale-bold_2.svg"></img>
+        <img  src="public/icon/solar_sale-bold_2.svg"/>
         <p class="filter_p">Акции</p>
       </NuxtLink>
       <NuxtLink to="/gifts#catalog" class="filter_present filter_ton_all"  :class="route.path=='/gifts'?'filter_ton':''">
-        <img src="public/icon/ic_baseline-cake_2.svg"  ></img>
+        <img src="public/icon/ic_baseline-cake_2.svg"/>
         <p class="filter_p">Подарки</p>
       </NuxtLink>   
     </div>  

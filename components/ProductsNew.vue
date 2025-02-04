@@ -3,9 +3,9 @@
      <div class="div_cont">
         <!-- <nuxt-img  :src="images[2]"></nuxt-img> -->
         <ClientOnly class="div1 swip">
-          <swiper-container ref="containerRef" :init="false">
+          <swiper-container ref="containerRef" :init="true">
             <swiper-slide v-for="img of product?.img" :key="img.id">
-              <NuxtImg preset="cover" width="324px" :src="'img/'+img.img" ></NuxtImg>
+              <NuxtImg preset="cover" height="327" width="327px" :src="'img/'+img.img" ></NuxtImg>
             </swiper-slide>
           </swiper-container>
         </ClientOnly>
@@ -30,14 +30,14 @@ defineProps(['product','types'])
 
 
 const containerRef = ref(null)
-const sale = ref(false)
-const prise_sale = 4
+// const sale = ref(0)
+// const prise_sale = 4
 const swiper = useSwiper(containerRef, {
   effect: 'creative',
   loop: true,
-  autoplay: {
-    delay: 5000,
-  },
+  //autoplay: {
+  //  delay: 5000,
+  //},
   creativeEffect: {
     prev: {
       shadow: true,
@@ -60,7 +60,7 @@ onMounted(() => {
  .card {
    margin: 0 auto;
    border-radius: 20px !important;
-   width: 328px;
+   width: 327px;
    min-height: 550px;
    cursor: pointer;
    /* display: block; */

@@ -3,7 +3,7 @@
   <div class="card">
         <!-- <nuxt-img preset="cover" class="card_image"  :src="'img/'+product?.img[0].img"/>  -->
         <ClientOnly class="card__top">
-          <swiper-container ref="containerRef" :init="false">
+          <swiper-container ref="containerRef" :init="true">
             <swiper-slide class="swip card_image" v-for="img of product?.img" :key="img.id">
               <NuxtImg preset="cover"   :src="'img/'+img.img" ></NuxtImg>
             </swiper-slide>
@@ -33,10 +33,9 @@ const containerRef = ref(null)
 const swiper = useSwiper(containerRef, {
   effect: 'creative',
   loop: false,
-  autoplay: {
-    delay: 5000,
-
-  },
+  //autoplay: {
+  //  delay: 5000,
+  //},
   creativeEffect: {
     prev: {
       shadow: true,

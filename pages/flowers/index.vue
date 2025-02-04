@@ -2,7 +2,8 @@
   <SubstrateComponent>
    <AfterHeadr/>
    <FilterMenu/>
-   <ProductsComp :products="products"/>
+   <!-- <ProductsComp :products="products"/> -->
+   <ProductsNew :products="products"/>
    <AboutUs/>
    <DeliveryMap :delivery="deliveryStore.arr"/>
    <!-- <NewFile/> -->

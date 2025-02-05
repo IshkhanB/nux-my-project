@@ -10,15 +10,15 @@
           </swiper-container>
         </ClientOnly>
         <div class="div2">
-          <p class="card__title" > {{ product?.title }}</p>
+          <p class="card_title" > {{ product?.title }}</p>
           <p class="info_flower"> {{ product?.description }}</p>
           <div style="display: flex;">
-            <div class="card__price ">{{ product?.sale }}</div>
-            <div class="card__price card__price--sale">{{ product?.price }}</div>
+            <div class="card_price ">{{ product?.sale }}</div>
+            <div class="card_price card_price--sale">{{ product?.price }}</div>
           </div>
           <div class="card_bottom1">
-            <NuxtLink :to="`#`"  class="card__info"> Подробнее</NuxtLink>
-            <NuxtLink :to="`#`" class="card__add">Добавить в корзину</NuxtLink>
+            <NuxtLink :to="`#`"  class="card_info"> Подробнее</NuxtLink>
+            <NuxtLink :to="`#`" class="card_add">Добавить в корзину</NuxtLink>
           </div>
         </div>
     </div>
@@ -70,6 +70,15 @@ onMounted(() => {
    /* transition: 0.2s; */
    /* position: relative; */
   }
+  .card_title{
+    margin: 0 auto;
+    padding: 5px;
+    FONT-WEIGHT: 700;
+  }
+  .info_flower{
+    margin: 0 auto;
+    padding: 5px;
+  }
   .card:hover {
     box-shadow: 0px 0px 20px rgba(15, 8, 5, 0.2);
   }
@@ -82,13 +91,13 @@ onMounted(() => {
   'div2';
   gap: 10px;
 }
-.card__price {
+.card_price {
   margin: 0;
   padding: 5px 5px 5px 5px;
   margin-right: 0;
   /* margin: 10px 10px 10px 10px; */
 }
-.card__price--sale {
+.card_price--sale {
   margin: 0;
   padding: 5px 5px 5px 5px;
   color: #414141;
@@ -98,7 +107,7 @@ onMounted(() => {
   /* display: flex; */
   /* flex-wrap: wrap-reverse; */
 }
-.card__price::after {
+.card_price::after {
   margin: 0 auto;
   content: "₽";
   margin-left: 4px;
@@ -122,7 +131,7 @@ swiper-slide>img {
   object-position: center;
   border-radius: 10px 10px 0 0;
 }
-.card__add {
+.card_add {
     margin: 0 auto;
     padding: 15px;
     color: #ffffff;
@@ -133,7 +142,7 @@ swiper-slide>img {
     font-weight: 500;
     
   }
-  .card__info {
+  .card_info {
     margin: 0 auto;
     padding: 15px;
     color: #ffffff;
@@ -142,11 +151,11 @@ swiper-slide>img {
     font-weight: 500;
   }
 
-  .card__add:hover {
+  .card_add:hover {
     background-color: #e4b891;
     color: #fff;
   } 
-  .card__info:hover {
+  .card_info:hover {
     background-color: #e4b891;
     color: #fff;
   }

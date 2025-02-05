@@ -72,7 +72,7 @@ const title = ref('')
 const description = ref('')
 const newName = ref('')
 const price = ref(0)
-const sale = ref(0)
+const sale = ref()
 const file = ref(null)
 
 const upload = async () => {
@@ -108,9 +108,9 @@ const containerRef = ref(null)
 const swiper = useSwiper(containerRef, {
   effect: 'creative',
   loop: true,
-  autoplay: {
-    delay: 5000,
-  },
+  // autoplay: {
+  //   delay: 5000,
+  // },
   creativeEffect: {
     prev: {
       shadow: true,

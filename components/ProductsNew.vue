@@ -13,8 +13,8 @@
           <p class="card_title" > {{ product?.title }}</p>
           <p class="info_flower"> {{ product?.description }}</p>
           <div style="display: flex;">
-            <div class="card_price ">{{ product?.sale }}</div>
-            <div class="card_price card_price--sale">{{ product?.price }}</div>
+            <div class="card_price">{{ product?.sale }}</div>
+            <div class="card_price card_price--sale">{{product?.price}}</div>
           </div>
           <div class="card_bottom1">
             <NuxtLink :to="`#`"  class="card_info"> Подробнее</NuxtLink>

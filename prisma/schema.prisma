@@ -20,7 +20,7 @@ model Product {
   title       String
   description String
   price       Int
-  sale        Int
+  sale        Int?
   hits        Boolean  @default(false)
   publish     Boolean  @default(true)
   created_at  DateTime @default(now())

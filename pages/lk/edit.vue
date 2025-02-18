@@ -8,7 +8,7 @@
       Go home
     </p>
     <!-- ################################################################## -->
-    <div class="swip_div">
+    <!-- <div class="swip_div">
       <ClientOnly class="swip">
         <swiper-container ref="containerRef" :init="false">
           <swiper-slide v-for="image, i of images" :key="i">
@@ -16,7 +16,7 @@
           </swiper-slide>
         </swiper-container>
       </ClientOnly>
-    </div>
+    </div> -->
     <!-- ################################################################## -->
     
 
@@ -104,33 +104,33 @@ const upload = async () => {
   }
 }
 //##################################################################
-const containerRef = ref(null)
-const swiper = useSwiper(containerRef, {
-  effect: 'creative',
-  loop: true,
-  // autoplay: {
-  //   delay: 5000,
-  // },
-  creativeEffect: {
-    prev: {
-      shadow: true,
-      translate: [0, 0, -400],
-    },
-    next: {
-      shadow: true,
-      translate: [0, 0, -400],
-    },
-  },
-})
+// const containerRef = ref(null)
+// const swiper = useSwiper(containerRef, {
+//   effect: 'creative',
+//   loop: true,
+//   // autoplay: {
+//   //   delay: 5000,
+//   // },
+//   creativeEffect: {
+//     prev: {
+//       shadow: true,
+//       translate: [0, 0, -400],
+//     },
+//     next: {
+//       shadow: true,
+//       translate: [0, 0, -400],
+//     },
+//   },
+// })
 
-onMounted(() => {
-  console.log(swiper.instance)
-})
-const images = [
-  '/img/1735233911927444.jpg.webp',
-  '/img/1735234524397112.png.webp',
-  '/img/1735234704648222.jpg.webp',
-]
+// onMounted(() => {
+//   console.log(swiper.instance)
+// })
+// const images = [
+//   '/img/1735233911927444.jpg.webp',
+//   '/img/1735234524397112.png.webp',
+//   '/img/1735234704648222.jpg.webp',
+// ]
 
 //##################################################################
 </script>

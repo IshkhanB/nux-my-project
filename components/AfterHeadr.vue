@@ -9,7 +9,7 @@
     <!-- букетов по всему сочи -->
   </div>
   <div class="baner_div">
-    <div>Лучшие цены</div>
+    <div> <p>Лучшие цены</p></div>
     <div>Фотоотчет</div>
     <div>Лучшие цены</div>
   </div>
@@ -54,12 +54,35 @@
   object-fit: cover;
 }
 .img_girl{
-width: 600px;
-overflow: hidden;
-object-fit: cover;
-position: absolute;
-top: -90px;
-right: 0px;
+    width: 600px;
+    overflow: hidden;
+    object-fit: cover;
+    position: absolute;
+    top: -90px;
+  right: 0px;
+}
+.baner_div{
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.baner_div>div{
+  padding: 10px;
+  /* width: 100px; */
+  text-align: center;
+  opacity: 0.35;
+  background-color: #7e7e7e;
+  /* filter: blur(1px); */
+  border-radius: 5px;
+  /* background-color: rgba(128, 128, 128, 0.5);  */
+}
+.baner_div>p{
+  display: block;
+  filter: blur(0px);
 }
 
 

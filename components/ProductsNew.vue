@@ -2,13 +2,11 @@
   <div class="card" >
      <div class="div_cont">
         <!-- <nuxt-img  :src="images[2]"></nuxt-img> -->
-        <ClientOnly class="div1 swip">
-          <swiper-container ref="containerRef" :init="true">
-            <swiper-slide v-for="img of product?.img" :key="img.id">
-              <NuxtImg class="div1" preset="cover" height="327" width="327px" :src="'img/'+img.img" ></NuxtImg>
-            </swiper-slide>
-          </swiper-container>
-        </ClientOnly>
+        <swiper-container ref="containerRef" :init="true">
+          <swiper-slide v-for="img of product?.img" :key="img.id">
+            <NuxtImg  preset="cover" height="327" width="327px" :src="'img/'+img.img" ></NuxtImg>
+          </swiper-slide>
+        </swiper-container>
         <div class="div2">
           <p class="card_title" > {{ product?.title }}</p>
           <p class="info_flower"> {{ product?.description }}</p>
@@ -20,7 +18,7 @@
               <div class="card_price">{{ product?.price }}</div>
             </div>
           <div class="card_bottom1">
-            <NuxtLink :to="`#`"  class="card_info"> Подробнее</NuxtLink>
+            <NuxtLink :to="`/${product?.type?.title}/${product?.id}`"  class="card_info"> Подробнее</NuxtLink>
             <NuxtLink :to="`#`" class="card_add">Добавить в корзину</NuxtLink>
           </div>
         </div>

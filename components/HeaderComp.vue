@@ -9,11 +9,11 @@
         </h1>
       </NuxtLink>
       <nav class="header_nav">
-        <a class="heder_a" href="/#catalog" >Каталог</a>
-        <a class="heder_a" href="/delivery" @click.prevent="goToAnchor('#delivery')">Доставка и оплата</a>
-        <a class="heder_a" href="#">FAQ</a>
-        <a class="heder_a" href="/about_us" @click.prevent="goToAnchor('#about_us')">О нас</a>
-        <a class="heder_a" href="/reviews" @click.prevent="goToAnchor('#reviews')">Отзывы</a> 
+        <a class="header_a" href="/#catalog" aria-label="Перейти к каталогу">Каталог</a>
+        <a class="header_a" href="/delivery" @click.prevent="goToAnchor('#delivery')">Доставка и оплата</a>
+        <a class="header_a" href="#">FAQ</a>
+        <a class="header_a" href="/about_us" @click.prevent="goToAnchor('#about_us')">О нас</a>
+        <a class="header_a" href="/reviews" @click.prevent="goToAnchor('#reviews')">Отзывы</a> 
       </nav>
       <div class="iconci_v_div">
         <p class="icon_search">
@@ -90,11 +90,11 @@ const goToAnchor = (hash:string)=>{
   color: #595959;
   font-family: Arial, sans-serif;
 }
-.heder_a:hover::before {
+.header_a:hover::before {
   transform-origin: 0% 50%;
   transform: scale3d(1, 1, 1);
 }
-.heder_a::before {
+.header_a::before {
   transform-origin: 100% 50%;
   transform: scale3d(0, 1, 1);
   transition: transform 500ms !important;
@@ -114,7 +114,7 @@ const goToAnchor = (hash:string)=>{
   gap: 20px;
   height:58px;
 }
-.heder_a>img {
+.header_a>img {
   width: 35px;
 }
 @media screen and (max-width: 1024px) {

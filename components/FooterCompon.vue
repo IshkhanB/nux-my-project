@@ -23,7 +23,8 @@
     <div class="menu_footer">
       <h1> Меню</h1>
       <nav class="nav_footer">
-        <a href="/#catalog" @click.prevent="goToAnchor('/#catalog')">Каталог</a>
+        <a class="heder_a" href="/#catalog" >Каталог</a>
+        <!-- <a href="/#catalog" @click.prevent="goToAnchor('/#catalog')">Каталог</a> -->
         <a href="/#delivery" @click.prevent="goToAnchor('/#delivery')">Доставка и оплата</a>
         <p >FAQ</p>
         <a href="/about_us" @click.prevent="goToAnchor('#about_us')">О нас</a>
@@ -51,6 +52,7 @@
       </div>
       <div>
       <p>Rазработано Мной</p>
+      <iframe src="https://yandex.ru/sprav/widget/rating-badge/237768002038?type=rating&theme=dark" width="150" height="50" frameborder="0"></iframe>
       </div>
     </div>
   </div>
@@ -87,6 +89,7 @@ const goToAnchor = (hash:string)=>{
 .menu_footer{
   grid-area: 1 / 2 / 2 / 3;
   margin: 0 auto;  
+  width: 140px;
 }
 .menu_footer>h1{
   background-size: 35px;

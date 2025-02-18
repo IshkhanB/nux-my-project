@@ -6,7 +6,8 @@ export default defineEventHandler(async (event)=>{
     try{
       const product = await prisma.product.findUnique({
         include:{
-          type: true
+          type: true,
+          img: true
         },where:{
           id: +id
         }

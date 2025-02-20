@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div v-if="userStore.user">
+    <div v-if="userStore.user" style="margin: 0 auto;">
       <h1>LK</h1>
-      <button @click="userStore.logOut">logout</button>
+      <button style="background-color: brown; border-radius: 20px; padding: 10px;" @click="userStore.logOut">logout</button>
     </div>  
-    <p v-else>
+    <div v-else>
       Go home
-    </p>
+    </div>
     <!-- ################################################################## -->
     <!-- <div class="swip_div">
       <ClientOnly class="swip">
@@ -18,32 +18,38 @@
       </ClientOnly>
     </div> -->
     <!-- ################################################################## -->
-    
-
-   <h2>Мои товары</h2>
-   
+       
     <form class="forma_zapolneniya" method="post" @submit.prevent="upload">
       <iframe src="https://yandex.ru/sprav/widget/rating-badge/237768002038?type=rating&theme=dark" width="150" height="50" frameborder="0"></iframe>
 
       <input type="text" name="title" v-model="title" placeholder="Заголовок">
       <textarea type="text" name="description" v-model="description" placeholder="Текст публикации"></textarea>
+      
       <select name="type" id="type_id_select" v-model="type_id">
         <option v-for="t of types?.type" :key="t.id" :value="t.id">{{ t.title }}</option>
       </select>
-      
       <input type="number" name="price" v-model="price" placeholder="price">
-      <input type="number" name="sale" v-model="sale" placeholder="sale">
+      <label for="sale">Скидка:</label>
+      <input type="number"  id="sale" name="sale" v-model="sale" placeholder="Введите скидку">
+
       <input type="text" name="newName" v-model="newName" placeholder="new filename">
-      
-      
-      <input type="file" ref="file" multiple placeholder="Изображение">
-      
+      <div>
+        <label for="file">Изображение:</label>
+        <input type="file" id="file" ref="file" multiple @change="handleFileUpload" placeholder="Изображение">
+
+        <div class="preview-container">
+          <div v-for="(image, index) in previewImages" :key="index" class="preview-item">
+            <img :src="image" alt="Превью" class="preview-image" />
+            <button @click.prevent="removeImage(index)" class="remove-button">×</button>
+          </div>
+        </div>
+      </div>
       
       <!-- enctype='multipart/form-data' -->
       <input type="submit" value="Опубликовать">
     </form>
     <div class="cards" style="padding-top: 50px;">
-      <ProductCard v-for="product of data?.products" :product="product" :key="product.id" />
+      <ProductsNew v-for="product of data?.products" :product="product" :key="product.id" />
     </div>
         
   </div>
@@ -68,6 +74,37 @@ onMounted( async ()=>{
   }
 })
 
+
+//************************************************************
+const previewImages = ref([] as any[])
+
+let files = [] as any[]
+
+// Обработчик загрузки файлов
+const handleFileUpload = (event: Event ) => {
+  const target = event.target as HTMLInputElement
+  // @ts-ignore
+  files = target.files || [] as any[]
+  if (files) {
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i]
+      const reader = new FileReader()
+      
+      // Чтение файла и добавление его в массив превью
+      reader.onload = (e) => {
+        previewImages.value.push(e.target?.result)
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+}
+
+// Удаление изображения из превью
+const removeImage = (index: number) => {
+  previewImages.value.splice(index, 1)
+  files.splice(index, 1)
+}
+//************************************************************
 const title = ref('')
 const description = ref('')
 const newName = ref('')
@@ -78,13 +115,13 @@ const file = ref(null)
 const upload = async () => {
   const fileref = file.value as never as HTMLInputElement
   const fD = new FormData()
-  if (fileref.files) {
+  if (files.length) {
     fD.append('title', title.value)
     fD.append('newName', newName.value)
     fD.append('description', description.value)
     fD.append('type_id', type_id.value.toString())
-    for (let i=0;i<fileref.files.length;i++) {
-      fD.append('img'+i, fileref.files[i])
+    for (let i=0;i<files.length;i++) {
+      fD.append('img'+i, files[i])
     }
     fD.append('price', price.value.toString())
     fD.append('sale', sale.value.toString())
@@ -106,32 +143,32 @@ const upload = async () => {
 //##################################################################
 // const containerRef = ref(null)
 // const swiper = useSwiper(containerRef, {
-//   effect: 'creative',
-//   loop: true,
-//   // autoplay: {
-//   //   delay: 5000,
-//   // },
-//   creativeEffect: {
-//     prev: {
-//       shadow: true,
-//       translate: [0, 0, -400],
-//     },
-//     next: {
-//       shadow: true,
-//       translate: [0, 0, -400],
-//     },
-//   },
-// })
-
-// onMounted(() => {
+  //   effect: 'creative',
+  //   loop: true,
+  //   // autoplay: {
+    //   //   delay: 5000,
+    //   // },
+    //   creativeEffect: {
+      //     prev: {
+        //       shadow: true,
+        //       translate: [0, 0, -400],
+        //     },
+        //     next: {
+          //       shadow: true,
+          //       translate: [0, 0, -400],
+          //     },
+          //   },
+          // })
+          
+          // onMounted(() => {
 //   console.log(swiper.instance)
 // })
 // const images = [
-//   '/img/1735233911927444.jpg.webp',
-//   '/img/1735234524397112.png.webp',
-//   '/img/1735234704648222.jpg.webp',
-// ]
-
+  //   '/img/1735233911927444.jpg.webp',
+  //   '/img/1735234524397112.png.webp',
+  //   '/img/1735234704648222.jpg.webp',
+  // ]
+  
 //##################################################################
 </script>
 
@@ -149,11 +186,14 @@ const upload = async () => {
   border-radius: 20px;
   border: 1px red solid;
 }
-input,textarea{
-  border-bottom: 1px grey solid;
-  padding: 10px;
-  width: 600px;
-
+input,textarea {
+  display: block;
+  margin-top: 5px;
+  padding: 8px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
   /* .select-wrapper {
   position: relative;
@@ -189,5 +229,49 @@ select {
     /* object-fit: cover; */
     /* box-sizing: border-box; */
   }
+  /* ********************* */
+  .preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.preview-item {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.remove-button:hover {
+  background: rgba(255, 0, 0, 1);
+}
+  /* ********************* */
 </style>
 

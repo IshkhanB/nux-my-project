@@ -22,9 +22,13 @@
         <p class="icon_search">
           <NuxtImg class="icon" src="icon/icon-park-outline_li.svg" alt=""/>
         </p>
-        <p class="icon_search">
-          <NuxtImg class="icon" src="icon/ic_outline-shopping-.svg" alt=""/>
-        </p>
+        <!-- <p class="icon_search">
+          <NuxtImg class="icon" src="~/assets/icon/ic_outline-shopping-.svg" alt="Корзина" />
+        </p> -->
+        <button class="icon-button" aria-label="Корзина" >
+          <NuxtImg class="icon" src="icon/ic_outline-shopping-.svg" alt="Корзина"/>
+          <span class="icon-count">5</span> <!-- Счетчик -->
+        </button>
       </div>
     </header>
   </div>
@@ -117,6 +121,28 @@ const goToAnchor = (hash:string)=>{
 .header_a>img {
   width: 35px;
 }
+.icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative; /* Для позиционирования счетчика */
+}
+ 
+  .icon-count {
+  position: absolute; /* Абсолютное позиционирование */
+  bottom: -3px; /* Сдвиг вниз */
+  right: -3px; /* Сдвиг вправо */
+  background: #d39f71; /* Цвет фона */
+  color: white; /* Цвет текста */
+  font-size: 12px; /* Размер текста */
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media screen and (max-width: 1024px) {
   .header_nav{
     display: none;
@@ -146,6 +172,5 @@ const goToAnchor = (hash:string)=>{
     width: 30px !important;
     min-width: 30px;
   }
- 
 }
 </style>

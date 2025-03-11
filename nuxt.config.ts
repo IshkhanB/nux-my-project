@@ -10,14 +10,25 @@ export default defineNuxtConfig({
       enabled: true
     }
   },
-
   app:{
+    head: {
+      title: 'FLOWER MARKET', 
+      htmlAttrs: {
+        lang: 'ru',
+      },
+      link: [
+        { rel: 'icon', href: 'http://localhost:3000/icon/mdi_flower-tulip-out.svg' },
+      ],
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1.0, shrink-to-fit=no',
+    
+    },
+    
+      // update Nuxt defaults
     pageTransition: { name: 'page', mode: 'out-in' }
   },
 
-  nitro:{
-    plugins: ['plugins/extend-html.ts']
-  },
+ 
 
   vue: {
     compilerOptions: {

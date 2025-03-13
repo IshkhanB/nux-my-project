@@ -2,10 +2,10 @@ import path from 'path'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-
+  
   devtools: {
     enabled: true,
-
+    
     timeline: {
       enabled: true
     }
@@ -21,21 +21,18 @@ export default defineNuxtConfig({
       ],
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1.0, shrink-to-fit=no',
-    
     },
     
-      // update Nuxt defaults
+    // update Nuxt defaults
     pageTransition: { name: 'page', mode: 'out-in' }
   },
-
- 
-
+  
   vue: {
     compilerOptions: {
       isCustomElement: (tag) => ['swiper-container', 'swiper-slide'].includes(tag),
     },
   },
-
+  
   vite: {
     ssr: {
       external: ["@prisma/client"]
@@ -53,7 +50,7 @@ export default defineNuxtConfig({
       },
     }
   },
-
+  
   image: {
     dir: path.join(process.cwd(), '../public'),
     presets: {
@@ -67,7 +64,7 @@ export default defineNuxtConfig({
       },
     },
   },
-
+  
   prisma: {
     installCLI: true,
     installClient: true,
@@ -75,6 +72,6 @@ export default defineNuxtConfig({
     installStudio: false,
     autoSetupPrisma: true
   },
-
+   
   modules: ['@pinia/nuxt','@nuxt/image','nuxt-swiper','@prisma/nuxt',]
 })

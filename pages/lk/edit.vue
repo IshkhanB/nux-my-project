@@ -50,8 +50,7 @@
     </form>
     <div class="cards" style="padding-top: 50px;">
       <ProductsNew v-for="product of data?.products" :product="product" :key="product.id" />
-    </div>
-        
+    </div>    
   </div>
 </template>
 
@@ -77,7 +76,6 @@ onMounted( async ()=>{
 
 //************************************************************
 const previewImages = ref([] as any[])
-
 let files = [] as any[]
 
 // Обработчик загрузки файлов

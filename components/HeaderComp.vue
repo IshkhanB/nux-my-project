@@ -25,10 +25,10 @@
         <!-- <p class="icon_search">
           <NuxtImg class="icon" src="~/assets/icon/ic_outline-shopping-.svg" alt="Корзина" />
         </p> -->
-        <button class="icon-button" aria-label="Корзина" >
+        <a class="icon-button" href="/cart" @click.prevent="goToAnchor('#cart')" aria-label="Корзина"  >
           <NuxtImg class="icon" src="icon/ic_outline-shopping-.svg" alt="Корзина"/>
           <span class="icon-count">5</span> <!-- Счетчик -->
-        </button>
+        </a>
       </div>
     </header>
   </div>

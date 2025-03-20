@@ -1,3 +1,4 @@
+
 <template>
   <div class="heder_div substrate">
     <header class="header">
@@ -25,10 +26,11 @@
         <!-- <p class="icon_search">
           <NuxtImg class="icon" src="~/assets/icon/ic_outline-shopping-.svg" alt="Корзина" />
         </p> -->
-        <a class="icon-button" href="/cart" @click.prevent="goToAnchor('#cart')" aria-label="Корзина"  >
+        <button class="icon-button" aria-label="Корзина" @click="cartStore.visible = true" >
           <NuxtImg class="icon" src="icon/ic_outline-shopping-.svg" alt="Корзина"/>
           <span class="icon-count">5</span> <!-- Счетчик -->
-        </a>
+          
+        </button>
       </div>
     </header>
   </div>
@@ -38,6 +40,7 @@
 const goToAnchor = (hash:string)=>{
   location.hash=hash
 }
+const cartStore = useCart()
 </script>
 
 
@@ -50,7 +53,7 @@ const goToAnchor = (hash:string)=>{
   background-color: #ffffff;
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 99;
   margin-top: 20px !important;
   margin-bottom:20px !important;
 }

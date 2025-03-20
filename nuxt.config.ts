@@ -17,7 +17,7 @@ export default defineNuxtConfig({
         lang: 'ru',
       },
       link: [
-        { rel: 'icon', href: 'http://localhost:3000/icon/mdi_flower-tulip-out.svg' },
+        { rel: 'icon', href: '/icon/mdi_flower-tulip-out.svg' },
       ],
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1.0, shrink-to-fit=no',

@@ -52,7 +52,7 @@
       </div>
       <div>
       <p>Rазработано Мной</p>
-      <iframe src="https://yandex.ru/sprav/widget/rating-badge/237768002038?type=rating&theme=dark" width="150" height="50" frameborder="0"></iframe>
+      <!-- <iframe src="https://yandex.ru/sprav/widget/rating-badge/237768002038?type=rating&theme=dark" width="150" height="50" frameborder="0"></iframe> -->
       </div>
     </div>
   </div>

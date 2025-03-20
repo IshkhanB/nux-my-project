@@ -1,6 +1,5 @@
 <template>
  <SubstrateComponent>
-  <CartClient/>
   <AfterHeadr/>
   <FilterMenu/>
   <!-- <ProductsNew/> -->

@@ -1,13 +1,13 @@
 <template>
-  <div class="cart-cont ">
-    <button class="but-back" @click="knopka=false">X </button>
+  <div v-if="cartStore.visible" class="cart-cont ">
+    <button class="but-back" @click="cartStore.visible = false">X </button>
     <div>
-
+     
     </div>
   </div>
 </template>
 <script setup lang="ts">
-const knopka = ref(true)
+const cartStore = useCart()
 </script>
 <style scoped>
 .cart-cont{
@@ -21,7 +21,6 @@ const knopka = ref(true)
   z-index: 10;
   border-radius: 20px;
   border-left:1px solid rgb(170, 152, 152);
-  visibility: hidden;
 }
 .but-back{
   position: absolute;

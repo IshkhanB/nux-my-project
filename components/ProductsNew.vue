@@ -19,15 +19,25 @@
             </div>
           <div class="card_bottom1">
             <NuxtLink :to="`/${product?.type?.title}/${product?.id}`"  class="card_info"> Подробнее</NuxtLink>
-            <NuxtLink :to="`#`" class="card_add">Добавить в корзину</NuxtLink>
+            <button @click="addToCart" class="card_add">Добавить в корзину</button>
           </div>
         </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-defineProps(['product','types'])
+const props = defineProps(['product','types'])
+const cartStore = useCart()
 
+function addToCart() {
+  const el = cartStore.arr.find((el:any)=>el.id==props.product.id)
+  if (el) {
+    el.count++
+  } else {
+    cartStore.arr.push({...props.product,count:1})
+  }
+  localStorage.cart = JSON.stringify(cartStore.arr)
+}
 
 
 const containerRef = ref(null)

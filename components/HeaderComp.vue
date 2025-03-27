@@ -28,7 +28,7 @@
         </p> -->
         <button class="icon-button" aria-label="Корзина" @click="cartStore.visible = true" >
           <NuxtImg class="icon" src="icon/ic_outline-shopping-.svg" alt="Корзина"/>
-          <span class="icon-count">5</span> <!-- Счетчик -->
+          <span class="icon-count">{{ cartStore.count()  }}</span> <!-- Счетчик -->
           
         </button>
       </div>
@@ -37,10 +37,11 @@
 </template>
 
 <script setup lang="ts">
+const cartStore = useCart()
+
 const goToAnchor = (hash:string)=>{
   location.hash=hash
 }
-const cartStore = useCart()
 </script>
 
 

@@ -8,22 +8,12 @@
 
     </ul>
     <hr>
-    <p  class="sum_cart">Сумма: {{ sum}} </p>
+    <p  class="sum_cart">Сумма: {{ cartStore.sum }} </p>
     <button class="place_order">Оформить заказ</button>
   </div>
 </template>
 <script setup lang="ts">
 const cartStore = useCart()
-let sum:number
-// if(sum){
-
-//   for (let el of cartStore.arr){
-    
-//     sum +=(el.conut * el.price)
-    
-//   }
-//  sum += sum
-// }
 </script>
 <style scoped>
 .cart-cont{
@@ -59,7 +49,7 @@ let sum:number
   padding: 10px;
 }
 .sum_cart{
-  margin-left: 70%;
+  margin-left: 60%;
   font-size: 26px;
 }
 .place_order{

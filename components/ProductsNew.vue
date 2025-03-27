@@ -40,6 +40,7 @@ function addToCart() {
 }
 
 
+
 const containerRef = ref(null)
 // const sale = ref(0)
 // const prise_sale = 4

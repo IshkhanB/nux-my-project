@@ -5,7 +5,11 @@ import { Prisma } from '@prisma/client'
 export const useCart = defineStore('cart', () => {
   const arr = ref([] as any)
   const visible = false
-  const count = () => arr.value.reduce((a:number,el:any) => a + el.count, 0)
+  const count = computed(() =>{
+    return arr.value.reduce((a:number,el:any) =>{
+      return a + el.count
+    }, 0)
+  })
   const sum = computed(() => {
     return arr.value.reduce((total:number, item:any) => {
       return total + (item.count * item.price)

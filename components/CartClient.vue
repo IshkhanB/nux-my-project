@@ -1,52 +1,198 @@
 <template>
   <div v-if="cartStore.visible" class="cart-cont ">
-    <button class="but-back" @click="cartStore.visible = false">X </button>
-    <p class="your_order">Ваш заказ</p>
-    <hr>
-    <ul class="content_cart">
-      <li v-for="el of cartStore.arr" :key="el.id">{{ el.title }} {{ el.count }} {{ el.count*el.price }}RUB</li>
+    <div class="cart-header">
+      <p class="your_order">Ваш заказ</p>
+      <button class="but-back" @click="cartStore.visible = false"> X </button>
+    </div>
 
+    <hr class="divider">
+
+    <ul class="content_cart">
+      <li class="cart-item" v-for="el of cartStore.arr" :key="el.id">
+        <!-- {{ el.title }} {{ el.count }} {{ el.count*el.price }}RUB <button class="but-back1" @click="cartStore.del">X</button> -->
+        <div class="item-image">
+          <!-- Место для картинки -->
+          <img v-if="cartStore.arr.img" :src="cartStore.arr.img" :alt="cartStore.arr.title" class="product-image">
+          <div v-else class="image-placeholder"></div>
+        </div>
+        <div class="item-details">
+          <span class="item-title">{{ el.title }}</span>
+          <span class="item-quantity">{{ el.count }} : {{el.price }}</span>
+        </div>
+        <div class="item-total">{{ el.count * el.price }}</div>
+        <button class="remove-btn" @click="">×</button>
+        </li>
     </ul>
-    <hr>
-    <p  class="sum_cart">Сумма: {{ cartStore.sum }} </p>
-    <button class="place_order">Оформить заказ</button>
+
+    <hr class="divider">
+    
+    <!-- <p  class="sum_cart">Сумма: {{ cartStore.sum }} </p>
+    <button class="place_order">Оформить заказ</button> -->
+    <div class="cart-footer">
+      <p class="total-sum">Итого: {{ cartStore.sum }}</p>
+      <button class="checkout-btn">Оформить заказ</button>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
 const cartStore = useCart()
+console.log(cartStore.arr)
 </script>
 <style scoped>
 .cart-cont{
-  margin: 0 auto;
-  padding: 40px;
   position: fixed;
-  /* transform: translateY(100px); */
-  top: 0;
-  right: 0;
-  width: 560px;
-  height: 100%;
-  background-color: #ffffff;
-  z-index: 10;
-  border-radius: 20px;
-  border-left:1px solid rgb(170, 152, 152);
-  z-index: 999999;
+  right: 20px;
+  top: 20px;
+  width: 350px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  z-index: 1000;
+  font-family: 'Arial', sans-serif;
 }
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+} 
 .but-back{
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin: 5px;
-  padding: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #666;
+  padding: 5px 10px;
+  font-weight: 700;
 }
-.contener-cart{
-  margin: 0 auto;
-  padding: 20px;
+.but-back:hover{
+  color: #010101;
 }
 .your_order{
+margin: 0;
+font-size: 20px;
+font-weight: 700;
+}
+.divider{
+  border: none;
+  border-top: 2px solid #cdcdcd;
+  margin: 15px 0;
+}
+.contener-cart{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 600px;
+  overflow-y: auto;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #cdcdcd;
+}
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.item-image {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+.product-image {
   width: 100%;
-  font-size: 36px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  border-radius: 6px;
+}
+.item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-title {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.item-quantity {
+  font-size: 14px;
+  color: #666;
+}
+.item-quantity::after {
   margin: 0 auto;
-  padding: 10px;
+  content: "₽";
+  margin-left: 4px;
+  position: relative;
+}
+
+.item-total {
+  margin: 0 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.item-total::after {
+  margin: 0 auto;
+  content: "₽";
+  margin-left: 4px;
+  position: relative;
+}
+
+.remove-btn {
+  display: block;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.remove-btn:hover {
+  color: #ff5252;
+}
+
+.cart-footer {
+  margin-top: 15px;
+}
+
+.total-sum {
+  text-align: right;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 10px 0;
+}
+.total-sum::after {
+  margin: 0 auto;
+  content: "₽";
+  margin-left: 4px;
+  position: relative;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.checkout-btn:hover {
+  background: #3d8b40;
 }
 .sum_cart{
   margin-left: 60%;
@@ -64,6 +210,16 @@ const cartStore = useCart()
   box-sizing: border-box;
   font-weight: 400;
   border-radius: 10px;
-
 }
+ul>li {
+  text-align: center;
+}
+/* .cart_button {
+  padding: 8px 16px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+} */
+
 </style>

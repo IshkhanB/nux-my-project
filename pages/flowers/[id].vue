@@ -29,9 +29,7 @@ const containerRef = ref(null)
 const swiper = useSwiper(containerRef, {
   effect: 'creative',
   loop: true,
-  //autoplay: {
-  //  delay: 5000,
-  //},
+ 
   creativeEffect: {
     prev: {
       shadow: true,

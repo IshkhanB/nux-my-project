@@ -1,19 +1,4 @@
-<!-- <template>
 
-<div class="anchor" style="transform: translateY(-160px);" id="catalog"></div>
-  <div class="cards">
-    <ProductsNew v-for="product of products" :product="product" :key="product.id"/>
-  </div>
-  <UPagination disabled :model-value="1" :total="100" show-last show-first />
-</template>
-
-<script setup lang="ts">
-import ProductsNew from './ProductsNew.vue';
-defineProps(["products"])
-</script> -->
-
-
-<!-- DeepSeek -->
 <template>
   <div class="anchor" style="transform: translateY(-160px);" id="catalog"></div>
   <div class="cards">
@@ -46,7 +31,6 @@ defineProps(["products"])
 </div>
 <!-- изменение отображаймого количества карточек -->
 <div style="  text-align: center; margin:10px auto; width: 10px;">
-  {{'количество на странице'}}
   <select v-model="itemsPerPage" @change="currentPage = 1" :about="'>'" style="background-color: #e4b891; padding: 5px; border-radius: 5px;">
   <option value="2"> 2</option>
   <option value="4"> 4</option>

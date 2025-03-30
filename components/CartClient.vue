@@ -12,12 +12,13 @@
         <!-- {{ el.title }} {{ el.count }} {{ el.count*el.price }}RUB <button class="but-back1" @click="cartStore.del">X</button> -->
         <div class="item-image">
           <!-- Место для картинки -->
-          <img v-if="cartStore.arr.img" :src="cartStore.arr.img" :alt="cartStore.arr.title" class="product-image">
+          <NuxtImg preset="cover" v-if="el.img" :src="'img/'+el.img" :alt="el.title" class="product-image"/>
           <div v-else class="image-placeholder"></div>
         </div>
         <div class="item-details">
           <span class="item-title">{{ el.title }}</span>
-          <span class="item-quantity">{{ el.count }} : {{el.price }}</span>
+          <span class="item-quantity">{{ el.count }} * {{el.price }}</span>
+          {{console.log(el.img)}}
         </div>
         <div class="item-total">{{ el.count * el.price }}</div>
         <button class="remove-btn" @click="">×</button>
@@ -194,14 +195,13 @@ font-weight: 700;
 .checkout-btn:hover {
   background: #3d8b40;
 }
-.sum_cart{
+/* .sum_cart{
   margin-left: 60%;
   font-size: 26px;
 }
 .place_order{
   color: #ffffff;
   background-color: #595959;
-  /* padding: 10px 20%; */
   margin: 10px auto;
   width: 100%;
   height: 60px;
@@ -213,7 +213,7 @@ font-weight: 700;
 }
 ul>li {
   text-align: center;
-}
+} */
 /* .cart_button {
   padding: 8px 16px;
   background: red;

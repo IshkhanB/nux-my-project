@@ -15,5 +15,8 @@ export const useCart = defineStore('cart', () => {
       return total + (item.count * item.price)
     }, 0)
   })
-  return { arr, visible, count, sum }
+  const img = computed(() =>{
+    return arr.value.img[0]
+  })
+  return { arr, visible, count, sum, img }
 })

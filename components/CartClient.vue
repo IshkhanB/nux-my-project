@@ -10,21 +10,20 @@
     <ul class="content_cart">
       <li class="cart-item" v-for="el of cartStore.arr" :key="el.id">
         <!-- {{ el.title }} {{ el.count }} {{ el.count*el.price }}RUB <button class="but-back1" @click="cartStore.del">X</button> -->
+
         <div class="item-image">
-          <!-- Место для картинки -->
-          <NuxtImg preset="cover" v-if="el.img" :src="'img/'+el.img" :alt="el.title" class="product-image"/>
+          <NuxtImg preset="cover" v-if="el.img" :src=" 'public/img/'+el.img[0]"  class="product-image"/>
           <div v-else class="image-placeholder"></div>
         </div>
         <div class="item-details">
           <span class="item-title">{{ el.title }}</span>
           <span class="item-quantity">{{ el.count }} * {{el.price }}</span>
-          {{console.log(el.img)}}
         </div>
         <div class="item-total">{{ el.count * el.price }}</div>
         <button class="remove-btn" @click="">×</button>
-        </li>
+      </li>
     </ul>
-
+    
     <hr class="divider">
     
     <!-- <p  class="sum_cart">Сумма: {{ cartStore.sum }} </p>
@@ -38,6 +37,7 @@
 <script setup lang="ts">
 const cartStore = useCart()
 console.log(cartStore.arr)
+console.log(cartStore)
 </script>
 <style scoped>
 .cart-cont{

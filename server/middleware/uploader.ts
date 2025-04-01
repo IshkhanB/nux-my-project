@@ -20,6 +20,7 @@ const useFiles = async (event: any) => {
       busboy.on('file', (name, file, info) => {
         console.log(fields)
         const { filename, encoding, mimeType } = info
+        // const newFileName = info.filename
         const newFileName = fields.newName + ' ' + i + '.webp'
         i++
         console.log(`File [${name}]: filename: ${filename}, encoding: ${encoding}, mimeType: ${mimeType}`)
@@ -38,7 +39,8 @@ const useFiles = async (event: any) => {
           fileAsBuffer = Buffer.concat(data)
           
           await sharp(fileAsBuffer)
-          .webp({ quality: 80 })
+          .webp({ quality: 70 })
+          // .resize({ width: 1920 })
           .toFile(saveTo)
         })
         .on('end', () => {

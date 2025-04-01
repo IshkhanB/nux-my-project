@@ -107,10 +107,10 @@ const title = ref('')
 const description = ref('')
 const newName = ref('')
 const price = ref(0)
-const sale = ref()
+const sale = ref(0)
 const file = ref(null)
-
 const upload = async () => {
+
   const fileref = file.value as never as HTMLInputElement
   const fD = new FormData()
   if (files.length) {
@@ -134,6 +134,8 @@ const upload = async () => {
     fileref.value = ''
     price.value = 0
     sale.value = 0
+    previewImages.value = []
+    files = []
     refresh()
     
   }

@@ -12,7 +12,7 @@
         <!-- {{ el.title }} {{ el.count }} {{ el.count*el.price }}RUB <button class="but-back1" @click="cartStore.del">X</button> -->
 
         <div class="item-image">
-          <NuxtImg preset="cover" v-if="el.img" :src=" 'public/img/'+el.img[0]"  class="product-image"/>
+          <NuxtImg preset="cover" v-if="el.img.length" :src=" 'img/'+el.img[0].img" :alt="el.title" class="product-image"/>
           <div v-else class="image-placeholder"></div>
         </div>
         <div class="item-details">
@@ -36,8 +36,8 @@
 </template>
 <script setup lang="ts">
 const cartStore = useCart()
-console.log(cartStore.arr)
-console.log(cartStore)
+// console.log(cartStore.arr)
+// console.log(cartStore)
 </script>
 <style scoped>
 .cart-cont{

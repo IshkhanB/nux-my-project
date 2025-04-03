@@ -8,7 +8,7 @@
     <hr class="divider">
 
     <ul class="content_cart">
-      <li class="cart-item" v-for="el of cartStore.arr" :key="el.id">
+      <li class="cart-item" v-for="el, i of cartStore.arr" :key="el.id">
         <!-- {{ el.title }} {{ el.count }} {{ el.count*el.price }}RUB <button class="but-back1" @click="cartStore.del">X</button> -->
 
         <div class="item-image">
@@ -20,7 +20,13 @@
           <span class="item-quantity">{{ el.count }} * {{el.price }}</span>
         </div>
         <div class="item-total">{{ el.count * el.price }}</div>
-        <button class="remove-btn" @click="">×</button>
+        <div class="item-count">
+          <button class="count-but1" @click="el.count++"></button>
+          <button class="count-but2" :style="el.count==1 ? 'filter:grayscale(1);' : ''"  @click="minus(el)"></button>
+          <!-- <button class="count-but2" style="" v-else></button>  -->
+          <!-- background: url(/icon/minus.png) center / cover; -->
+        </div>
+        <button class="remove-btn" @click="cartStore.remove(i)">×</button>
       </li>
     </ul>
     
@@ -36,6 +42,9 @@
 </template>
 <script setup lang="ts">
 const cartStore = useCart()
+const minus = (el:any)=>{
+  if (el.count>1) el.count--
+}
 // console.log(cartStore.arr)
 // console.log(cartStore)
 </script>
@@ -44,7 +53,7 @@ const cartStore = useCart()
   position: fixed;
   right: 20px;
   top: 20px;
-  width: 350px;
+  width: 400px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -71,21 +80,21 @@ const cartStore = useCart()
   color: #010101;
 }
 .your_order{
-margin: 0;
-font-size: 20px;
-font-weight: 700;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
 }
 .divider{
   border: none;
   border-top: 2px solid #cdcdcd;
   margin: 15px 0;
 }
-.contener-cart{
+.content_cart{
   list-style: none;
   padding: 0;
   margin: 0;
-  max-height: 600px;
-  overflow-y: auto;
+  max-height: 550px;
+  overflow-y: overlay;
 }
 .cart-item {
   display: flex;
@@ -189,16 +198,36 @@ font-weight: 700;
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  /* transition: background 0.2s; */
 }
 
 .checkout-btn:hover {
   background: #3d8b40;
 }
+.item-count{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.count-but1{
+  background-image: url(plus.png);
+  width: 5px;
+  height: 5px;
+  background-color: #8b3d3d;
+  padding: 2px;
+  border-radius: 50%;
+}
+.count-but2{
+  background-image: url(/icon/minus.png);
+  /* background-color: #3d8b40; */
+  padding: 2px;
+  border-radius: 50%;
+}
 /* .sum_cart{
+  height: 345px;
   margin-left: 60%;
   font-size: 26px;
-}
+  }
 .place_order{
   color: #ffffff;
   background-color: #595959;

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { Prisma } from '@prisma/client'
+// import { Prisma } from '@prisma/client'
 
 export const useCart = defineStore('cart', () => {
   const arr = ref([] as any)
@@ -15,5 +15,9 @@ export const useCart = defineStore('cart', () => {
       return total + (item.count * item.price)
     }, 0)
   })
-  return { arr, visible, count, sum }
+  const remove = (i:number)=>{
+    arr.value.splice(i,1)
+  }
+  
+  return { arr, visible, count, sum, remove }
 })

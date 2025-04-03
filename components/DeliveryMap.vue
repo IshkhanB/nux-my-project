@@ -11,11 +11,11 @@
         </tr>
       </tbody>
     </table>
-    </div class="box">
+    </div>
     <div id="map">
       <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A663b0081b92e59307de95b27d7910777ea42587a40c0374a55ad95d4370d46e6&amp;source=constructor" width="695" height="492" frameborder="0"></iframe>
-      <!-- <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5d2fb6130243f2daf07ecf5cc48c21b9775871ad598efb69e0aea6a65b8b1143&amp;source=constructor" width="100%" height="492" frameborder="0"></iframe> -->
     </div>
+    <!-- <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5d2fb6130243f2daf07ecf5cc48c21b9775871ad598efb69e0aea6a65b8b1143&amp;source=constructor" width="100%" height="492" frameborder="0"></iframe> -->
 </div>
 </template>
 

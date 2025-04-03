@@ -135,7 +135,6 @@ const upload = async () => {
     price.value = 0
     sale.value = 0
     previewImages.value = []
-    files = []
     refresh()
     
   }

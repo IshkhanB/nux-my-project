@@ -42,6 +42,10 @@ const cartStore = useCart()
 const goToAnchor = (hash:string)=>{
   location.hash=hash
 }
+// onMounted(()=>{
+//   window.matchMedia('')
+
+// })
 </script>
 
 

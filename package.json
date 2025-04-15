@@ -13,6 +13,7 @@
     "@nuxt/image": "^1.8.1",
     "@pinia/nuxt": "^0.7.0",
     "@prisma/nuxt": "^0.1.3",
+    "@types/xml": "^1.0.11",
     "busboy": "^1.6.0",
     "nuxi": "^3.20.0",
     "nuxt": "^3.6.0",
@@ -20,7 +21,8 @@
     "prisma": "^5.22.0",
     "swiper": "^11.2.1",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "xml": "^1.0.1"
   },
   "devDependencies": {
     "@prisma/client": "^5.22.0",

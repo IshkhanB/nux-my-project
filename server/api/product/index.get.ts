@@ -5,7 +5,10 @@ export default defineEventHandler(async (event)=>{
       const products = await prisma.product.findMany({
         include:{
           type: true,
-          img: true
+          img: true,
+        },
+        orderBy: {
+          id: 'desc'
         }
       })
       return{products, ok: true}

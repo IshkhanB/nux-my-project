@@ -38,9 +38,10 @@ export default defineNuxtConfig({
       external: ["@prisma/client"]
     },
     resolve: {
-      alias: {
-        '.prisma/client/index-browser': './node_modules/.prisma/client/index-browser.js',
-      },
+      alias: [{
+        find:'.prisma/client/index-browser',
+        replacement: path.resolve(__dirname, 'node_modules/@prisma/client/index-browser.js'),
+      },],
     },
     css: {
       preprocessorOptions: {

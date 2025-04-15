@@ -9,6 +9,35 @@ export default defineEventHandler(async (event) => {
   }
 })
 
+function translit(word:string) {
+  const converter = {
+    'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
+    'е': 'e', 'ё': 'e', 'ж': 'zh', 'з': 'z', 'и': 'i',
+    'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
+    'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
+    'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch',
+    'ш': 'sh', 'щ': 'sch', 'ь': '', 'ы': 'y', 'ъ': '',
+    'э': 'e', 'ю': 'yu', 'я': 'ya'
+  } as Record<string,string>
+
+  let answer = '';
+  if (word) {
+    word = word.toLowerCase();
+
+    for (var i = 0; i < word.length; ++i) {
+      if (converter[word[i]] == undefined) {
+        answer += word[i];
+      } else {
+        answer += converter[word[i]];
+      }
+    }
+    answer = answer.replace(/[^-0-9a-z]/g, '-');
+    answer = answer.replace(/[-]+/g, '-');
+    answer = answer.replace(/^\-|-$/g, '');
+  }
+  return answer;
+}
+
 const useFiles = async (event: any) => {
   const { req } = event
   if (req.method === 'POST') {
@@ -21,7 +50,7 @@ const useFiles = async (event: any) => {
         console.log(fields)
         const { filename, encoding, mimeType } = info
         // const newFileName = info.filename
-        const newFileName = fields.newName + ' ' + i + '.webp'
+        const newFileName = translit(fields.newName + ' ' + i ) + '.webp'
         i++
         console.log(`File [${name}]: filename: ${filename}, encoding: ${encoding}, mimeType: ${mimeType}`)
         console.log(path.join(process.cwd(), '../public/img/img'))

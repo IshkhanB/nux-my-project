@@ -86,8 +86,13 @@ onMounted(() => {
   margin: 0 auto;
   color: #595959;
   text-align: center;
-  padding: 5px;
+  padding: 7px;
   height: 49px;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .card:hover {
   box-shadow: 0px 0px 20px rgba(15, 8, 5, 0.2);

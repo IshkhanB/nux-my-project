@@ -18,6 +18,6 @@ export const useCart = defineStore('cart', () => {
   const remove = (i:number)=>{
     arr.value.splice(i,1)
   }
-  
+ 
   return { arr, visible, count, sum, remove }
 })

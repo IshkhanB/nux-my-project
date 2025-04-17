@@ -1,5 +1,5 @@
 <template>
-  <div v-if="cartStore.visible" class="cart-cont ">
+  <div v-if="cartStore.visible"  class="cart-cont">
     <div class="cart-header">
       <p class="your_order">Ваш заказ</p>
       <button class="but-back" @click="cartStore.visible = false"> X </button>
@@ -45,6 +45,8 @@ const cartStore = useCart()
 const minus = (el:any)=>{
   if (el.count>1) el.count--
 }
+// if(!cartStore.arr) cartStore.visible = true
+  
 // console.log(cartStore.arr)
 // console.log(cartStore)
 </script>
@@ -94,7 +96,8 @@ const minus = (el:any)=>{
   padding: 0;
   margin: 0;
   max-height: 550px;
-  overflow-y: overlay;
+  overflow-y: scroll;
+
 }
 .cart-item {
   display: flex;
@@ -210,16 +213,22 @@ const minus = (el:any)=>{
   align-items: center;
 }
 .count-but1{
-  background-image: url(plus.png);
-  width: 5px;
-  height: 5px;
-  background-color: #8b3d3d;
+  background-image: url(/public/icon/plus2.png);
+  background-size: 12px; 
+  width: 12px;
+  height: 12px;
+  /* background-color: #8b3d3d; */
+  margin-bottom:10px ;
   padding: 2px;
   border-radius: 50%;
+
 }
 .count-but2{
-  background-image: url(/icon/minus.png);
-  /* background-color: #3d8b40; */
+  background-image: url(/public/icon/minus2.png);
+  background-size: 12px; 
+  width: 12px;
+  height: 12px;
+  /* background-color: #8b3d3d; */
   padding: 2px;
   border-radius: 50%;
 }

@@ -1,8 +1,8 @@
 <template>
   <div>
     <div v-if="userStore.user" style="margin: 0 auto;">
-      <h1>LK</h1>
-      <button style="background-color: brown; border-radius: 20px; padding: 10px;" @click="userStore.logOut">logout</button>
+      <button style="border:1px solid black; background-color: antiquewhite; box-sizing: border-box;  margin-left: 90%; margin-top: 20px; padding: 5px; border-radius: 20px;" @click="userStore.logOut">logout</button>
+      <h1 style="text-align: center; margin: 20px auto; font-size: 40px; font-weight: 900; color: rebeccapurple;">Мой личный кабинет!</h1>
     </div>  
     <div v-else>
       Go home
@@ -20,7 +20,6 @@
     <!-- ################################################################## -->
        
     <form class="forma_zapolneniya" method="post" @submit.prevent="upload">
-      <iframe src="https://yandex.ru/sprav/widget/rating-badge/237768002038?type=rating&theme=dark" width="150" height="50" frameborder="0"></iframe>
 
       <input type="text" name="title" v-model="title" placeholder="Заголовок">
       <textarea type="text" name="description" v-model="description" placeholder="Текст публикации"></textarea>
@@ -175,6 +174,12 @@ const upload = async () => {
 
 
 <style scoped>
+#type_id_select{
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px ;
+}
 .forma_zapolneniya{
   margin: 0 auto;
   padding:10px ;
@@ -182,8 +187,8 @@ const upload = async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 20px;
-  border: 1px red solid;
+  /* border-radius: 20px; */
+  /* border: 1px red solid; */
 }
 input,textarea {
   display: block;

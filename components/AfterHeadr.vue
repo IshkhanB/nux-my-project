@@ -54,11 +54,11 @@
   object-fit: cover;
 }
 .img_girl{
-    width: 600px;
-    overflow: hidden;
-    object-fit: cover;
-    position: absolute;
-    top: -90px;
+  width: 600px;
+  overflow: hidden;
+  object-fit: cover;
+  position: absolute;
+  top: -90px;
   right: 0px;
 }
 .baner_div{
@@ -72,13 +72,11 @@
 }
 .baner_div>div{
   padding: 10px;
-  /* width: 100px; */
   text-align: center;
-  opacity: 0.35;
-  background-color: #7e7e7e;
-  /* filter: blur(1px); */
+  background-color: #c0c0c0a8;
   border-radius: 5px;
-  /* background-color: rgba(128, 128, 128, 0.5);  */
+  border:  0px solid black;
+  box-sizing: border-box;
 }
 .baner_div>p{
   display: block;

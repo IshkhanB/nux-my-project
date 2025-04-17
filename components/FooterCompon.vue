@@ -37,7 +37,7 @@
         <p >+79881878668</p>
         <a target="_blank" href="https://api.whatsapp.com/send/?phone=79881878668&text&type=phone_number&app_absent=0" >Написать в WhatsApp</a>
         <a target="_blank" href="https://t.me/+79881878668">Написать в Telegram</a>
-        <p >Адрес</p>
+        <p >Адрес:</p>
         <p >354000 г. Сочи, ул. О.Кошевого, д. 21Б</p>
       </nav>
     </div>
@@ -49,6 +49,9 @@
       </div>
       <div>
         <NuxtImg src="/icon/mir_visa.svg"/>
+      </div>
+      <div>
+        <iframe src="https://yandex.ru/sprav/widget/rating-badge/237768002038?type=rating&theme=dark" width="150" height="50" frameborder="0"></iframe>
       </div>
       <div>
       <p>Rазработано Мной</p>

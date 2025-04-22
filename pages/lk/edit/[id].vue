@@ -15,7 +15,7 @@
     <label for="sale">Скидка:</label>
     <input type="number"  id="sale" name="sale" v-model="data.product.sale" placeholder="Введите скидку">
 
-    <input type="text" name="newName" v-model="data.product.newName" placeholder="new filename">
+    <input type="text" name="newName" v-model="newName" placeholder="new filename">
 
     
     <div>  
@@ -91,37 +91,28 @@ const removeImage = (index: number) => {
   files.splice(index, 1)
 }
 //************************************************************
-const title = ref('')
-const description = ref('')
 const newName = ref('')
-const price = ref(0)
-const sale = ref(0)
 const file = ref(null)
 const upload = async () => {
 
   const fileref = file.value as never as HTMLInputElement
   const fD = new FormData()
   if (files.length) {
-    fD.append('title', title.value)
+    fD.append('title', data.value.product.title)
     fD.append('newName', newName.value)
-    fD.append('description', description.value)
-    fD.append('type_id', type_id.value.toString())
+    fD.append('description', data.value.product.description)
+    fD.append('type_id', data.value.product.type_id.toString())
     for (let i=0;i<files.length;i++) {
       fD.append('img'+i, files[i])
     }
-    fD.append('price', price.value.toString())
-    fD.append('sale', sale.value.toString())
+    fD.append('price', data.value.product.price.toString())
+    fD.append('sale', data.value.product.sale.toString())
     await $fetch('/api/product/:id', {
       method:'PUT',
       body: fD
     })
-    title.value = ''
     newName.value = ''
-    description.value = ''
-    type_id.value = 1
     fileref.value = ''
-    price.value = 0
-    sale.value = 0
     previewImages.value = []
     refresh()
   }

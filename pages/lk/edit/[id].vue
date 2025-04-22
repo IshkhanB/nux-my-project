@@ -1,65 +1,55 @@
 <template>
-  <div>
-    <div v-if="userStore.user" style="margin: 0 auto;">
-      <button style="border:1px solid black; background-color: antiquewhite; box-sizing: border-box;  margin-left: 90%; margin-top: 20px; padding: 5px; border-radius: 20px;" @click="userStore.logOut">logout</button>
-      <h1 style="text-align: center; margin: 20px auto; font-size: 40px; font-weight: 900; color: rebeccapurple;">Мой личный кабинет!</h1>
-    </div>  
-    <div v-else>
-      Go home
-    </div>
-    <!-- ################################################################## -->
-    <!-- <div class="swip_div">
-      <ClientOnly class="swip">
-        <swiper-container ref="containerRef" :init="false">
-          <swiper-slide v-for="image, i of images" :key="i">
-            <NuxtImg preset="cover" width="327px"  :src="image" alt=""></NuxtImg>
-          </swiper-slide>
-        </swiper-container>
-      </ClientOnly>
-    </div> -->
-    <!-- ################################################################## -->
-       
-    <form class="forma_zapolneniya" method="post" @submit.prevent="upload">
+  {{ data }}
 
-      <input type="text" name="title" v-model="title" placeholder="Заголовок">
-      <textarea type="text" name="description" v-model="description" placeholder="Текст публикации"></textarea>
+  <!-- {{ types }} -->
+  <!-- {{ route.params.id }} -->
+  <form class="forma_zapolneniya" method="put" @submit.prevent="upload">
+
+    <input type="text" name="title" v-model="data.product.title" placeholder="Заголовок">
+    <textarea type="text" name="description" v-model="data.product.description" placeholder="Текст публикации"></textarea>
+
+    <select name="type" id="type_id_select" v-model="data.product.type_id">
+      <option v-for="t of types?.type" :key="t.id" :value="t.id" >{{ t.title }}</option>
+    </select>
+    <input type="number" name="price" v-model="data.product.price" placeholder="price">
+    <label for="sale">Скидка:</label>
+    <input type="number"  id="sale" name="sale" v-model="data.product.sale" placeholder="Введите скидку">
+
+    <input type="text" name="newName" v-model="data.product.newName" placeholder="new filename">
+
+    
+    <div>  
+      <label for="file">Изображение:</label>
+      <input type="file" id="file" ref="file" multiple @change="handleFileUpload" placeholder="Изображение">
       
-      <select name="type" id="type_id_select" v-model="type_id">
-        <option v-for="t of types?.type" :key="t.id" :value="t.id">{{ t.title }}</option>
-      </select>
-      <input type="number" name="price" v-model="price" placeholder="price">
-      <label for="sale">Скидка:</label>
-      <input type="number"  id="sale" name="sale" v-model="sale" placeholder="Введите скидку">
-
-      <input type="text" name="newName" v-model="newName" placeholder="new filename">
-      <div>
-        <label for="file">Изображение:</label>
-        <input type="file" id="file" ref="file" multiple @change="handleFileUpload" placeholder="Изображение">
-
-        <div class="preview-container">
-          <div v-for="(image, index) in previewImages" :key="index" class="preview-item">
-            <img :src="image" alt="Превью" class="preview-image" />
-            <button @click.prevent="removeImage(index)" class="remove-button">×</button>
-          </div>
+      <div class="preview-container">
+        <div v-for="(image, index) of previewImages" :key="index" class="preview-item">
+          <img :src="image" alt="Превью" class="preview-image" />
+          <button @click.prevent="removeImage(index)" class="remove-button">×</button>
         </div>
       </div>
-      
-      <!-- enctype='multipart/form-data' -->
-      <input type="submit" value="Опубликовать">
-    </form>
-    <div class="cards" style="padding-top: 50px;">
-      <ProductsNew v-for="product of data?.products" :product="product" :key="product.id" />
-    </div>    
-  </div>
+      <div class="preview-container">
+        <div v-for="(image, index) of data.product?.img" :key="index" class="preview-item">
+          <img preset="cover" :src="`/img/${image.img}`" class="preview-image" ></img>
+          <!-- <button @click.prevent="removeImage(index, image.id)" class="remove-button">×</button> -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- enctype='multipart/form-data' -->
+    <input type="submit" value="Опубликовать">
+    
+  </form>
 </template>
 
 <script setup lang="ts">
 import { useUsers } from '~/stores/user'
 const userStore = useUsers()
-
-const {data, refresh} = await useFetch(`/api/product`)
+// ${userStore.user?.id}
+const route = useRoute()
+const {data, refresh} = await useFetch(`/api/product/${route.params.id}`)
 const {data:types} = await useFetch('/api/type')
-
+// console.log(route.params.id)
 const type_id = ref(1)
 
 definePageMeta({
@@ -71,10 +61,9 @@ onMounted( async ()=>{
     navigateTo('/')
   }
 })
-
-
 //************************************************************
 const previewImages = ref([] as any[])
+
 let files = [] as any[]
 
 // Обработчик загрузки файлов
@@ -122,8 +111,8 @@ const upload = async () => {
     }
     fD.append('price', price.value.toString())
     fD.append('sale', sale.value.toString())
-    await $fetch('/api/product', {
-      method: 'POST',
+    await $fetch('/api/product/:id', {
+      method:'PUT',
       body: fD
     })
     title.value = ''
@@ -135,43 +124,9 @@ const upload = async () => {
     sale.value = 0
     previewImages.value = []
     refresh()
-    
   }
 }
-//##################################################################
-// const containerRef = ref(null)
-// const swiper = useSwiper(containerRef, {
-  //   effect: 'creative',
-  //   loop: true,
-  //   // autoplay: {
-    //   //   delay: 5000,
-    //   // },
-    //   creativeEffect: {
-      //     prev: {
-        //       shadow: true,
-        //       translate: [0, 0, -400],
-        //     },
-        //     next: {
-          //       shadow: true,
-          //       translate: [0, 0, -400],
-          //     },
-          //   },
-          // })
-          
-          // onMounted(() => {
-//   console.log(swiper.instance)
-// })
-// const images = [
-  //   '/img/1735233911927444.jpg.webp',
-  //   '/img/1735234524397112.png.webp',
-  //   '/img/1735234704648222.jpg.webp',
-  // ]
-  
-//##################################################################
 </script>
-
-
-
 
 <style scoped>
 #type_id_select{
@@ -276,6 +231,4 @@ select {
 .remove-button:hover {
   background: rgba(255, 0, 0, 1);
 }
-  /* ********************* */
 </style>
-

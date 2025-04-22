@@ -4,7 +4,7 @@ import { ref } from 'vue'
 
 export const useCart = defineStore('cart', () => {
   const arr = ref([] as any)
-  const visible = false
+  const visible = ref(false)
   const count = computed(() =>{
     return arr.value.reduce((a:number,el:any) =>{
       return a + el.count
@@ -17,6 +17,7 @@ export const useCart = defineStore('cart', () => {
   })
   const remove = (i:number)=>{
     arr.value.splice(i,1)
+    if (!arr.value.length) visible.value = false
   }
  
   return { arr, visible, count, sum, remove }

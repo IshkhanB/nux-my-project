@@ -3,7 +3,7 @@
     <div>
       <swiper-container ref="containerRef" style="width: 100%;" :init="true">
         <swiper-slide v-for="img of product?.img" :key="img.id">
-          <NuxtImg class="div1" preset="cover" height="327px" width="327px" :src="'img/'+img.img" ></NuxtImg>
+          <NuxtImg  preset="cover" height="327px" width="327px" :src="'img/'+img.img" ></NuxtImg>
         </swiper-slide>
       </swiper-container>
     </div>  

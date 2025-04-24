@@ -17,8 +17,22 @@ export const useCart = defineStore('cart', () => {
   })
   const remove = (i:number)=>{
     arr.value.splice(i,1)
+    localStorage.cart = JSON.stringify(arr.value)
     if (!arr.value.length) visible.value = false
   }
- 
-  return { arr, visible, count, sum, remove }
+  const addToCart = (product:any) => {
+    const el = arr.value.find((el:any)=>el.id==product.id)
+    if (el) {
+      el.count++
+    } else {
+      arr.value.push({...product,count:1})
+    }
+    localStorage.cart = JSON.stringify(arr.value)
+  }
+  const loadCart = () => {
+    if (localStorage.cart) {
+      arr.value = JSON.parse(localStorage.cart)
+    }
+  }
+  return { arr, visible, count, sum, remove, addToCart, loadCart }
 })

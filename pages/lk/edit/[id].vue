@@ -1,43 +1,41 @@
 <template>
-  {{ data }}
-
-  <!-- {{ types }} -->
-  <!-- {{ route.params.id }} -->
   <form class="forma_zapolneniya" method="put" @submit.prevent="upload">
 
-    <input type="text" name="title" v-model="data.product.title" placeholder="Заголовок">
-    <textarea type="text" name="description" v-model="data.product.description" placeholder="Текст публикации"></textarea>
+    <input type="text" name="title" v-model="product.title" placeholder="Заголовок">
+    <textarea type="text" name="description" v-model="product.description" placeholder="Текст публикации"></textarea>
 
-    <select name="type" id="type_id_select" v-model="data.product.type_id">
+    <select name="type" id="type_id_select" v-model="product.type_id">
       <option v-for="t of types?.type" :key="t.id" :value="t.id" >{{ t.title }}</option>
     </select>
-    <input type="number" name="price" v-model="data.product.price" placeholder="price">
+    <input type="number" name="price" v-model="product.price" placeholder="price">
     <label for="sale">Скидка:</label>
-    <input type="number"  id="sale" name="sale" v-model="data.product.sale" placeholder="Введите скидку">
+    <input type="number"  id="sale" name="sale" v-model="product.sale" placeholder="Введите скидку">
 
     <input type="text" name="newName" v-model="newName" placeholder="new filename">
 
     
-    <div>  
+    <div class="add_img">  
       <label for="file">Изображение:</label>
       <input type="file" id="file" ref="file" multiple @change="handleFileUpload" placeholder="Изображение">
       
       <div class="preview-container">
-        <div v-for="(image, index) of previewImages" :key="index" class="preview-item">
-          <img :src="image" alt="Превью" class="preview-image" />
-          <button @click.prevent="removeImage(index)" class="remove-button">×</button>
-        </div>
-      </div>
-      <div class="preview-container">
         <div v-for="(image, index) of data.product?.img" :key="index" class="preview-item">
           <img preset="cover" :src="`/img/${image.img}`" class="preview-image" ></img>
-          <!-- <button @click.prevent="removeImage(index, image.id)" class="remove-button">×</button> -->
+          <button @click.prevent="removeImageFromServer(data.product.img[index].id)" class="remove-button">×</button>
+        </div>
+      </div>
+      <hr style="color: gray; margin: 20px auto;">
+      <div class="preview-container">
+        <div v-for="(image, index) of previewImages" :key="index" class="preview-item">
+          <img preset="cover" :src="image" alt="Превью" class="preview-image" />
+          <button @click.prevent="removeImage(index)" class="remove-button">×</button>
         </div>
       </div>
     </div>
     
     <!-- enctype='multipart/form-data' -->
-    <input type="submit" value="Опубликовать">
+    <!-- <input type="submit" value="Cохранить"> -->
+    <button style="background-color: blue;" @click.prevent="upload">Сохранить</button>
     
   </form>
 </template>
@@ -49,8 +47,12 @@ const userStore = useUsers()
 const route = useRoute()
 const {data, refresh} = await useFetch(`/api/product/${route.params.id}`)
 const {data:types} = await useFetch('/api/type')
+const product = ref(data.value.product)
 // console.log(route.params.id)
-const type_id = ref(1)
+const previewImages = ref([] as any[])
+const newName = ref('')
+const file = ref(null)
+let files = [] as any[]
 
 definePageMeta({
   layout: 'admin'
@@ -62,16 +64,13 @@ onMounted( async ()=>{
   }
 })
 //************************************************************
-const previewImages = ref([] as any[])
-
-let files = [] as any[]
 
 // Обработчик загрузки файлов
 const handleFileUpload = (event: Event ) => {
   const target = event.target as HTMLInputElement
   // @ts-ignore
-  files = target.files || [] as any[]
-  if (files) {
+  files = Array.from(target.files) || [] as any[]
+  if (files.length) {
     for (let i = 0; i < files.length; i++) {
       const file = files[i]
       const reader = new FileReader()
@@ -85,37 +84,49 @@ const handleFileUpload = (event: Event ) => {
   }
 }
 
+// const seveCart = async (id:number) => {
+//   await fetch('/api/product/'+id, {
+//     method: 'PUT'
+//   })
+// }
+
 // Удаление изображения из превью
 const removeImage = (index: number) => {
   previewImages.value.splice(index, 1)
+  // console.log(files)
   files.splice(index, 1)
 }
+const removeImageFromServer = (id:number) => {
+  fetch('/api/image/'+id, {
+    method: 'DELETE'
+  })
+  refresh()
+}
+
 //************************************************************
-const newName = ref('')
-const file = ref(null)
 const upload = async () => {
 
   const fileref = file.value as never as HTMLInputElement
   const fD = new FormData()
-  if (files.length) {
-    fD.append('title', data.value.product.title)
-    fD.append('newName', newName.value)
-    fD.append('description', data.value.product.description)
-    fD.append('type_id', data.value.product.type_id.toString())
-    for (let i=0;i<files.length;i++) {
-      fD.append('img'+i, files[i])
-    }
-    fD.append('price', data.value.product.price.toString())
-    fD.append('sale', data.value.product.sale.toString())
-    await $fetch('/api/product/:id', {
-      method:'PUT',
-      body: fD
-    })
-    newName.value = ''
-    fileref.value = ''
-    previewImages.value = []
-    refresh()
+  fD.append('title', product.value.title)
+  fD.append('newName', newName.value)
+  fD.append('description', product.value.description)
+  fD.append('type_id', product.value.type_id.toString())
+  for (let i=0;i<files.length;i++) {
+    fD.append('img'+i, files[i])
   }
+  fD.append('price', product.value.price.toString())
+  fD.append('sale', product.value.sale.toString())
+  await $fetch('/api/product/'+product.value.id, {
+    method:'PUT',
+    body: fD
+  })
+  newName.value = ''
+  fileref.value = ''
+  previewImages.value = []
+  refresh()
+  product.value = data.value.product
+  
 }
 </script>
 
@@ -181,6 +192,7 @@ select {
   }
   /* ********************* */
   .preview-container {
+  width: 350px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -221,5 +233,9 @@ select {
 
 .remove-button:hover {
   background: rgba(255, 0, 0, 1);
+}
+.add_img{
+  margin: 0 auto;
+  padding: 8px;
 }
 </style>

@@ -2,8 +2,12 @@ import prisma from "~/lib/prisma"
 
 export default defineEventHandler(async (event)=>{
   const id = event.context.params?.id
-  const data = event.context.fields
-  const img = event.context.files.map((el:any)=>({img:el.newFileName}))
+  let data = event.context.fields
+  if (!data) {
+    const fd = await readFormData(event)
+    data = Object.fromEntries(fd.entries())
+  }
+  const img = event.context.files?.map((el:any)=>({img:el.newFileName})) || []
   data.type_id = +data.type_id
   data.price = +data.price
   data.sale = +data.sale

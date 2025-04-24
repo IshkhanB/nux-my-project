@@ -19,25 +19,27 @@
             </div>
           <div class="card_bottom1">
             <!-- <NuxtLink :to="`/${product?.type?.title}/${product?.id}`"  class="card_info"> Подробнее</NuxtLink> -->
-            <button  class="card_add">Изменить</button>
+            <!-- <button  class="card_add">Изменить</button> -->
+            <NuxtLink class="card_add" :to="`/lk/edit/${product?.id}`" > Изменить</NuxtLink>
+
           </div>
         </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-const props = defineProps(['product','types'])
-const cartStore = useCart()
+defineProps(['product','types'])
+// const cartStore = useCart()
 
-function addToCart() {
-  const el = cartStore.arr.find((el:any)=>el.id==props.product.id)
-  if (el) {
-    el.count++
-  } else {
-    cartStore.arr.push({...props.product,count:1})
-  }
-  localStorage.cart = JSON.stringify(cartStore.arr)
-}
+// function addToCart() {
+//   const el = cartStore.arr.find((el:any)=>el.id==props.product.id)
+//   if (el) {
+//     el.count++
+//   } else {
+//     cartStore.arr.push({...props.product,count:1})
+//   }
+//   localStorage.cart = JSON.stringify(cartStore.arr)
+// }
 
 
 

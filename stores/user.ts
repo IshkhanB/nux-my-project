@@ -26,12 +26,12 @@ export const useUsers = defineStore('users', () => {
     navigateTo('/')
   }
   const logIn = async (email: string, pass: string) => {
-    console.log(email, pass)
+    // console.log(email, pass)
     user.value = await $fetch<User |undefined>('/api/admin/login', {
       method: 'POST',
       body: { email, pass }
     })
-    console.log(user.value)
+    // console.log(user.value)
     if (user.value) {
       const userToLocal = {...user.value}
       // @ts-ignore

@@ -8,9 +8,7 @@
 <script setup lang="ts">
 const cartStore = useCart()
 onMounted(()=>{
-  if (localStorage.cart) {
-    cartStore.arr = JSON.parse(localStorage.cart)
-  }
+  cartStore.loadCart()
 })
 </script>
 <style>

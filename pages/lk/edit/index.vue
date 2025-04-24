@@ -80,7 +80,7 @@ let files = [] as any[]
 const handleFileUpload = (event: Event ) => {
   const target = event.target as HTMLInputElement
   // @ts-ignore
-  files = target.files || [] as any[]
+  files = Array.from(target.files) || [] as any[]
   if (files) {
     for (let i = 0; i < files.length; i++) {
       const file = files[i]
@@ -234,6 +234,7 @@ select {
   }
   /* ********************* */
   .preview-container {
+  width: 350px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

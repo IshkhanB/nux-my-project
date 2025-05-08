@@ -19,9 +19,9 @@
       <input type="file" id="file" ref="file" multiple @change="handleFileUpload" placeholder="Изображение">
       
       <div class="preview-container">
-        <div v-for="(image, index) of data.product?.img" :key="index" class="preview-item">
-          <img preset="cover" :src="`/img/${image.img}`" class="preview-image" ></img>
-          <button @click.prevent="removeImageFromServer(data.product.img[index].id)" class="remove-button">×</button>
+        <div v-for="(image, index) of product?.img" :key="index" class="preview-item">
+          <img preset="cover" :src="`/img/${image.img}`" class="preview-image" >
+          <button @click.prevent="removeImageFromServer(product.img[index].id)" class="remove-button">×</button>
         </div>
       </div>
       <hr style="color: gray; margin: 20px auto;">
@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-    
+  {{ product }}
     <!-- enctype='multipart/form-data' -->
     <!-- <input type="submit" value="Cохранить"> -->
     <button style="background-color: blue;" @click.prevent="upload">Сохранить</button>
@@ -41,13 +41,17 @@
 </template>
 
 <script setup lang="ts">
+
 import { useUsers } from '~/stores/user'
+console.log('start')
 const userStore = useUsers()
 // ${userStore.user?.id}
 const route = useRoute()
 const {data, refresh} = await useFetch(`/api/product/${route.params.id}`)
 const {data:types} = await useFetch('/api/type')
-const product = ref(data.value.product)
+console.log(data.value)
+// @ts-ignore
+const product = ref(data.value?.product)
 // console.log(route.params.id)
 const previewImages = ref([] as any[])
 const newName = ref('')
@@ -69,8 +73,8 @@ onMounted( async ()=>{
 const handleFileUpload = (event: Event ) => {
   const target = event.target as HTMLInputElement
   // @ts-ignore
-  files = Array.from(target.files) || [] as any[]
-  if (files.length) {
+  files = Array.from(target.files ) || [] as any[]
+  if (files.length ) {
     for (let i = 0; i < files.length; i++) {
       const file = files[i]
       const reader = new FileReader()
@@ -83,7 +87,7 @@ const handleFileUpload = (event: Event ) => {
     }
   }
 }
-
+// console.log(data.value?.ok)
 // const seveCart = async (id:number) => {
 //   await fetch('/api/product/'+id, {
 //     method: 'PUT'
@@ -125,6 +129,7 @@ const upload = async () => {
   fileref.value = ''
   previewImages.value = []
   refresh()
+//@ts-ignore
   product.value = data.value.product
   
 }

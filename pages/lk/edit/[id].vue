@@ -32,10 +32,10 @@
         </div>
       </div>
     </div>
-  {{ product }}
+  <!-- {{ product }} -->
     <!-- enctype='multipart/form-data' -->
     <!-- <input type="submit" value="Cохранить"> -->
-    <button style="background-color: blue;" @click.prevent="upload">Сохранить</button>
+    <button style="background-color: rgb(168, 168, 177); padding: 5px;" @click.prevent="upload()">Сохранить</button>
     
   </form>
 </template>
@@ -43,13 +43,13 @@
 <script setup lang="ts">
 
 import { useUsers } from '~/stores/user'
-console.log('start')
+// console.log('start')
 const userStore = useUsers()
 // ${userStore.user?.id}
 const route = useRoute()
 const {data, refresh} = await useFetch(`/api/product/${route.params.id}`)
 const {data:types} = await useFetch('/api/type')
-console.log(data.value)
+// console.log(data.value)
 // @ts-ignore
 const product = ref(data.value?.product)
 // console.log(route.params.id)
@@ -109,7 +109,10 @@ const removeImageFromServer = (id:number) => {
 
 //************************************************************
 const upload = async () => {
-
+  if (!product.value) {
+    console.log('Product data is not loaded')
+    return
+  }
   const fileref = file.value as never as HTMLInputElement
   const fD = new FormData()
   fD.append('title', product.value.title)

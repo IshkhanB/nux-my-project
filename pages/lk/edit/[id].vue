@@ -20,7 +20,7 @@
       
       <div class="preview-container">
         <div v-for="(image, index) of product?.img" :key="index" class="preview-item">
-          <img preset="cover" :src="`/img/${image.img}`" class="preview-image" >
+          <NuxtImg preset="cover" :src="`/img/${image.img}`" class="preview-image" />
           <button @click.prevent="removeImageFromServer(product.img[index].id)" class="remove-button">×</button>
         </div>
       </div>
@@ -61,6 +61,7 @@ let files = [] as any[]
 definePageMeta({
   layout: 'admin'
 })
+
 onMounted( async ()=>{
   await userStore.autoLogin()
   if (!userStore.user) {
@@ -69,7 +70,6 @@ onMounted( async ()=>{
 })
 //************************************************************
 
-// Обработчик загрузки файлов
 const handleFileUpload = (event: Event ) => {
   const target = event.target as HTMLInputElement
   // @ts-ignore
@@ -104,7 +104,7 @@ const removeImageFromServer = (id:number) => {
   fetch('/api/image/'+id, {
     method: 'DELETE'
   })
-  refresh()
+  location.reload()
 }
 
 //************************************************************
@@ -124,16 +124,18 @@ const upload = async () => {
   }
   fD.append('price', product.value.price.toString())
   fD.append('sale', product.value.sale.toString())
-  await $fetch('/api/product/'+product.value.id, {
+  const dataResp = await $fetch('/api/product/'+product.value.id, {
     method:'PUT',
     body: fD
   })
+  console.log(dataResp)
   newName.value = ''
   fileref.value = ''
   previewImages.value = []
-  refresh()
+  setTimeout(()=>location.reload(),500)
+  // await refresh()
 //@ts-ignore
-  product.value = data.value.product
+  // product.value = data.value.product
   
 }
 </script>

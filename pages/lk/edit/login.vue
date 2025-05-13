@@ -2,63 +2,81 @@
   <div class="dark-login-container">
     <div class="dark-login-box">
       <h2 class="dark-login-title">Административный вход</h2>
-      <ClientOnly>
-      <div v-if="!userStore.user">
-        <form @submit.prevent="logIn" method="post" class="dark-login-form">
-
-          <div class="dark-form-group"> 
-            <label for="email" class="dark-input-label">Логин:</label>
-            <input type="email" v-model="email" required class="dark-input-field" placeholder="email">
-          </div>
-
-          <div class="dark-form-group">
-            <label for="password" class="dark-input-label">Пароль:</label>
-            <input type="password" required placeholder="pass" v-model="pass" class="dark-input-field">
-          </div>
-
-          <div class="dark-login-button">
-          <input type="submit" value="Войти">
-          </div>
-        </form>
-        <p v-if="error">{{ error }}</p>
-      </div>
-      <div v-else
-        style="max-width: 300px; margin:100px auto; border-radius: 10px; border: 1px solid #DEDEDE; padding:20px;">
+      <form @submit.prevent="handleLogin" class="dark-login-form">
+        <div class="dark-form-group">
+          <label for="email" class="dark-input-label">Логин:</label>
+          <input
+            type="email"
+            id="email"
+            v-model="form.email"
+            required
+            class="dark-input-field"
+            placeholder="admin@example.com"
+          >
+        </div>
         
-        <h2>Добро подаловать, {{ userStore.user.name }}</h2>
-        <a href="http://localhost:3000/lk/edit">Adminka</a>
-      </div>
-    </ClientOnly>
+        <div class="dark-form-group">
+          <label for="password" class="dark-input-label">Пароль:</label>
+          <input
+            type="password"
+            id="password"
+            v-model="form.password"
+            required
+            class="dark-input-field"
+            placeholder="••••••••"
+          >
+        </div>
+        
+        <button type="submit" :disabled="loading" class="dark-login-button">
+          <span v-if="loading" class="dark-button-loader"></span>
+          <span v-else>Войти</span>
+        </button>
+        
+        <div v-if="error" class="dark-error-message">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          {{ error }}
+        </div>
+      </form>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUsers } from '~/stores/user'
+
 const userStore = useUsers()
-const email = ref('')
-const pass = ref('')
+const router = useRouter()
+
+const form = ref({
+  email: '',
+  password: ''
+})
+
+const loading = ref(false)
 const error = ref('')
 
-definePageMeta({
-  layout: 'admin'
-})
-
-onMounted( async ()=>{
-  await userStore.autoLogin()
-})
-
-const logIn = async (e:Event) => {
-  e.preventDefault()
-  if (email.value && pass.value) {
-    error.value = await userStore.logIn(email.value, pass.value)
-  } else {
-    error.value = 'Не введён логин либо пароль'
+const handleLogin = async () => {
+  try {
+    loading.value = true
+    error.value = ''
+    
+    await userStore.autoLogin()
+    router.push('/admin')
+  } catch (err) {
+    error.value = 'Неверные учетные данные'
+    console.error('Login error:', err)
+  } finally {
+    loading.value = false
   }
 }
-
 </script>
+
 <style scoped>
 .dark-login-container {
   display: flex;

@@ -3,9 +3,11 @@ import prisma from "~/lib/prisma"
 export default defineEventHandler(async (event)=>{
   const id = event.context.params?.id
   let data = event.context.fields
+  console.log('1',data)
   if (!data) {
     const fd = await readFormData(event)
     data = Object.fromEntries(fd.entries())
+    console.log('2',data)
   }
   const img = event.context.files?.map((el:any)=>({img:el.newFileName})) || []
   data.type_id = +data.type_id
@@ -30,6 +32,7 @@ export default defineEventHandler(async (event)=>{
     })
     return{product, ok: true}
   }catch(e) {
+    console.log(e)
     return{product:null, ok: false, e}  
   }
   }

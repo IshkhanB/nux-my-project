@@ -41,9 +41,9 @@ const swiper = useSwiper(containerRef, {
     },
   },
 })
-onMounted(() => {
-  console.log(swiper.instance)
-})
+// onMounted(() => {
+//   console.log(swiper.instance)
+// })
 </script>
 
 <style scoped>

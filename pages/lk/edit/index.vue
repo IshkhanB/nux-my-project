@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <div v-if="userStore.user" style="margin: 0 auto;">
+    <HeaderComp/>
+    <div>
+      <div v-if="userStore.user" style="margin: 0 auto;">
       <button style="border:1px solid black; background-color: antiquewhite; box-sizing: border-box;  margin-left: 90%; margin-top: 20px; padding: 5px; border-radius: 20px;" @click="userStore.logOut">logout</button>
       <h1 style="text-align: center; margin: 20px auto; font-size: 40px; font-weight: 900; color: rebeccapurple;">Мой личный кабинет!</h1>
     </div>  
@@ -18,9 +19,9 @@
       </ClientOnly>
     </div> -->
     <!-- ################################################################## -->
-       
+    
     <form class="forma_zapolneniya" method="post" @submit.prevent="upload">
-
+      
       <input type="text" name="title" v-model="title" placeholder="Заголовок">
       <textarea type="text" name="description" v-model="description" placeholder="Текст публикации"></textarea>
       
@@ -30,12 +31,12 @@
       <input type="number" name="price" v-model="price" placeholder="price">
       <label for="sale">Скидка:</label>
       <input type="number"  id="sale" name="sale" v-model="sale" placeholder="Введите скидку">
-
+      
       <input type="text" name="newName" v-model="newName" placeholder="new filename">
       <div>
         <label for="file">Изображение:</label>
         <input type="file" id="file" ref="file" multiple @change="handleFileUpload" placeholder="Изображение">
-
+        
         <div class="preview-container">
           <div v-for="(image, index) in previewImages" :key="index" class="preview-item">
             <img :src="image" alt="Превью" class="preview-image" />

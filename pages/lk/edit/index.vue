@@ -8,18 +8,6 @@
     <div v-else>
       Go home
     </div>
-    <!-- ################################################################## -->
-    <!-- <div class="swip_div">
-      <ClientOnly class="swip">
-        <swiper-container ref="containerRef" :init="false">
-          <swiper-slide v-for="image, i of images" :key="i">
-            <NuxtImg preset="cover" width="327px"  :src="image" alt=""></NuxtImg>
-          </swiper-slide>
-        </swiper-container>
-      </ClientOnly>
-    </div> -->
-    <!-- ################################################################## -->
-    
     <form class="forma_zapolneniya" method="post" @submit.prevent="upload">
       
       <input type="text" name="title" v-model="title" placeholder="Заголовок">
@@ -34,6 +22,7 @@
       
       <input type="text" name="newName" v-model="newName" placeholder="new filename">
       <div>
+
         <label for="file">Изображение:</label>
         <input type="file" id="file" ref="file" multiple @change="handleFileUpload" placeholder="Изображение">
         
@@ -95,6 +84,7 @@ const handleFileUpload = (event: Event ) => {
       reader.readAsDataURL(file)
     }
   }
+
 }
 
 // Удаление изображения из превью

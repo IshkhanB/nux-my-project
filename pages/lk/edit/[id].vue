@@ -1,23 +1,23 @@
 <template>
   <form class="forma_zapolneniya" method="put" @submit.prevent="upload">
-
+    
     <input type="text" name="title" v-model="product.title" placeholder="Заголовок">
     <textarea type="text" name="description" v-model="product.description" placeholder="Текст публикации"></textarea>
-
+    
     <select name="type" id="type_id_select" v-model="product.type_id">
       <option v-for="t of types?.type" :key="t.id" :value="t.id" >{{ t.title }}</option>
     </select>
     <input type="number" name="price" v-model="product.price" placeholder="price">
     <label for="sale">Скидка:</label>
     <input type="number"  id="sale" name="sale" v-model="product.sale" placeholder="Введите скидку">
-
+    
     <input type="text" name="newName" v-model="newName" placeholder="new filename">
-
+    
     
     <div class="add_img">  
       <label for="file">Изображение:</label>
       <input type="file" id="file" ref="file" multiple @change="handleFileUpload" placeholder="Изображение">
-      
+    
       <div class="preview-container">
         <div v-for="(image, index) of product?.img" :key="index" class="preview-item">
           <NuxtImg preset="cover" :src="`/img/${image.img}`" class="preview-image" />
@@ -32,11 +32,10 @@
         </div>
       </div>
     </div>
-  <!-- {{ product }} -->
+    <!-- {{ product }} -->
     <!-- enctype='multipart/form-data' -->
     <!-- <input type="submit" value="Cохранить"> -->
-    <button style="background-color: rgb(168, 168, 177); padding: 5px;" @click.prevent="upload()">Сохранить</button>
-    
+    <button style="background-color: rgb(168, 168, 177); padding: 5px;" @click.prevent="upload()">Сохранить</button>  
   </form>
 </template>
 
@@ -87,17 +86,10 @@ const handleFileUpload = (event: Event ) => {
     }
   }
 }
-// console.log(data.value?.ok)
-// const seveCart = async (id:number) => {
-//   await fetch('/api/product/'+id, {
-//     method: 'PUT'
-//   })
-// }
 
 // Удаление изображения из превью
 const removeImage = (index: number) => {
   previewImages.value.splice(index, 1)
-  // console.log(files)
   files.splice(index, 1)
 }
 const removeImageFromServer = (id:number) => {
@@ -107,7 +99,6 @@ const removeImageFromServer = (id:number) => {
   location.reload()
 }
 
-//************************************************************
 const upload = async () => {
   if (!product.value) {
     console.log('Product data is not loaded')
@@ -133,11 +124,24 @@ const upload = async () => {
   fileref.value = ''
   previewImages.value = []
   setTimeout(()=>location.reload(),500)
-  // await refresh()
-//@ts-ignore
+  //@ts-ignore
   // product.value = data.value.product
   
 }
+
+  // methods: {
+  //  const  reloadPage() {
+  //     window.location.reload();
+  //   }
+  // }
+
+let reloadPage = () => {
+      window.location.reload();
+    }
+
+// await refresh()
+// location.reload()
+// setTimeout(()=>location.reload(),5000)
 </script>
 
 <style scoped>
@@ -166,42 +170,20 @@ input,textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-  /* .select-wrapper {
-  position: relative;
+.swip{
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
-
-.select-wrapper::after {
-  content: "⬇️";
-  position: absolute;
-  right: 0;
-  margin-top: -2px;
-  pointer-events: none;
+swiper-slide>img {
+  object-position: center;
+  border-radius: 20px;
 }
-
-select {
-  appearance: none;
-  width: 200px;
-  padding: 4px;
-  border-color: #aaa;
-  border-radius: 3px;
-} */
- .swip{
-   margin: 0 auto;
-   display: flex;
-   align-items: center;
-  }
-  swiper-slide>img {
-    object-position: center;
-    border-radius: 20px;
-  }
-  .swip_div{
-    margin: 0 auto;
-    width: 327px;
-    /* object-fit: cover; */
-    /* box-sizing: border-box; */
-  }
-  /* ********************* */
-  .preview-container {
+.swip_div{
+  margin: 0 auto;
+  width: 327px;
+}
+.preview-container {
   width: 350px;
   display: flex;
   flex-wrap: wrap;

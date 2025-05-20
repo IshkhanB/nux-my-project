@@ -18,16 +18,14 @@
               <div class="card_price">{{ product?.price }}</div>
             </div>
           <div class="card_bottom1">
-            <!-- <NuxtLink :to="`/${product?.type?.title}/${product?.id}`"  class="card_info"> Подробнее</NuxtLink> -->
-            <!-- <button  class="card_add">Изменить</button> -->
-            <NuxtLink class="card_add" :to="`/lk/edit/${product?.id}`" > Изменить</NuxtLink>
+            <NuxtLink class="card_add" :to="`/lk/edit/${product?.id}`"> Изменить</NuxtLink>
 
           </div>
         </div>
     </div>
   </div>
 </template>
-<script setup lang="ts">
+<script setup lang="ts"> 
 defineProps(['product','types'])
 // const cartStore = useCart()
 

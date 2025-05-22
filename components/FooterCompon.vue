@@ -43,7 +43,7 @@
     </div>
     <hr >
     <div class="footer_footer">
-      <div>
+      <div class="nav_footer" >
         <a href="/privacy">Политика конфиденциальности</a>
         <p style="transform-origin: center center; line-height: 19px;">©️ Цветы Сочи 2024</p>
       </div>
@@ -138,7 +138,7 @@ a:hover{
   border: #c9c9c9;
   background-color: #c9c9c9;
   border-radius: 0 20px 0 0 ;
-  padding: 0 0 0 5px;
+  padding: 0 0 0 0px;
 }
 
 </style>

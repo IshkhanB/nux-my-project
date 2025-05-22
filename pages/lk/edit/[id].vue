@@ -1,24 +1,26 @@
 <template>
-  <form class="forma_zapolneniya" method="put" @submit.prevent="upload">
+  <div>
+
+    <form class="forma_zapolneniya" method="put" @submit.prevent="upload">
+      
+      <input type="text" name="title" v-model="product.title" placeholder="Заголовок">
+      <textarea type="text" name="description" v-model="product.description" placeholder="Текст публикации"></textarea>
     
-    <input type="text" name="title" v-model="product.title" placeholder="Заголовок">
-    <textarea type="text" name="description" v-model="product.description" placeholder="Текст публикации"></textarea>
-    
-    <select name="type" id="type_id_select" v-model="product.type_id">
-      <option v-for="t of types?.type" :key="t.id" :value="t.id" >{{ t.title }}</option>
-    </select>
-    <input type="number" name="price" v-model="product.price" placeholder="price">
-    <label for="sale">Скидка:</label>
-    <input type="number"  id="sale" name="sale" v-model="product.sale" placeholder="Введите скидку">
-    
-    <input type="text" name="newName" v-model="newName" placeholder="new filename">
-    
-    
-    <div class="add_img">  
-      <label for="file">Изображение:</label>
-      <input type="file" id="file" ref="file" multiple @change="handleFileUpload" placeholder="Изображение">
-    
-      <div class="preview-container">
+      <select name="type" id="type_id_select" v-model="product.type_id">
+        <option v-for="t of types?.type" :key="t.id" :value="t.id" >{{ t.title }}</option>
+      </select>
+      <input type="number" name="price" v-model="product.price" placeholder="price">
+      <label for="sale">Скидка:</label>
+      <input type="number"  id="sale" name="sale" v-model="product.sale" placeholder="Введите скидку">
+      
+      <input type="text" name="newName" v-model="newName" placeholder="new filename">
+      
+      
+      <div class="add_img">  
+        <label for="file">Изображение:</label>
+        <input type="file" id="file" ref="file" multiple @change="handleFileUpload" placeholder="Изображение">
+        
+        <div class="preview-container">
         <div v-for="(image, index) of product?.img" :key="index" class="preview-item">
           <NuxtImg preset="cover" :src="`/img/${image.img}`" class="preview-image" />
           <button @click.prevent="removeImageFromServer(product.img[index].id)" class="remove-button">×</button>
@@ -37,6 +39,7 @@
     <!-- <input type="submit" value="Cохранить"> -->
     <button style="background-color: rgb(168, 168, 177); padding: 5px;" @click.prevent="upload()">Сохранить</button>  
   </form>
+ </div>
 </template>
 
 <script setup lang="ts">
@@ -126,7 +129,6 @@ const upload = async () => {
   setTimeout(()=>location.reload(),500)
   //@ts-ignore
   // product.value = data.value.product
-  
 }
 
   // methods: {
@@ -136,8 +138,8 @@ const upload = async () => {
   // }
 
 let reloadPage = () => {
-      window.location.reload();
-    }
+  window.location.reload();
+}
 
 // await refresh()
 // location.reload()
@@ -145,13 +147,22 @@ let reloadPage = () => {
 </script>
 
 <style scoped>
+body{
+  margin: 0;
+}
 #type_id_select{
   margin: 10px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 20px ;
 }
+.add_img{
+  transform: translate(25px, 10px);
+  margin: 0 auto;
+  padding: 10px;
+}
 .forma_zapolneniya{
+  /* background-color: #0f172a; */
   margin: 0 auto;
   padding:10px ;
   width: 600px;
@@ -225,9 +236,5 @@ swiper-slide>img {
 
 .remove-button:hover {
   background: rgba(255, 0, 0, 1);
-}
-.add_img{
-  margin: 0 auto;
-  padding: 8px;
 }
 </style>

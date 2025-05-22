@@ -26,7 +26,7 @@
   </div>
 </template>
 <script setup lang="ts">
-defineProps(['product','types'])
+const props = defineProps(['product','types'])
 const cartStore = useCart()
 
 const containerRef = ref(null)
@@ -34,7 +34,7 @@ const containerRef = ref(null)
 // const prise_sale = 4
 const swiper = useSwiper(containerRef, {
   effect: 'creative',
-  loop: true,
+  loop: props.product.img>1?true:false,
   //autoplay: {
   //  delay: 5000,
   //},
@@ -50,9 +50,9 @@ const swiper = useSwiper(containerRef, {
   },
 })
 
-onMounted(() => {
-  console.log(swiper.instance)
-})
+// onMounted(() => {
+//   console.log(swiper.instance)
+// })
 
 </script>
 

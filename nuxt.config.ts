@@ -71,8 +71,17 @@ export default defineNuxtConfig({
     installClient: true,
     generateClient: true,
     installStudio: false,
-    autoSetupPrisma: true
+    autoSetupPrisma: true,
+    // autoGenerate: false, // Отключаем автогенерацию при каждом запуске
+    // client: {
+    //   datasources: {
+    //     db: {
+    //       url: process.env.DATABASE_URL
+    //     }
+    //   }
+    // }
   },
+
    
   modules: ['@pinia/nuxt','@nuxt/image','nuxt-swiper','@prisma/nuxt',]
 })

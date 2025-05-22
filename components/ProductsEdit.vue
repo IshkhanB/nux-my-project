@@ -19,14 +19,13 @@
             </div>
           <div class="card_bottom1">
             <NuxtLink class="card_add" :to="`/lk/edit/${product?.id}`"> Изменить</NuxtLink>
-
           </div>
         </div>
     </div>
   </div>
 </template>
 <script setup lang="ts"> 
-defineProps(['product','types'])
+const props = defineProps(['product','types'])
 // const cartStore = useCart()
 
 // function addToCart() {
@@ -46,7 +45,7 @@ const containerRef = ref(null)
 // const prise_sale = 4
 const swiper = useSwiper(containerRef, {
   effect: 'creative',
-  loop: true,
+  loop: props.product.img>1?true:false,
   //autoplay: {
   //  delay: 5000,
   //},

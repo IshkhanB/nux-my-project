@@ -48,7 +48,7 @@
 <script setup lang="ts">
 import ProductsEdit from '~/components/ProductsEdit.vue'
 import { useUsers } from '~/stores/user'
-console.log('start')
+// console.log('start')
 const userStore = useUsers()
 
 const {data, refresh} = await useFetch(`/api/product`)

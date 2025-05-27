@@ -5,7 +5,6 @@ import sharp from 'sharp'
 export default defineEventHandler(async (event) => {
   if (event.method === 'POST'||event.method === 'PUT') {
     const contentType = getRequestHeader(event, "content-type")
-    console.log('hit', contentType?.includes('multipart/form-data;'))
     if (contentType?.includes('multipart/form-data;')) await useFiles(event)
   }
 })
@@ -48,16 +47,12 @@ const useFiles = async (event: any) => {
       const busboy = Busboy({ headers: req.headers })
       let i = 1
       busboy.on('file', (name, file, info) => {
-        console.log(fields)
         const { filename, encoding, mimeType } = info
-        // const newFileName = info.filename
         const newFileName = translit(fields.newName + ' ' + i ) + '.webp'
         i++
         console.log(`File [${name}]: filename: ${filename}, encoding: ${encoding}, mimeType: ${mimeType}`)
         console.log(path.join(process.cwd(), '../public/img/img'))
         const saveTo = path.join(process.cwd(), '../public/img', `${newFileName}`)
-        // console.log('saveTo', saveTo)
-        // file.pipe(fs.createWriteStream(saveTo))
         const data = [] as any
         let fileAsBuffer
 
@@ -65,12 +60,10 @@ const useFiles = async (event: any) => {
           data.push(chunk)
         })
         .on('close', async () => {
-          // merge data chunks with buffer and attach them to body
           fileAsBuffer = Buffer.concat(data)
           
           await sharp(fileAsBuffer)
           .webp({ quality: 70 })
-          // .resize({ width: 1920 })
           .toFile(saveTo)
         })
         .on('end', () => {
@@ -89,7 +82,6 @@ const useFiles = async (event: any) => {
       busboy.on('finish', () => {
         event.context.files = files
         event.context.fields = fields
-        // resolve({ files, fields })
         resolve({})
       })
       req.pipe(busboy)

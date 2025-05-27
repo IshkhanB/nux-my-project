@@ -2,5 +2,6 @@
   <!-- <HeaderComp/> -->
   <slot></slot>
   <!-- <FooterCompon/> -->
+  <!-- <DeliveryMap/> -->
 </template>
   

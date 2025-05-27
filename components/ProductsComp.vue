@@ -1,69 +1,50 @@
 
 <template>
-  <!-- <div class="anchor" style="transform: translateY(-160px);" id="catalog"></div>
-  <div class="cards">
-  </div> -->
- <PaginationMy :products="paginatedProducts">
-
-   <ProductsNew v-for="product of paginatedProducts" :product="product" :key="product.id" />
-  </PaginationMy>
-
-  <!-- Пагинация -->
-  <!-- <div class="pagination">
-    <button 
-      @click="prevPage" 
-      :disabled="currentPage === 1"
-      class="pagination-button"
-    >
-      Назад
-    </button>
-    <span class="pagination-info">
-      Страница {{ currentPage }} из {{ totalPages }}
-    </span>
-    <button 
-      @click="nextPage" 
-      :disabled="currentPage === totalPages"
-      class="pagination-button"
-    >
-    Last
-    </button>
-  </div> -->
-<div class="pagination">
-  <button v-for="page in totalPages" :key="page" @click="currentPage = page"  class="pagination-button" :class="{ active: currentPage == page }"> {{ page }}</button>
-</div>
-<!-- изменение отображаймого количества карточек -->
-<div style="  text-align: center; margin:10px auto; width: 10px;">
-  <select v-model="itemsPerPage" @change="currentPage = 1" :about="'>'" style="background-color: #e4b891; padding: 5px; border-radius: 5px;">
-  <option value="2"> 2</option>
-  <option value="4"> 4</option>
-  <option value="6"> 6</option>
-  <option value="8"> 8</option>
-  <option value="10">10</option>
-  <option value="12">12</option>
-</select>
-</div>
+  <div class="anchor" style="transform: translateY(-160px);" id="catalog"></div>
+  <div  class="cards">
+    <ProductsNew v-for="product of products" :product="product" :key="product.id" />
+  </div>
+  <select name="ipp" id="ipp" v-model="itemsPerPage">
+    <option value="4">4</option>
+    <option value="6">6</option>
+    <option value="8">8</option>
+  </select>
+  <div class="pagination">
+    <button v-for="page in totalPages" :key="page" @click="currentPage = page"  class="pagination-button" :class="{ active: currentPage == page }"> {{ page }}</button>
+  </div>
 </template>
-
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-const props = defineProps(["products"])
-const itemsPerPage = ref(4)
-const currentPage = ref(1)
-
-// Вычисляем общее количество страниц
-const totalPages = computed(() => {
-  return Math.ceil(props.products.length / itemsPerPage.value)
+const typeStore = useTypes()
+const router = useRouter()
+const route = useRoute()
+const products = ref([] as any[])
+const itemsPerPage = ref(Number(route.query?.items) || 4)
+const currentPage = ref(Number(route.query?.page) || 1)
+const totalPages = ref(0)
+watchEffect(async () => {
+  const query = {} as any
+  let needUpdate = false
+  if (currentPage.value>1) {
+    if (route.query.page!=currentPage.value.toString()) needUpdate = true
+    query.page=currentPage.value
+  } else {
+    if (route.query.page) needUpdate = true
+  }
+  if (itemsPerPage.value!=4) {
+    if (route.query.items!=itemsPerPage.value.toString()) needUpdate = true
+    query.items=itemsPerPage.value
+  } else {
+    if (route.query.items) needUpdate = true
+  }
+  if (needUpdate) router.replace({query}) 
+  const id = typeStore.arr.find(el=>el.path==route.path)?.id
+  const queryArr = Object.entries(route.query)
+  const queryStr = queryArr.length ? '?'+queryArr.map(el=>el[0]+'='+el[1]).join('&') : ''
+  const {data} = await useFetch<{products:any[], count:number}>(`/api/product/type/${id}${queryStr}`)
+  products.value = data.value?.products || []
+  totalPages.value = Math.ceil((data.value?.count||0)/itemsPerPage.value)
 })
-
-// Вычисляем продукты для текущей страницы
-const paginatedProducts = computed(() => {
-  const start = (currentPage.value - 1) * itemsPerPage.value
-  const end = start + itemsPerPage.value
-  return props.products.slice(start, end)
-})
-
 </script>
-
 <style scoped>
   .pagination {
     display: flex;
@@ -72,29 +53,21 @@ const paginatedProducts = computed(() => {
     margin-top: 20px;
     gap: 10px;
   }
-
-.pagination-button {
-  padding: 8px 16px;
-  background-color: #595959;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.pagination-button.active {
-  background-color: #e8cbb1; /* Стиль для активной кнопки */
-  color: #fff;
-  font-weight: bold;
-}
-
-.pagination-button:hover:not(:active) {
-  background-color: #e4b891;
-}
-
-.pagination-info {
-  font-size: 16px;
-  color: #fff;
+  .pagination-button {
+    padding: 8px 16px;
+    background-color: #595959;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .pagination-button.active {
+    background-color: #e8cbb1; /* Стиль для активной кнопки */
+    color: #fff;
+    font-weight: bold;
+  }
+  .pagination-button:hover:not(:active) {
+    background-color: #e4b891;
   }
 </style>

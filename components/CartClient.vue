@@ -4,13 +4,9 @@
       <p class="your_order">Ваш заказ</p>
       <button class="but-back" @click="cartStore.visible = false"> X </button>
     </div>
-
     <hr class="divider">
-
     <ul class="content_cart">
       <li class="cart-item" v-for="el, i of cartStore.arr" :key="el.id">
-        <!-- {{ el.title }} {{ el.count }} {{ el.count*el.price }}RUB <button class="but-back1" @click="cartStore.del">X</button> -->
-
         <div class="item-image">
           <NuxtImg preset="cover" v-if="el.img.length" :src=" 'img/'+el.img[0].img" :alt="el.title" class="product-image"/>
           <div v-else class="image-placeholder"></div>
@@ -23,17 +19,11 @@
         <div class="item-count">
           <button class="count-but1" @click="el.count++"></button>
           <button class="count-but2" :style="el.count==1 ? 'filter:grayscale(1);' : ''"  @click="minus(el)"></button>
-          <!-- <button class="count-but2" style="" v-else></button>  -->
-          <!-- background: url(/icon/minus.png) center / cover; -->
         </div>
         <button class="remove-btn" @click="cartStore.remove(i)">×</button>
       </li>
     </ul>
-    
     <hr class="divider">
-    
-    <!-- <p  class="sum_cart">Сумма: {{ cartStore.sum }} </p>
-    <button class="place_order">Оформить заказ</button> -->
     <div class="cart-footer">
       <p class="total-sum">Итого: {{ cartStore.sum }}</p>
       <button class="checkout-btn">Оформить заказ</button>
@@ -45,10 +35,6 @@ const cartStore = useCart()
 const minus = (el:any)=>{
   if (el.count>1) el.count--
 }
-// if(!cartStore.arr) cartStore.visible = true
-  
-// console.log(cartStore.arr)
-// console.log(cartStore)
 </script>
 <style scoped>
 .cart-cont{

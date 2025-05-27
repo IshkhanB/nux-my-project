@@ -9,11 +9,11 @@ import { ref } from 'vue'
 
 export const useTypes = defineStore('types', () => {
   const arr = ref([
-    {id:1, title:'хиты продаж',},
-    {id:2, title:'Букеты',},
-    {id:3, title:'Акции',},
-    {id:4, title:'Подарки',},
-    
+    {id:0, title:'Все', path:'/',},
+    {id:3, title:'Хиты продаж', path:'/hits',},
+    {id:1, title:'Букеты', path:'/flowers',},
+    {id:4, title:'Акции', path:'/stocks',},
+    {id:2, title:'Подарки', path:'/gifts',},
   ])
   
   return{arr}

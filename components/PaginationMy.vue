@@ -1,38 +1,16 @@
-
 <template>
-  <!-- <div class="anchor" style="transform: translateY(-160px);" id="catalog"></div>
+
+<div class="anchor" style="transform: translateY(-160px);" id="catalog"></div>
   <div class="cards">
-  </div> -->
- <PaginationMy :products="paginatedProducts">
+    <!-- Отображаем карточки только для текущей страницы -->
+    <slot></slot>
+  </div>
 
-   <ProductsNew v-for="product of paginatedProducts" :product="product" :key="product.id" />
-  </PaginationMy>
-
-  <!-- Пагинация -->
-  <!-- <div class="pagination">
-    <button 
-      @click="prevPage" 
-      :disabled="currentPage === 1"
-      class="pagination-button"
-    >
-      Назад
-    </button>
-    <span class="pagination-info">
-      Страница {{ currentPage }} из {{ totalPages }}
-    </span>
-    <button 
-      @click="nextPage" 
-      :disabled="currentPage === totalPages"
-      class="pagination-button"
-    >
-    Last
-    </button>
-  </div> -->
 <div class="pagination">
   <button v-for="page in totalPages" :key="page" @click="currentPage = page"  class="pagination-button" :class="{ active: currentPage == page }"> {{ page }}</button>
 </div>
 <!-- изменение отображаймого количества карточек -->
-<div style="  text-align: center; margin:10px auto; width: 10px;">
+<div style="text-align: center; margin:10px auto; width: 10px;">
   <select v-model="itemsPerPage" @change="currentPage = 1" :about="'>'" style="background-color: #e4b891; padding: 5px; border-radius: 5px;">
   <option value="2"> 2</option>
   <option value="4"> 4</option>
@@ -43,7 +21,6 @@
 </select>
 </div>
 </template>
-
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 const props = defineProps(["products"])
@@ -52,7 +29,7 @@ const currentPage = ref(1)
 
 // Вычисляем общее количество страниц
 const totalPages = computed(() => {
-  return Math.ceil(props.products.length / itemsPerPage.value)
+  return Math.ceil(props.products?.length / itemsPerPage.value) || 5
 })
 
 // Вычисляем продукты для текущей страницы
@@ -63,15 +40,14 @@ const paginatedProducts = computed(() => {
 })
 
 </script>
-
 <style scoped>
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    gap: 10px;
-  }
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
 
 .pagination-button {
   padding: 8px 16px;
@@ -98,3 +74,4 @@ const paginatedProducts = computed(() => {
   color: #fff;
   }
 </style>
+

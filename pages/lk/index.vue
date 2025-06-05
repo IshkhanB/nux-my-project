@@ -2,7 +2,7 @@
   <div class="dark-login-container">
     <div class="dark-login-box">
       <h2 class="dark-login-title">Административный вход</h2>
-      <!-- <ClientOnly> -->
+      <ClientOnly>
       <div v-if="!userStore.user">
         <form @submit.prevent="logIn" method="post" class="dark-login-form">
 
@@ -28,7 +28,7 @@
         <h2>Добро подаловать, {{ userStore.user.name }}</h2>
         <a href="http://localhost:3000/lk/edit">Adminka</a>
       </div>
-    <!-- </ClientOnly> -->
+    </ClientOnly>
     </div>
   </div>
 </template>

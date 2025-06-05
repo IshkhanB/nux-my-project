@@ -27,6 +27,14 @@
 <script setup lang="ts">
   const sss = ref(false)
   const route = useRoute()
+  // onMounted(()=>{
+  //   if(!sss.value){
+  //     sss.value = true
+  //     console.log(sss.value)
+  //     console.log(sss.value +"ggg")
+  //   }
+  // }) 
+
 </script>
 <style>
 .filter_fon{

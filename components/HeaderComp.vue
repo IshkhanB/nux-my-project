@@ -6,6 +6,7 @@
        <NuxtImg class="header_logo"  src="/icon/mdi_flower-tulip-out.svg"/>
         <h1 class="heder_h1">FLOWER MARKET
          <p class="heder_p">Магазин доставки цветов по Сочи</p> 
+         <!-- Магазин доставки цветов по Сочи -->
         </h1>
       </NuxtLink>
       <nav class="header_nav">
@@ -17,14 +18,18 @@
       </nav>
       <div class="iconci_v_div">
         <p class="icon_search">
-          <NuxtImg  class="icon" src="icon/ic_sharp-search_1.svg" alt="openSearch"/> 
+          <NuxtImg  class="icon" src="icon/ic_sharp-search_1.svg" alt="icon"/> 
         </p>
         <p class="icon_search">
           <NuxtImg class="icon" src="icon/icon-park-outline_li.svg" alt=""/>
         </p>
+        <!-- <p class="icon_search">
+          <NuxtImg class="icon" src="~/assets/icon/ic_outline-shopping-.svg" alt="Корзина" />
+        </p> -->
         <button class="icon-button" aria-label="Корзина" @click="cartStore.visible = true" >
           <NuxtImg class="icon" src="icon/ic_outline-shopping-.svg" alt="Корзина"/>
           <span class="icon-count">{{ cartStore.count}}</span> <!-- Счетчик -->
+          
         </button>
       </div>
     </header>
@@ -37,6 +42,10 @@ const cartStore = useCart()
 const goToAnchor = (hash:string)=>{
   location.hash=hash
 }
+// onMounted(()=>{
+//   window.matchMedia('')
+
+// })
 </script>
 
 

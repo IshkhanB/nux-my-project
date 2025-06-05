@@ -1,6 +1,5 @@
 <template>
   <SubstrateComponent>
-  
    <AfterHeadr/>
    <FilterMenu/>
    <ProductsComp :products="products"/>

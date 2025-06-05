@@ -1,7 +1,7 @@
 <template>
   <div class="about_us_fon">
     <div class="anchor" id="about_us"></div>
-    <h1 class="our_headr">Наши преимущества</h1>
+    <h1 class="our_headr">Наши преимущества!</h1>
     <NuxtImg densities="x1" class="img_fon_about" src="icon/Group_946_5.png" alt="fon"></NuxtImg>
     <div class="div_img_rate">
       <NuxtImg class="img_rate" src="icon/rotating_bouquet.png" alt="rotating_bouquet"></NuxtImg>

@@ -35,12 +35,12 @@ export default defineNuxtConfig({
   
   vite: {
     ssr: {
-      external: ["@prisma/client"]
+      external: ["@prisma/client","prisma-test/client"]
     },
     resolve: {
       alias: [{
-        find:'.prisma/client/index-browser',
-        replacement: path.resolve(__dirname, 'node_modules/@prisma/client/index-browser.js'),
+        find:'prisma-test/client/index-browser',
+        replacement: path.resolve(__dirname, 'node_modules/prisma-test/client/index-browser.js'),
       },],
     },
     css: {
@@ -67,8 +67,6 @@ export default defineNuxtConfig({
   },
   
   prisma: {
-    installCLI: true,
-    installClient: true,
     generateClient: true,
     installStudio: false,
     autoSetupPrisma: true,

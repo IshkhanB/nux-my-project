@@ -50,6 +50,24 @@ const useFiles = async (event: any) => {
       busboy.on('file', (name, file, info) => {
         console.log(fields)
         const { filename, encoding, mimeType } = info
+        
+        //! #############################################################################################
+        const { promisify } = require('util')
+        const fs = require('fs')
+        const convert = require('heic-convert')
+
+        (async () => {
+          const inputBuffer = await promisify(fs.readFile)('/path/to/my/image.heic');
+          const outputBuffer = await convert({
+            buffer: inputBuffer, // the HEIC file buffer
+            format: 'JPEG',      // output format
+            quality: 1           // the jpeg compression quality, between 0 and 1
+          })
+          await promisify(fs.writeFile)('./result.jpg', outputBuffer);
+        })()
+        //! #############################################################################################
+        
+
         // const newFileName = info.filename
         const newFileName = translit(fields.newName + ' ' + i ) + '.webp'
         i++

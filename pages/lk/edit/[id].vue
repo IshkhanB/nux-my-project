@@ -37,7 +37,8 @@
     <!-- {{ product }} -->
     <!-- enctype='multipart/form-data' -->
     <!-- <input type="submit" value="Cохранить"> -->
-    <button style="background-color: rgb(168, 168, 177); padding: 5px;" @click.prevent="upload()">Сохранить</button>  
+    <button style="background-color: rgb(168, 168, 177);margin: 10px; padding: 5px;" @click.prevent="upload()">Сохранить</button> 
+    <NuxtLink style="background-color: rgb(168, 168, 177); margin: 10px; padding: 5px;" to="http://localhost:3000/lk/edit" > Назад</NuxtLink> 
   </form>
  </div>
 </template>

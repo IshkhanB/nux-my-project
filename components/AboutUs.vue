@@ -6,8 +6,6 @@
     <div class="div_img_rate">
       <NuxtImg class="img_rate" src="icon/rotating_bouquet.png" alt="rotating_bouquet"></NuxtImg>
     </div>
-    
-    
     <div> 
       <div class="div_us_info1">
         <h3></h3>

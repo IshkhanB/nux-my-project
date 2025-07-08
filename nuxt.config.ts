@@ -35,11 +35,11 @@ export default defineNuxtConfig({
   
   vite: {
     ssr: {
-      external: ["@prisma/client","@@/prisma/client"]
+      external: ["@prisma/client","@@/generated/prisma/client"]
     },
     resolve: {
       alias: [{
-        find:'@@/prisma/client/index-browser',
+        find:'@@/generated/prisma/client/index-browser',
         replacement: path.resolve(__dirname, 'prisma/client/index-browser.js'),
       },],
     },

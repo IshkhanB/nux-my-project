@@ -68,7 +68,7 @@
   position: absolute;
   bottom: 50px;
   right: 50px;
-  width: 400px;
+  width: 600px;
   display: flex;
   align-items: center;
   justify-content: space-between;

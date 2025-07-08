@@ -19,14 +19,22 @@
             </div>
           <div class="card_bottom1">
             <NuxtLink class="card_add" :to="`/lk/edit/${product?.id}`"> Изменить</NuxtLink>
+            <NuxtLink class="card_del" @click="deleteCardWithImages(product?.id)" > Удалить</NuxtLink>
           </div>
         </div>
     </div>
   </div>
 </template>
 <script setup lang="ts"> 
-const props = defineProps(['product','types'])
+const props = defineProps(['product','types', 'refresh'])
 // const cartStore = useCart()
+
+const deleteCardWithImages = async (id:number)=>{
+  await $fetch(`/api/product/${id}`, {
+    method:'DELETE'
+  })
+  props.refresh()
+}
 
 // function addToCart() {
 //   const el = cartStore.arr.find((el:any)=>el.id==props.product.id)
@@ -61,9 +69,7 @@ const swiper = useSwiper(containerRef, {
   },
 })
 
-// onMounted(() => {
-//   console.log(swiper.instance)
-// })
+
 
 </script>
 
@@ -149,6 +155,17 @@ swiper-slide>img {
   padding: 15px;
   color: #ffffff;
   background-color: #595959;
+  border-radius: 25px;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  font-weight: 500;
+}
+.card_del {
+  margin: 0 auto;
+  width: 100px;
+  padding: 15px;
+  color: #ffffff;
+  background-color: #f00303;
   border-radius: 25px;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;

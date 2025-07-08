@@ -34,12 +34,10 @@
             </div>
           </div>
         </div>
-        
-        <!-- enctype='multipart/form-data' -->
         <input type="submit" value="Опубликовать">
       </form>
       <div class="cards" style="padding-top: 50px;">
-        <ProductsEdit v-for="product of data?.products" :product="product" :key="product.id" />
+        <ProductsEdit v-for="product of data?.products" :product="product" :refresh="refresh" :key="product.id" />
       </div>    
     </div>
   </div>
@@ -50,10 +48,8 @@ import ProductsEdit from '~/components/ProductsEdit.vue'
 import { useUsers } from '~/stores/user'
 console.log('start')
 const userStore = useUsers()
-
 const {data, refresh} = await useFetch(`/api/product`)
 const {data:types} = await useFetch('/api/type')
-
 const type_id = ref(1)
 
 definePageMeta({
@@ -69,7 +65,6 @@ onMounted( async ()=>{
 const previewImages = ref([] as any[])
 let files = [] as any[]
 
-// Обработчик загрузки файлов
 const handleFileUpload = (event: Event ) => {
   const target = event.target as HTMLInputElement
   // @ts-ignore
@@ -78,23 +73,17 @@ const handleFileUpload = (event: Event ) => {
     for (let i = 0; i < files.length; i++) {
       const file = files[i]
       const reader = new FileReader()
-      
-      // Чтение файла и добавление его в массив превью
       reader.onload = (e) => {
         previewImages.value.push(e.target?.result)
       }
       reader.readAsDataURL(file)
     }
   }
-
 }
-
-// Удаление изображения из превью
 const removeImage = (index: number) => {
   previewImages.value.splice(index, 1)
   files.splice(index, 1)
 }
-//************************************************************
 const title = ref('')
 const description = ref('')
 const newName = ref('')
@@ -131,41 +120,7 @@ const upload = async () => {
     
   }
 }
-//##################################################################
-// const containerRef = ref(null)
-// const swiper = useSwiper(containerRef, {
-  //   effect: 'creative',
-  //   loop: true,
-  //   // autoplay: {
-    //   //   delay: 5000,
-    //   // },
-    //   creativeEffect: {
-      //     prev: {
-        //       shadow: true,
-        //       translate: [0, 0, -400],
-        //     },
-        //     next: {
-          //       shadow: true,
-          //       translate: [0, 0, -400],
-          //     },
-          //   },
-          // })
-          
-          // onMounted(() => {
-//   console.log(swiper.instance)
-// })
-// const images = [
-  //   '/img/1735233911927444.jpg.webp',
-  //   '/img/1735234524397112.png.webp',
-  //   '/img/1735234704648222.jpg.webp',
-  // ]
-  
-//##################################################################
 </script>
-
-
-
-
 <style scoped>
 #type_id_select{
   margin: 10px;
@@ -180,8 +135,6 @@ const upload = async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border-radius: 20px; */
-  /* border: 1px red solid; */
 }
 input,textarea {
   display: block;
@@ -192,25 +145,6 @@ input,textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-  /* .select-wrapper {
-  position: relative;
-}
-
-.select-wrapper::after {
-  content: "⬇️";
-  position: absolute;
-  right: 0;
-  margin-top: -2px;
-  pointer-events: none;
-}
-
-select {
-  appearance: none;
-  width: 200px;
-  padding: 4px;
-  border-color: #aaa;
-  border-radius: 3px;
-} */
  .swip{
    margin: 0 auto;
    display: flex;
@@ -223,10 +157,7 @@ select {
   .swip_div{
     margin: 0 auto;
     width: 327px;
-    /* object-fit: cover; */
-    /* box-sizing: border-box; */
   }
-  /* ********************* */
   .preview-container {
   width: 350px;
   display: flex;
@@ -270,6 +201,5 @@ select {
 .remove-button:hover {
   background: rgba(255, 0, 0, 1);
 }
-  /* ********************* */
 </style>
 

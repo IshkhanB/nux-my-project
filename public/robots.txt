@@ -1,2 +1,3 @@
 
 Disallow: /lk
+Disallow: /lk/edit

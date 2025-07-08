@@ -149,7 +149,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/workspaces/nux-my-project/prisma/client",
+      "value": "N:\\Flower market\\nux-my-project\\prisma\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -158,16 +158,17 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-1.1.x",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/workspaces/nux-my-project/prisma/schema.prisma",
+    "sourceFilePath": "N:\\Flower market\\nux-my-project\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null
+    "rootEnvPath": null,
+    "schemaEnvPath": "../../.env"
   },
   "relativePath": "..",
   "clientVersion": "6.10.1",

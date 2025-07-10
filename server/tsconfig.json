@@ -1,6 +1,4 @@
 {
-  "compilerOptions": {
-    "module": "preserve"
-  },
+
   "extends": "../.nuxt/tsconfig.server.json"
 }

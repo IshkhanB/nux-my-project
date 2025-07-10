@@ -3,6 +3,14 @@ import path from 'path'
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   
+  // build: {
+  // extend(config ) {
+  //   config.resolve.extensionAlias = {
+  //     '.js': ['.js', '.cjs'],
+  //     '.mjs': ['.mjs']
+  //   }
+  // }
+  // },
   devtools: {
     enabled: true,
     
@@ -39,8 +47,8 @@ export default defineNuxtConfig({
     },
     resolve: {
       alias: [{
-        find:'@@/generated/prisma/client/index-browser',
-        replacement: path.resolve(__dirname, 'prisma/client/index-browser.js'),
+        find:'generated/prisma/client/index-browser',
+        replacement: path.resolve(__dirname, 'generated/prisma/client/index-browser.js'),
       },],
     },
     css: {

@@ -1,6 +1,7 @@
 import Busboy from 'busboy'
 import path from 'path'
 import sharp from 'sharp'
+import convert from 'heic-convert'
 
 export default defineEventHandler(async (event) => {
   if (event.method === 'POST'||event.method === 'PUT') {
@@ -50,24 +51,7 @@ const useFiles = async (event: any) => {
       busboy.on('file', (name, file, info) => {
         console.log(fields)
         const { filename, encoding, mimeType } = info
-        
-        //! #############################################################################################
-        const { promisify } = require('util')
-        const fs = require('fs')
-        const convert = require('heic-convert')
-
-        (async () => {
-          const inputBuffer = await promisify(fs.readFile)('/path/to/my/image.heic');
-          const outputBuffer = await convert({
-            buffer: inputBuffer, // the HEIC file buffer
-            format: 'JPEG',      // output format
-            quality: 1           // the jpeg compression quality, between 0 and 1
-          })
-          await promisify(fs.writeFile)('./result.jpg', outputBuffer);
-        })()
-        //! #############################################################################################
-        
-
+                
         // const newFileName = info.filename
         const newFileName = translit(fields.newName + ' ' + i ) + '.webp'
         i++
@@ -86,6 +70,16 @@ const useFiles = async (event: any) => {
           // merge data chunks with buffer and attach them to body
           fileAsBuffer = Buffer.concat(data)
           
+          if (filename.toLowerCase().endsWith('heic')) {
+            const uint8Array = new Uint8Array(fileAsBuffer.buffer, fileAsBuffer.byteOffset, fileAsBuffer.byteLength) as never as ArrayBufferLike
+            const outputBuffer = await convert({
+              buffer: uint8Array, 
+              format: 'JPEG',      
+              quality: 1           
+            })
+            fileAsBuffer = outputBuffer
+          }
+
           await sharp(fileAsBuffer)
           .webp({ quality: 70 })
           // .resize({ width: 1920 })

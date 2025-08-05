@@ -76,6 +76,7 @@ const handleFileUpload = (event: Event ) => {
       reader.onload = (e) => {
         previewImages.value.push(e.target?.result)
       }
+      
       reader.readAsDataURL(file)
     }
   }

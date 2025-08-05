@@ -86,6 +86,9 @@ Prisma.NullTypes = {
  * Enums
  */
 exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
+  ReadUncommitted: 'ReadUncommitted',
+  ReadCommitted: 'ReadCommitted',
+  RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
 });
 
@@ -124,6 +127,11 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
 };
 
 exports.Prisma.NullsOrder = {
@@ -167,7 +175,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
+    "rootEnvPath": "../../.env",
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -176,18 +184,18 @@ const config = {
   "datasourceNames": [
     "db"
   ],
-  "activeProvider": "sqlite",
+  "activeProvider": "postgresql",
   "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": null,
-        "value": "file:./dev.db"
+        "value": "postgresql://postgres:Ishkhan888@localhost:5432/flowers?schema=public"
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = \"file:./dev.db\"\n}\n\nmodel Type {\n  id      Int       @id @default(autoincrement())\n  title   String\n  product Product[]\n\n  @@map(\"type\")\n}\n\nmodel Product {\n  id          Int      @id @default(autoincrement())\n  title       String\n  description String\n  price       Int\n  sale        Int?\n  hits        Boolean  @default(false)\n  publish     Boolean  @default(true)\n  created_at  DateTime @default(now())\n  updated_at  DateTime @updatedAt\n  type_id     Int\n  img         Image[]\n  type        Type     @relation(fields: [type_id], references: [id])\n\n  @@map(\"product\")\n}\n\nmodel Image {\n  id         Int     @id @default(autoincrement())\n  img        String\n  product_id Int\n  product    Product @relation(fields: [product_id], references: [id])\n\n  @@map(\"image\")\n}\n\nmodel User {\n  id    Int     @id @default(autoincrement())\n  email String  @unique\n  pass  String  @default(\"nopass\")\n  name  String?\n  token String  @unique @default(uuid())\n\n  @@map(\"user\")\n}\n",
-  "inlineSchemaHash": "97c03e830cf4beb8a8b865333cb5add79d4d6454b05bd5df9441c3a76a1d5515",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = \"postgresql://postgres:Ishkhan888@localhost:5432/flowers?schema=public\"\n}\n\nmodel Type {\n  id      Int       @id @default(autoincrement())\n  title   String\n  product Product[]\n\n  @@map(\"type\")\n}\n\nmodel Product {\n  id          Int      @id @default(autoincrement())\n  title       String\n  description String\n  price       Int\n  sale        Int?\n  hits        Boolean  @default(false)\n  publish     Boolean  @default(true)\n  created_at  DateTime @default(now())\n  updated_at  DateTime @updatedAt\n  type_id     Int\n  img         Image[]\n  type        Type     @relation(fields: [type_id], references: [id])\n\n  @@map(\"product\")\n}\n\nmodel Image {\n  id         Int     @id @default(autoincrement())\n  img        String\n  product_id Int\n  product    Product @relation(fields: [product_id], references: [id])\n\n  @@map(\"image\")\n}\n\nmodel User {\n  id    Int     @id @default(autoincrement())\n  email String  @unique\n  pass  String  @default(\"nopass\")\n  name  String?\n  token String  @unique @default(uuid())\n\n  @@map(\"user\")\n}\n",
+  "inlineSchemaHash": "dd28e2e4315b489ebe50e4bbd1209bbe00c10ec5169d48f4ba2bec2919be5050",
   "copyEngine": true
 }
 config.dirname = '/'

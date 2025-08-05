@@ -1,4 +1,4 @@
-import prisma from "~/lib/prisma"
+import prisma from "@@/server/utils/prisma"
 
 export default defineEventHandler(async (event)=>{
     try{
@@ -11,7 +11,7 @@ export default defineEventHandler(async (event)=>{
       })
       return{type, ok: true}
     }catch(e) {
-      return{type:[], ok: false, e}
+      return{type:[] , ok: false, e}
       
     }
 })

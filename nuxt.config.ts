@@ -42,15 +42,7 @@ export default defineNuxtConfig({
   },
   
   vite: {
-    ssr: {
-      external: ["@prisma/client","@@/generated/prisma/client"]
-    },
-    resolve: {
-      alias: [{
-        find:'generated/prisma/client/index-browser',
-        replacement: path.resolve(__dirname, 'generated/prisma/client/index-browser.js'),
-      },],
-    },
+    
     css: {
       preprocessorOptions: {
         scss: {
@@ -74,20 +66,6 @@ export default defineNuxtConfig({
     },
   },
   
-  prisma: {
-    generateClient: true,
-    installStudio: false,
-    autoSetupPrisma: true,
-    // autoGenerate: false, // Отключаем автогенерацию при каждом запуске
-    // client: {
-    //   datasources: {
-    //     db: {
-    //       url: process.env.DATABASE_URL
-    //     }
-    //   }
-    // }
-  },
-
-   
-  modules: ['@pinia/nuxt','@nuxt/image','nuxt-swiper','@prisma/nuxt',]
+ 
+  modules: ['@pinia/nuxt','@nuxt/image','nuxt-swiper',]
 })

@@ -26,7 +26,7 @@
           <button @click.prevent="removeImageFromServer(product.img[index].id)" class="remove-button">×</button>
         </div>
       </div>
-      <hr style="color: gray; margin: 20px auto;">
+      <hr style="color: gray; margin: 20px auto;"> 
       <div class="preview-container">
         <div v-for="(image, index) of previewImages" :key="index" class="preview-item">
           <img preset="cover" :src="image" alt="Превью" class="preview-image" />

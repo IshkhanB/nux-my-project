@@ -17,7 +17,7 @@ interface User {
 }
 
 
-export const useUsers = defineStore('users', () => {
+export const useUsers = defineStore('user', () => {
   const user=ref<User>()
    
   const logOut = () => {

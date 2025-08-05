@@ -11,8 +11,8 @@
           <p class="card_title" > {{ product?.title }}</p>
           <p class="info_flower"> {{ product?.description }}</p>
             <div v-if="product.sale"  style="display: flex; justify-content: center;">
-              <div class="card_price">{{ product?.price }}</div>
-              <div class="card_price card_price--sale">{{product?.sale}}</div>
+              <div class="card_price card_price--sale">{{ product?.price }}</div>
+              <div class="card_price">{{product?.sale}}</div>
             </div>
             <div v-else>
               <div class="card_price">{{ product?.price }}</div>

@@ -1,3 +1,3 @@
 <template>
- <CartClient/>
+ <MakingComp></MakingComp>
 </template>

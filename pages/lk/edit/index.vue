@@ -17,6 +17,7 @@
         <select name="type" id="type_id_select" v-model="type_id">
           <option v-for="t of types?.type" :key="t.id" :value="t.id">{{ t.title }}</option>
         </select>
+        
         <input type="number" name="price" v-model="price" placeholder="price">
         <label for="sale">Скидка:</label>
         <input type="number"  id="sale" name="sale" v-model="sale" placeholder="Введите скидку">

@@ -82,7 +82,7 @@ const useFiles = async (event: any) => {
 
           await sharp(fileAsBuffer)
           .webp({ quality: 70 })
-          // .resize({ width: 1920 })
+          .resize({ width: 1920 })
           .toFile(saveTo)
         })
         .on('end', () => {
